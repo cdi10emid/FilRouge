@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClassAccesData;
+using ClassMetier;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,28 @@ namespace IHM
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            AccesPoste accesPoste = new AccesPoste();
+            List<Poste> ListePoste = accesPoste.listePoste();
+            comboBoxPoste.DataSource = ListePoste;
+            comboBoxPoste.DisplayMember = "TYPEPOSTE";
+            comboBoxPoste.ValueMember ="IDPOSTE";
+
+            AccesContrat accesContrat = new AccesContrat();
+            List<Contrat> listeContrat = accesContrat.ListeContrat();
+            comboBoxContrat.DataSource = listeContrat;
+            comboBoxContrat.DisplayMember = "TYPECONTRAT";
+            comboBoxContrat.ValueMember = "IDCONTRAT";
+
+            AccesRegion accesRegion = new AccesRegion();
+            List<ClassMetier.Region> listeRegion = accesRegion.listeRegion();
+            comboBoxRegion.DataSource = listeRegion;
+            comboBoxRegion.DisplayMember = "NOMREGION";
+            comboBoxRegion.ValueMember = "IDREGION";
+
         }
     }
 }
