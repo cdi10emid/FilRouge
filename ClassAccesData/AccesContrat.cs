@@ -26,34 +26,48 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Contrat> ListeContrat()
         {
-            
-                SqlConnection cn = new SqlConnection();
-                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-                SqlCommand objSelect = new SqlCommand();
-                objSelect.Connection = cn;
-                objSelect.CommandText = "dbo.GetContrat";
-                objSelect.CommandType = CommandType.StoredProcedure;
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-                List<Contrat> ListeContrat = new List<Contrat>();
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            objSelect.CommandText = "dbo.GetContrat";
+            objSelect.CommandType = CommandType.StoredProcedure;
 
-                DataTable objDataset = new DataTable();
-                SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
+            List<Contrat> ListeContrat = new List<Contrat>();
 
-                objDataAdapter.Fill(objDataset);
+            DataTable objDataset = new DataTable();
+            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
 
-                foreach (DataRow contrat in objDataset.Rows)
-                {
+            objDataAdapter.Fill(objDataset);
+
+            foreach (DataRow contrat in objDataset.Rows)
+            {
                 Contrat Contrat2 = new Contrat();
 
 
                 Contrat2.IdContrat = Convert.ToInt32(contrat["IDCONTRAT"]);
                 Contrat2.TypeContrat = contrat["TYPECONTRAT"].ToString();
-                    ListeContrat.Add(Contrat2);
+                ListeContrat.Add(Contrat2);
 
-                }
-                return ListeContrat;
             }
-        
+            return ListeContrat;
+        }
+        public int ajoutContrat(string TypeContrat)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            cn.Open();
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            objSelect.CommandText = "dbo.InsertContrat";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@TYPECONTRAT", TypeContrat);
+            return objSelect.ExecuteNonQuery();
+            // cn.Close();
+
+        }
+
     }
 }

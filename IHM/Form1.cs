@@ -21,11 +21,35 @@ namespace IHM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            afficheCombo();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AccesPoste accesPoste = new AccesPoste();
+            accesPoste.ajoutPoste(comboBoxPoste.Text);
+            afficheCombo();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AccesContrat accesContrat = new AccesContrat();
+            accesContrat.ajoutContrat(comboBoxContrat.Text);
+
+            afficheCombo();
+           
+        }
+        /// <summary>
+        /// Affichage des 3 combobox : poste, contrat, region
+        /// </summary>
+        private void afficheCombo()
+        {
             AccesPoste accesPoste = new AccesPoste();
             List<Poste> ListePoste = accesPoste.listePoste();
             comboBoxPoste.DataSource = ListePoste;
             comboBoxPoste.DisplayMember = "TYPEPOSTE";
-            comboBoxPoste.ValueMember ="IDPOSTE";
+            comboBoxPoste.ValueMember = "IDPOSTE";
 
             AccesContrat accesContrat = new AccesContrat();
             List<Contrat> listeContrat = accesContrat.ListeContrat();
@@ -38,7 +62,6 @@ namespace IHM
             comboBoxRegion.DataSource = listeRegion;
             comboBoxRegion.DisplayMember = "NOMREGION";
             comboBoxRegion.ValueMember = "IDREGION";
-
         }
     }
 }

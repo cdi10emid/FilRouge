@@ -52,5 +52,24 @@ namespace ClassAccesData
             }
             return ListePoste;
         }
+        /// <summary>
+        /// Méthode de rajout d'un poste
+        /// </summary>
+        /// <param name="TypePoste"></param>
+        /// <returns></returns>
+        public int ajoutPoste(string TypePoste)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            cn.Open();
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            objSelect.CommandText = "dbo.InsertPoste";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@TYPEPOSTE", TypePoste);
+            return objSelect.ExecuteNonQuery();
+           // cn.Close();
+         
+        }
     }
 }
