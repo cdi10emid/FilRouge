@@ -10,7 +10,7 @@ using ClassMetier;
 
 namespace ClassAccesData
 {
-    class AccesContact
+   public class AccesContact
     {
         /// <summary>
         /// Constructeur AccesContrat

@@ -62,10 +62,24 @@ namespace IHM
             comboBoxRegion.DataSource = listeRegion;
             comboBoxRegion.DisplayMember = "NOMREGION";
             comboBoxRegion.ValueMember = "IDREGION";
+
+            AccesContact accesContact = new AccesContact();
+            List<Contact> listeContact = accesContact.ListeContrat();
+            comboBoxNomEntreprise.DataSource = listeContact;
+            comboBoxNomEntreprise.DisplayMember = "NOMENTREPRISE";
+            comboBoxNomEntreprise.ValueMember = "IDCONTACT";
         }
 
         private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void comboBoxNomEntreprise_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
+            textBoxNomContact.Text =  ;
 
         }
     }
