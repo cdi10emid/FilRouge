@@ -65,6 +65,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBoxTitre = new System.Windows.Forms.TextBox();
+            this.buttonAjoutContact = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -91,7 +92,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1972, 757);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1777, 757);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -110,13 +111,14 @@
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1964, 371);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1769, 371);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.label8);
             this.flowLayoutPanel3.Controls.Add(this.comboBoxNomEntreprise);
+            this.flowLayoutPanel3.Controls.Add(this.buttonAjoutContact);
             this.flowLayoutPanel3.Controls.Add(this.label10);
             this.flowLayoutPanel3.Controls.Add(this.textBoxNomContact);
             this.flowLayoutPanel3.Controls.Add(this.label11);
@@ -127,7 +129,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1586, 363);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1428, 363);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
             // label8
@@ -152,7 +154,7 @@
             this.comboBoxNomEntreprise.Location = new System.Drawing.Point(704, 4);
             this.comboBoxNomEntreprise.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxNomEntreprise.Name = "comboBoxNomEntreprise";
-            this.comboBoxNomEntreprise.Size = new System.Drawing.Size(700, 28);
+            this.comboBoxNomEntreprise.Size = new System.Drawing.Size(392, 28);
             this.comboBoxNomEntreprise.TabIndex = 14;
             this.comboBoxNomEntreprise.SelectedIndexChanged += new System.EventHandler(this.comboBoxNomEntreprise_SelectedIndexChanged);
             // 
@@ -172,7 +174,7 @@
             // 
             this.textBoxNomContact.Location = new System.Drawing.Point(703, 39);
             this.textBoxNomContact.Name = "textBoxNomContact";
-            this.textBoxNomContact.Size = new System.Drawing.Size(701, 23);
+            this.textBoxNomContact.Size = new System.Drawing.Size(393, 23);
             this.textBoxNomContact.TabIndex = 15;
             // 
             // label11
@@ -191,7 +193,7 @@
             // 
             this.textBoxTelContact.Location = new System.Drawing.Point(703, 68);
             this.textBoxTelContact.Name = "textBoxTelContact";
-            this.textBoxTelContact.Size = new System.Drawing.Size(701, 23);
+            this.textBoxTelContact.Size = new System.Drawing.Size(393, 23);
             this.textBoxTelContact.TabIndex = 17;
             // 
             // label9
@@ -210,7 +212,7 @@
             // 
             this.textBoxMailContact.Location = new System.Drawing.Point(703, 97);
             this.textBoxMailContact.Name = "textBoxMailContact";
-            this.textBoxMailContact.Size = new System.Drawing.Size(701, 23);
+            this.textBoxMailContact.Size = new System.Drawing.Size(393, 23);
             this.textBoxMailContact.TabIndex = 16;
             // 
             // flowLayoutPanel4
@@ -219,10 +221,10 @@
             this.flowLayoutPanel4.Controls.Add(this.label13);
             this.flowLayoutPanel4.Controls.Add(this.buttonListOffres);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(1598, 4);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(1440, 4);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(362, 363);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(325, 363);
             this.flowLayoutPanel4.TabIndex = 1;
             // 
             // buttonValidOffre
@@ -265,14 +267,14 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.63123F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.36877F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1964, 370);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1769, 370);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.78527F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.21473F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.51943F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.48057F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -282,7 +284,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1956, 323);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1761, 323);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -291,8 +293,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.19954F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.80046F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.51442F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.48558F));
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 1, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 4);
@@ -301,7 +303,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(867, 315);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(687, 315);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -318,7 +320,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(696, 307);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(421, 307);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -343,7 +345,7 @@
             this.comboBoxPoste.Location = new System.Drawing.Point(4, 32);
             this.comboBoxPoste.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxPoste.Name = "comboBoxPoste";
-            this.comboBoxPoste.Size = new System.Drawing.Size(692, 28);
+            this.comboBoxPoste.Size = new System.Drawing.Size(356, 28);
             this.comboBoxPoste.TabIndex = 8;
             // 
             // label2
@@ -368,7 +370,7 @@
             this.comboBoxContrat.Location = new System.Drawing.Point(4, 96);
             this.comboBoxContrat.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxContrat.Name = "comboBoxContrat";
-            this.comboBoxContrat.Size = new System.Drawing.Size(692, 28);
+            this.comboBoxContrat.Size = new System.Drawing.Size(356, 28);
             this.comboBoxContrat.TabIndex = 10;
             // 
             // label3
@@ -388,7 +390,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(4, 160);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(692, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(356, 23);
             this.dateTimePicker1.TabIndex = 12;
             // 
             // label4
@@ -413,7 +415,7 @@
             this.comboBoxRegion.Location = new System.Drawing.Point(4, 219);
             this.comboBoxRegion.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxRegion.Name = "comboBoxRegion";
-            this.comboBoxRegion.Size = new System.Drawing.Size(692, 28);
+            this.comboBoxRegion.Size = new System.Drawing.Size(356, 28);
             this.comboBoxRegion.TabIndex = 14;
             // 
             // flowLayoutPanel2
@@ -423,10 +425,10 @@
             this.flowLayoutPanel2.Controls.Add(this.label6);
             this.flowLayoutPanel2.Controls.Add(this.button2);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(708, 4);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(433, 4);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(155, 307);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(250, 307);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // label5
@@ -478,12 +480,12 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.richTextBox1, 0, 1);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(878, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(698, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.148265F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.85174F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1075, 317);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1060, 317);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // label7
@@ -493,7 +495,7 @@
             this.label7.Location = new System.Drawing.Point(4, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(1067, 28);
+            this.label7.Size = new System.Drawing.Size(1052, 28);
             this.label7.TabIndex = 1;
             this.label7.Text = "Description de l\'offre";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -503,7 +505,7 @@
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Location = new System.Drawing.Point(3, 31);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1069, 283);
+            this.richTextBox1.Size = new System.Drawing.Size(1054, 283);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
@@ -512,21 +514,31 @@
             this.textBoxTitre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxTitre.Location = new System.Drawing.Point(3, 3);
             this.textBoxTitre.Name = "textBoxTitre";
-            this.textBoxTitre.Size = new System.Drawing.Size(1958, 23);
+            this.textBoxTitre.Size = new System.Drawing.Size(1763, 23);
             this.textBoxTitre.TabIndex = 1;
             this.textBoxTitre.Text = "Titre de l\'offre";
             this.textBoxTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // buttonAjoutContact
+            // 
+            this.buttonAjoutContact.Location = new System.Drawing.Point(1103, 3);
+            this.buttonAjoutContact.Name = "buttonAjoutContact";
+            this.buttonAjoutContact.Size = new System.Drawing.Size(255, 29);
+            this.buttonAjoutContact.TabIndex = 18;
+            this.buttonAjoutContact.Text = "Ajouter nouveau contact";
+            this.buttonAjoutContact.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1972, 757);
+            this.ClientSize = new System.Drawing.Size(1777, 757);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1793, 796);
             this.Name = "Form1";
             this.Text = "Gestion des offres";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -584,6 +596,7 @@
         private System.Windows.Forms.Button buttonValidOffre;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonListOffres;
+        private System.Windows.Forms.Button buttonAjoutContact;
     }
 }
 

@@ -19,7 +19,7 @@ namespace ClassAccesData
         {
 
         }
-        public List<Contact> ListeContrat()
+        public List<Contact> ListeContact()
         {
 
             SqlConnection cn = new SqlConnection();
@@ -51,6 +51,32 @@ namespace ClassAccesData
 
             }
             return ListeContact;
+        }
+        public Contact GetContactByIdContact(int idContact)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            cn.Open();
+            objSelect.CommandText = "dbo.GetContactByIdContact";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@IDCONTACT", idContact);
+            SqlDataReader reader = objSelect.ExecuteReader();
+            Contact Contact2 = new Contact();
+            reader.Read();
+                Contact2.IdContact = Convert.ToInt32( reader.GetInt32(0));
+                Contact2.NomEntreprise = Convert.ToString( reader.GetString(1));
+                Contact2.NomContact = Convert.ToString(reader.GetString(2));
+                Contact2.TelContact = Convert.ToInt32(reader.GetInt32(3));
+                Contact2.MailContact = Convert.ToString(reader.GetString(4));
+
+
+            return Contact2;
+
+
+
         }
     }
 }

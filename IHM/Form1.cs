@@ -40,6 +40,7 @@ namespace IHM
             afficheCombo();
            
         }
+      
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
         /// </summary>
@@ -64,22 +65,36 @@ namespace IHM
             comboBoxRegion.ValueMember = "IDREGION";
 
             AccesContact accesContact = new AccesContact();
-            List<Contact> listeContact = accesContact.ListeContrat();
+            List<Contact> listeContact = accesContact.ListeContact();
             comboBoxNomEntreprise.DataSource = listeContact;
+            
             comboBoxNomEntreprise.DisplayMember = "NOMENTREPRISE";
             comboBoxNomEntreprise.ValueMember = "IDCONTACT";
+
+            int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
+            Contact contact = accesContact.GetContactByIdContact(value);
+            textBoxNomContact.Text = contact.NomContact;
+            textBoxTelContact.Text =Convert.ToString( contact.TelContact);
+            textBoxMailContact.Text = contact.MailContact;
+
         }
 
         private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
+       
         private void comboBoxNomEntreprise_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
-            textBoxNomContact.Text =  ;
+            AccesContact accesContact = new AccesContact();
+            comboBoxNomEntreprise.ValueMember = "IDCONTACT";
+
+            int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
+            Contact contact = accesContact.GetContactByIdContact(value);
+            textBoxNomContact.Text = contact.NomContact;
+            textBoxTelContact.Text = Convert.ToString(contact.TelContact);
+            textBoxMailContact.Text = contact.MailContact;
+
 
         }
     }
