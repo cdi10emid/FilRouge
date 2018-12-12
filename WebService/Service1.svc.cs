@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using ClassAccesData;
+using ClassMetier;
 
 namespace WebService
 {
@@ -12,22 +14,17 @@ namespace WebService
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class Service1 : IService1
     {
-        public string GetData(int value)
+        public List<Contrat> GetContrats()
         {
-            return string.Format("You entered: {0}", value);
+            AccesContrat accesContrat = new AccesContrat();
+            return accesContrat.ListeContrat();
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public List<Offre> GetOffreAsJson()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            AccesOffre accesOffre = new AccesOffre();
+            return accesOffre.AfficheOffre();
+
         }
     }
 }

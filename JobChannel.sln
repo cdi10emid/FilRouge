@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassAccesData", "ClassAccesData\ClassAccesData.csproj", "{BE1802E2-3861-4C73-8214-5D2A6AE1AF91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controleur", "Controleur\Controleur.csproj", "{110A196E-C89B-414C-A6A5-326B1DA16741}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BE1802E2-3861-4C73-8214-5D2A6AE1AF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE1802E2-3861-4C73-8214-5D2A6AE1AF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE1802E2-3861-4C73-8214-5D2A6AE1AF91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110A196E-C89B-414C-A6A5-326B1DA16741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110A196E-C89B-414C-A6A5-326B1DA16741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110A196E-C89B-414C-A6A5-326B1DA16741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110A196E-C89B-414C-A6A5-326B1DA16741}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

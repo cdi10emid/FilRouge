@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassMetier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -13,35 +14,19 @@ namespace WebService
     public interface IService1
     {
 
-        [OperationContract]
-        string GetData(int value);
+       
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        [WebGet(UriTemplate = "offre", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> GetOffreAsJson();
+        [OperationContract]
+        [WebGet(UriTemplate = "contrat", ResponseFormat = WebMessageFormat.Json)]
+        List<Contrat> GetContrats();
 
         // TODO: ajoutez vos opérations de service ici
     }
 
 
-    // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
-    }
+    
 }

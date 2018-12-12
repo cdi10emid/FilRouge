@@ -64,19 +64,36 @@ namespace ClassAccesData
             objSelect.CommandType = CommandType.StoredProcedure;
             objSelect.Parameters.AddWithValue("@IDCONTACT", idContact);
             SqlDataReader reader = objSelect.ExecuteReader();
-            Contact Contact2 = new Contact();
+            Contact Contact = new Contact();
             reader.Read();
-                Contact2.IdContact = Convert.ToInt32( reader.GetInt32(0));
-                Contact2.NomEntreprise = Convert.ToString( reader.GetString(1));
-                Contact2.NomContact = Convert.ToString(reader.GetString(2));
-                Contact2.TelContact = Convert.ToInt32(reader.GetInt32(3));
-                Contact2.MailContact = Convert.ToString(reader.GetString(4));
+                Contact.IdContact = Convert.ToInt32( reader.GetInt32(0));
+                Contact.NomEntreprise = Convert.ToString( reader.GetString(1));
+                Contact.NomContact = Convert.ToString(reader.GetString(2));
+                Contact.TelContact = Convert.ToInt32(reader.GetInt32(3));
+                Contact.MailContact = Convert.ToString(reader.GetString(4));
 
 
-            return Contact2;
+            return Contact;
 
 
 
+        }
+        public int InsertContact(string NomEntreprise,string NomContact,int TelContact,string MailContact)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            cn.Open();
+            objSelect.CommandText = "dbo.insertContact";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@NOMENTREPRISE", NomEntreprise);
+            objSelect.Parameters.AddWithValue("@NOMCONTACT", NomContact);
+            objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
+            objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
+            return objSelect.ExecuteNonQuery();
+                                          
         }
     }
 }

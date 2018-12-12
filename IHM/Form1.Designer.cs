@@ -34,12 +34,15 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxNomEntreprise = new System.Windows.Forms.ComboBox();
+            this.buttonAjoutContact = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxNomContact = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxTelContact = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxMailContact = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxLienWeb = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonValidOffre = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -65,7 +68,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBoxTitre = new System.Windows.Forms.TextBox();
-            this.buttonAjoutContact = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -125,6 +127,8 @@
             this.flowLayoutPanel3.Controls.Add(this.textBoxTelContact);
             this.flowLayoutPanel3.Controls.Add(this.label9);
             this.flowLayoutPanel3.Controls.Add(this.textBoxMailContact);
+            this.flowLayoutPanel3.Controls.Add(this.label12);
+            this.flowLayoutPanel3.Controls.Add(this.textBoxLienWeb);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 4);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
@@ -157,6 +161,16 @@
             this.comboBoxNomEntreprise.Size = new System.Drawing.Size(392, 28);
             this.comboBoxNomEntreprise.TabIndex = 14;
             this.comboBoxNomEntreprise.SelectedIndexChanged += new System.EventHandler(this.comboBoxNomEntreprise_SelectedIndexChanged);
+            // 
+            // buttonAjoutContact
+            // 
+            this.buttonAjoutContact.Location = new System.Drawing.Point(1103, 3);
+            this.buttonAjoutContact.Name = "buttonAjoutContact";
+            this.buttonAjoutContact.Size = new System.Drawing.Size(255, 29);
+            this.buttonAjoutContact.TabIndex = 18;
+            this.buttonAjoutContact.Text = "Ajouter nouveau contact";
+            this.buttonAjoutContact.UseVisualStyleBackColor = true;
+            this.buttonAjoutContact.Click += new System.EventHandler(this.buttonAjoutContact_Click);
             // 
             // label10
             // 
@@ -215,6 +229,22 @@
             this.textBoxMailContact.Size = new System.Drawing.Size(393, 23);
             this.textBoxMailContact.TabIndex = 16;
             // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(3, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(693, 26);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Lien Web de l\'offre";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxLienWeb
+            // 
+            this.textBoxLienWeb.Location = new System.Drawing.Point(702, 126);
+            this.textBoxLienWeb.Name = "textBoxLienWeb";
+            this.textBoxLienWeb.Size = new System.Drawing.Size(394, 23);
+            this.textBoxLienWeb.TabIndex = 20;
+            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.buttonValidOffre);
@@ -235,6 +265,7 @@
             this.buttonValidOffre.TabIndex = 1;
             this.buttonValidOffre.Text = "Validation offre";
             this.buttonValidOffre.UseVisualStyleBackColor = true;
+            this.buttonValidOffre.Click += new System.EventHandler(this.buttonValidOffre_Click);
             // 
             // label13
             // 
@@ -252,6 +283,7 @@
             this.buttonListOffres.TabIndex = 2;
             this.buttonListOffres.Text = "Liste des offres";
             this.buttonListOffres.UseVisualStyleBackColor = true;
+            this.buttonListOffres.Click += new System.EventHandler(this.buttonListOffres_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -519,15 +551,6 @@
             this.textBoxTitre.Text = "Titre de l\'offre";
             this.textBoxTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonAjoutContact
-            // 
-            this.buttonAjoutContact.Location = new System.Drawing.Point(1103, 3);
-            this.buttonAjoutContact.Name = "buttonAjoutContact";
-            this.buttonAjoutContact.Size = new System.Drawing.Size(255, 29);
-            this.buttonAjoutContact.TabIndex = 18;
-            this.buttonAjoutContact.Text = "Ajouter nouveau contact";
-            this.buttonAjoutContact.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -597,6 +620,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonListOffres;
         private System.Windows.Forms.Button buttonAjoutContact;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxLienWeb;
     }
 }
 

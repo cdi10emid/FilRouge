@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Contact.cs" />
     <Compile Include="Contrat.cs" />
+    <Compile Include="Offre.cs" />
     <Compile Include="Poste.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

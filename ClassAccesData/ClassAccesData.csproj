@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="AccesContact.cs" />
     <Compile Include="AccesContrat.cs" />
+    <Compile Include="AccesOffre.cs" />
     <Compile Include="AccesPoste.cs" />
     <Compile Include="AccesRegion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
