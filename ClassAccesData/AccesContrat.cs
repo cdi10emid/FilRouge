@@ -54,6 +54,11 @@ namespace ClassAccesData
             }
             return ListeContrat;
         }
+        /// <summary>
+        /// Méthode d'ajaut d'un nouveau contrat dans la base de données
+        /// </summary>
+        /// <param name="TypeContrat"></param>
+        /// <returns></returns>
         public int ajoutContrat(string TypeContrat)
         {
             SqlConnection cn = new SqlConnection();

@@ -26,6 +26,10 @@ namespace ClassMetier
         {
 
         }
+        /// <summary>
+        /// Override de la méthode ToString
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return TypePoste;

@@ -15,6 +15,10 @@ namespace IHM
     public partial class Form3 : Form
     {
         private int _idOffreSeelect;
+        /// <summary>
+        /// Constructeur de la form3 avec récupération de l'offre sélectionnée dans la DataGridView de la form 2
+        /// </summary>
+        /// <param name="IdOffreSelect"></param>
         public Form3(int IdOffreSelect)
         {
             _idOffreSeelect = IdOffreSelect;
@@ -70,6 +74,9 @@ namespace IHM
             dateTimePicker1.Value = offreSelect.DateParution;
 
         }
+        /// <summary>
+        /// Méthode pour afficher le contact
+        /// </summary>
         private void afficheContact()
         {
             AccesContact accesContact = new AccesContact();

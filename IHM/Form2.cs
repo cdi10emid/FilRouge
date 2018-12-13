@@ -21,6 +21,9 @@ namespace IHM
             InitializeComponent();
             objControleur = new AccesWebService() ;
         }
+        /// <summary>
+        /// Méthode affichage de la DataGridView
+        /// </summary>
         private void AfficheDataGried()
         {
            

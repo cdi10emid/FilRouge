@@ -12,10 +12,25 @@ namespace ClassAccesData
 {
    public class AccesOffre
     {
+        /// <summary>
+        /// Constructeur AccesOffre
+        /// </summary>
         public AccesOffre()
         {
 
         }
+        /// <summary>
+        /// Méthode d'insertion d'une nouvelle offre dans la base de données
+        /// </summary>
+        /// <param name="IdPoste"></param>
+        /// <param name="IdContrat"></param>
+        /// <param name="IdRegion"></param>
+        /// <param name="IdContact"></param>
+        /// <param name="Titre"></param>
+        /// <param name="DateParution"></param>
+        /// <param name="Description"></param>
+        /// <param name="LienWeb"></param>
+        /// <returns></returns>
         public int InsertOffre(int IdPoste, int IdContrat, int IdRegion, int IdContact,string Titre, DateTime DateParution,string Description,string LienWeb)
         {
             SqlConnection cn = new SqlConnection();
@@ -37,6 +52,10 @@ namespace ClassAccesData
             return objSelect.ExecuteNonQuery();
 
         }
+        /// <summary>
+        /// Méthode de récupération de la liste des offres
+        /// </summary>
+        /// <returns></returns>
         public List<Offre> AfficheOffre()
         {
             SqlConnection cn = new SqlConnection();
@@ -77,6 +96,11 @@ namespace ClassAccesData
             }
             return offreRetour;
         }
+        /// <summary>
+        /// Méthode de récupération d'une offre par son Id
+        /// </summary>
+        /// <param name="IdOffre"></param>
+        /// <returns></returns>
         public Offre GetOffreByidoffre(int IdOffre)
         {
             SqlConnection cn = new SqlConnection();
@@ -102,6 +126,11 @@ namespace ClassAccesData
             offreRetour.LienWeb = Convert.ToString(reader.GetString(6));
             return offreRetour;
         }
+        /// <summary>
+        /// Méthode de suppression d'une offre par son Id
+        /// </summary>
+        /// <param name="idOffre"></param>
+        /// <returns></returns>
         public int SuprimOffre(int idOffre)
         {
             SqlConnection cn = new SqlConnection();
@@ -115,6 +144,22 @@ namespace ClassAccesData
 
             return objSelect.ExecuteNonQuery();
         }
+        /// <summary>
+        /// Méthode pour updater une offre
+        /// </summary>
+        /// <param name="IdOffre"></param>
+        /// <param name="IdPoste"></param>
+        /// <param name="IdContrat"></param>
+        /// <param name="IdRegion"></param>
+        /// <param name="IdContact"></param>
+        /// <param name="Titre"></param>
+        /// <param name="DateParution"></param>
+        /// <param name="Description"></param>
+        /// <param name="LienWeb"></param>
+        /// <param name="NomContact"></param>
+        /// <param name="TelContact"></param>
+        /// <param name="MailContact"></param>
+        /// <returns></returns>
         public int UpdatetOffre(int IdOffre, int IdPoste, int IdContrat, int IdRegion, int IdContact, string Titre, 
             DateTime DateParution, string Description, string LienWeb , string NomContact,string TelContact, string MailContact)
         {

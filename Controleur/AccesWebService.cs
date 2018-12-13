@@ -14,7 +14,9 @@ namespace Controleur
 
         //Le controleur utilise la librairy tierce RestSharp (package NuGet)  
         private RestClient client;
-
+        /// <summary>
+        /// Construteur AccesWebService
+        /// </summary>
         public AccesWebService()
         {
             client = new RestClient(URL_SERVICE);

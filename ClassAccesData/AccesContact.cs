@@ -19,6 +19,10 @@ namespace ClassAccesData
         {
 
         }
+        /// <summary>
+        /// Méthode de récupération des contacts
+        /// </summary>
+        /// <returns></returns>
         public List<Contact> ListeContact()
         {
 
@@ -52,6 +56,11 @@ namespace ClassAccesData
             }
             return ListeContact;
         }
+        /// <summary>
+        /// méthode de récupération d'un contact par son Id
+        /// </summary>
+        /// <param name="idContact"></param>
+        /// <returns></returns>
         public Contact GetContactByIdContact(int idContact)
         {
             SqlConnection cn = new SqlConnection();
@@ -78,6 +87,14 @@ namespace ClassAccesData
 
 
         }
+        /// <summary>
+        /// Méthode d'insertion des contacts dans la base de données
+        /// </summary>
+        /// <param name="NomEntreprise"></param>
+        /// <param name="NomContact"></param>
+        /// <param name="TelContact"></param>
+        /// <param name="MailContact"></param>
+        /// <returns></returns>
         public int InsertContact(string NomEntreprise,string NomContact,string TelContact,string MailContact)
         {
             SqlConnection cn = new SqlConnection();
