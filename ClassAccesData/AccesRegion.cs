@@ -25,32 +25,39 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Region> listeRegion()
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            objSelect.CommandText = "dbo.GetRegion";
-            objSelect.CommandType = CommandType.StoredProcedure;
-
-            List<Region> ListeRegion = new List<Region>();
-
-            DataTable objDataset = new DataTable();
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
-            objDataAdapter.Fill(objDataset);
-
-            foreach (DataRow region in objDataset.Rows)
+            try
             {
-                Region Region2 = new Region();
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                objSelect.CommandText = "dbo.GetRegion";
+                objSelect.CommandType = CommandType.StoredProcedure;
+
+                List<Region> ListeRegion = new List<Region>();
+
+                DataTable objDataset = new DataTable();
+                SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
+
+                objDataAdapter.Fill(objDataset);
+
+                foreach (DataRow region in objDataset.Rows)
+                {
+                    Region Region2 = new Region();
 
 
-                Region2.IdRegion = Convert.ToInt32(region["IDREGION"]);
-                Region2.NomRegion = region["NOMREGION"].ToString();
-                ListeRegion.Add(Region2);
+                    Region2.IdRegion = Convert.ToInt32(region["IDREGION"]);
+                    Region2.NomRegion = region["NOMREGION"].ToString();
+                    ListeRegion.Add(Region2);
 
+                }
+                return ListeRegion;
             }
-            return ListeRegion;
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
         }
     }
 }

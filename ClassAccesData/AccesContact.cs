@@ -63,26 +63,34 @@ namespace ClassAccesData
         /// <returns></returns>
         public Contact GetContactByIdContact(int idContact)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            try
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            cn.Open();
-            objSelect.CommandText = "dbo.GetContactByIdContact";
-            objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@IDCONTACT", idContact);
-            SqlDataReader reader = objSelect.ExecuteReader();
-            Contact Contact = new Contact();
-            reader.Read();
-                Contact.IdContact = Convert.ToInt32( reader.GetInt32(0));
-                Contact.NomEntreprise = Convert.ToString( reader.GetString(1));
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                cn.Open();
+                objSelect.CommandText = "dbo.GetContactByIdContact";
+                objSelect.CommandType = CommandType.StoredProcedure;
+                objSelect.Parameters.AddWithValue("@IDCONTACT", idContact);
+                SqlDataReader reader = objSelect.ExecuteReader();
+                Contact Contact = new Contact();
+                reader.Read();
+                Contact.IdContact = Convert.ToInt32(reader.GetInt32(0));
+                Contact.NomEntreprise = Convert.ToString(reader.GetString(1));
                 Contact.NomContact = Convert.ToString(reader.GetString(2));
                 Contact.TelContact = Convert.ToString(reader.GetString(3));
                 Contact.MailContact = Convert.ToString(reader.GetString(4));
 
 
-            return Contact;
+                return Contact;
+            }
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
+
 
 
 
@@ -97,20 +105,27 @@ namespace ClassAccesData
         /// <returns></returns>
         public int InsertContact(string NomEntreprise,string NomContact,string TelContact,string MailContact)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            try
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            cn.Open();
-            objSelect.CommandText = "dbo.insertContact";
-            objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@NOMENTREPRISE", NomEntreprise);
-            objSelect.Parameters.AddWithValue("@NOMCONTACT", NomContact);
-            objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
-            objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
-            return objSelect.ExecuteNonQuery();
-                                          
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                cn.Open();
+                objSelect.CommandText = "dbo.insertContact";
+                objSelect.CommandType = CommandType.StoredProcedure;
+                objSelect.Parameters.AddWithValue("@NOMENTREPRISE", NomEntreprise);
+                objSelect.Parameters.AddWithValue("@NOMCONTACT", NomContact);
+                objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
+                objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
+                return objSelect.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
+
         }
     }
 }

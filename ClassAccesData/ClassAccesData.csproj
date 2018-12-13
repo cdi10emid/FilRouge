@@ -81,6 +81,7 @@
     <Compile Include="AccesOffre.cs" />
     <Compile Include="AccesPoste.cs" />
     <Compile Include="AccesRegion.cs" />
+    <Compile Include="DAOExeption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

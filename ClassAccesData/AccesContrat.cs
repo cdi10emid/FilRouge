@@ -61,17 +61,22 @@ namespace ClassAccesData
         /// <returns></returns>
         public int ajoutContrat(string TypeContrat)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-            cn.Open();
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            objSelect.CommandText = "dbo.InsertContrat";
-            objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@TYPECONTRAT", TypeContrat);
-            return objSelect.ExecuteNonQuery();
-            // cn.Close();
-
+            try
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+                cn.Open();
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                objSelect.CommandText = "dbo.InsertContrat";
+                objSelect.CommandType = CommandType.StoredProcedure;
+                objSelect.Parameters.AddWithValue("@TYPECONTRAT", TypeContrat);
+                return objSelect.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
         }
 
     }

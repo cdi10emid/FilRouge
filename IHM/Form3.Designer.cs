@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -61,6 +62,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonValidOffre = new System.Windows.Forms.Button();
             this.textBoxNomEntreprise = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -464,6 +466,7 @@
             this.buttonValidOffre.Size = new System.Drawing.Size(435, 45);
             this.buttonValidOffre.TabIndex = 1;
             this.buttonValidOffre.Text = "Validation des modifications sur l\'offre";
+            this.toolTip1.SetToolTip(this.buttonValidOffre, "Validation des modifications effectuées sur l\'offre");
             this.buttonValidOffre.UseVisualStyleBackColor = true;
             this.buttonValidOffre.Click += new System.EventHandler(this.buttonValidOffre_Click);
             // 
@@ -474,6 +477,7 @@
             this.textBoxNomEntreprise.ReadOnly = true;
             this.textBoxNomEntreprise.Size = new System.Drawing.Size(588, 26);
             this.textBoxNomEntreprise.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.textBoxNomEntreprise, "Le nom de l\'entreprise n\'est pas modifiable en cas d\'érreur supprimez l\'offre");
             // 
             // Form3
             // 
@@ -540,5 +544,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox textBoxNomEntreprise;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

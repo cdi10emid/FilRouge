@@ -10,7 +10,7 @@ using ClassMetier;
 
 namespace ClassAccesData
 {
-   public class AccesOffre
+    public class AccesOffre
     {
         /// <summary>
         /// Constructeur AccesOffre
@@ -31,26 +31,32 @@ namespace ClassAccesData
         /// <param name="Description"></param>
         /// <param name="LienWeb"></param>
         /// <returns></returns>
-        public int InsertOffre(int IdPoste, int IdContrat, int IdRegion, int IdContact,string Titre, DateTime DateParution,string Description,string LienWeb)
+        public int InsertOffre(int IdPoste, int IdContrat, int IdRegion, int IdContact, string Titre, DateTime DateParution, string Description, string LienWeb)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            try
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            cn.Open();
-            objSelect.CommandText = "dbo.InsertOffre";
-            objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@IDPOSTE", IdPoste);
-            objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContrat);
-            objSelect.Parameters.AddWithValue("@IDREGION", IdRegion);
-            objSelect.Parameters.AddWithValue("@IDCONTACT", IdContact);
-            objSelect.Parameters.AddWithValue("@TITRE", Titre);
-            objSelect.Parameters.AddWithValue("@DATEPARUTION", DateParution);
-            objSelect.Parameters.AddWithValue("@DESCRIPTION", Description);
-            objSelect.Parameters.AddWithValue("@LIENWEB", LienWeb);
-            return objSelect.ExecuteNonQuery();
-
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                cn.Open();
+                objSelect.CommandText = "dbo.InsertOffre";
+                objSelect.CommandType = CommandType.StoredProcedure;
+                objSelect.Parameters.AddWithValue("@IDPOSTE", IdPoste);
+                objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContrat);
+                objSelect.Parameters.AddWithValue("@IDREGION", IdRegion);
+                objSelect.Parameters.AddWithValue("@IDCONTACT", IdContact);
+                objSelect.Parameters.AddWithValue("@TITRE", Titre);
+                objSelect.Parameters.AddWithValue("@DATEPARUTION", DateParution);
+                objSelect.Parameters.AddWithValue("@DESCRIPTION", Description);
+                objSelect.Parameters.AddWithValue("@LIENWEB", LienWeb);
+                return objSelect.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
         }
         /// <summary>
         /// Méthode de récupération de la liste des offres
@@ -58,43 +64,50 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Offre> AfficheOffre()
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            objSelect.CommandText = "dbo.AfficheOffre";
-            objSelect.CommandType = CommandType.StoredProcedure;
-
-            List<Offre> offreRetour = new List<Offre>();
-
-            DataTable objDataset = new DataTable();
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
-            objDataAdapter.Fill(objDataset);
-            
-            foreach (DataRow offre in objDataset.Rows)
+            try
             {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-                Offre offre2 = new Offre();
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                objSelect.CommandText = "dbo.AfficheOffre";
+                objSelect.CommandType = CommandType.StoredProcedure;
 
-                offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                offre2.Titre = offre["TITRE"].ToString();
-                offre2.DateParution =Convert.ToDateTime(offre["DATEPARUTION"]);
-                offre2.Description = Convert.ToString( offre["DESCRIPTION"]);
-                offre2.LienWeb = offre["LIENWEB"].ToString();
-                offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                offre2.NomContact = offre["NOMCONTACT"].ToString();
-                offre2.TelContact = offre["TELCONTACT"].ToString() ;
-                offre2.MailContact = offre["MAILCONTACT"].ToString();
-                offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                offre2.Nomregion = offre["NOMREGION"].ToString();
-                offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                List<Offre> offreRetour = new List<Offre>();
 
-                offreRetour.Add(offre2);
+                DataTable objDataset = new DataTable();
+                SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
 
+                objDataAdapter.Fill(objDataset);
+
+                foreach (DataRow offre in objDataset.Rows)
+                {
+
+                    Offre offre2 = new Offre();
+
+                    offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
+                    offre2.Titre = offre["TITRE"].ToString();
+                    offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
+                    offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
+                    offre2.LienWeb = offre["LIENWEB"].ToString();
+                    offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
+                    offre2.NomContact = offre["NOMCONTACT"].ToString();
+                    offre2.TelContact = offre["TELCONTACT"].ToString();
+                    offre2.MailContact = offre["MAILCONTACT"].ToString();
+                    offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
+                    offre2.Nomregion = offre["NOMREGION"].ToString();
+                    offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+
+                    offreRetour.Add(offre2);
+
+                }
+                return offreRetour;
             }
-            return offreRetour;
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
         }
         /// <summary>
         /// Méthode de récupération d'une offre par son Id
@@ -103,28 +116,35 @@ namespace ClassAccesData
         /// <returns></returns>
         public Offre GetOffreByidoffre(int IdOffre)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            try
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            cn.Open();
-            objSelect.CommandText = "dbo.GetOffreByIdoffre";
-            objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@IDOFFRE", IdOffre);
-            SqlDataReader reader = objSelect.ExecuteReader();
-            Offre offreRetour = new Offre();
-            reader.Read();
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                cn.Open();
+                objSelect.CommandText = "dbo.GetOffreByIdoffre";
+                objSelect.CommandType = CommandType.StoredProcedure;
+                objSelect.Parameters.AddWithValue("@IDOFFRE", IdOffre);
+                SqlDataReader reader = objSelect.ExecuteReader();
+                Offre offreRetour = new Offre();
+                reader.Read();
 
-            offreRetour.IdOffre = Convert.ToInt32(reader.GetInt32(0));
-            offreRetour.IdPoste = Convert.ToInt32(reader.GetInt32(1));
-            offreRetour.IdContact = Convert.ToInt32(reader.GetInt32(2));
-            offreRetour.Titre = Convert.ToString(reader.GetString(3));
-            offreRetour.DateParution = reader.GetDateTime(4);
-            offreRetour.Description = Convert.ToString(reader.GetString(5));
+                offreRetour.IdOffre = Convert.ToInt32(reader.GetInt32(0));
+                offreRetour.IdPoste = Convert.ToInt32(reader.GetInt32(1));
+                offreRetour.IdContact = Convert.ToInt32(reader.GetInt32(2));
+                offreRetour.Titre = Convert.ToString(reader.GetString(3));
+                offreRetour.DateParution = reader.GetDateTime(4);
+                offreRetour.Description = Convert.ToString(reader.GetString(5));
 
-            offreRetour.LienWeb = Convert.ToString(reader.GetString(6));
-            return offreRetour;
+                offreRetour.LienWeb = Convert.ToString(reader.GetString(6));
+                return offreRetour;
+            }
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
         }
         /// <summary>
         /// Méthode de suppression d'une offre par son Id
@@ -133,16 +153,23 @@ namespace ClassAccesData
         /// <returns></returns>
         public int SuprimOffre(int idOffre)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-            cn.Open();
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            objSelect.CommandText = "dbo.DeleteOffre";
-            objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@IDOFFRE", idOffre);
+            try
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+                cn.Open();
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                objSelect.CommandText = "dbo.DeleteOffre";
+                objSelect.CommandType = CommandType.StoredProcedure;
+                objSelect.Parameters.AddWithValue("@IDOFFRE", idOffre);
 
-            return objSelect.ExecuteNonQuery();
+                return objSelect.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
         }
         /// <summary>
         /// Méthode pour updater une offre
@@ -160,32 +187,38 @@ namespace ClassAccesData
         /// <param name="TelContact"></param>
         /// <param name="MailContact"></param>
         /// <returns></returns>
-        public int UpdatetOffre(int IdOffre, int IdPoste, int IdContrat, int IdRegion, int IdContact, string Titre, 
-            DateTime DateParution, string Description, string LienWeb , string NomContact,string TelContact, string MailContact)
+        public int UpdatetOffre(int IdOffre, int IdPoste, int IdContrat, int IdRegion, int IdContact, string Titre,
+            DateTime DateParution, string Description, string LienWeb, string NomContact, string TelContact, string MailContact)
         {
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            try
+            {
+                SqlConnection cn = new SqlConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
-            SqlCommand objSelect = new SqlCommand();
-            objSelect.Connection = cn;
-            cn.Open();
-            objSelect.CommandText = "dbo.UpdateOffre";
-            objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@IDOFFRE", IdOffre);
-            objSelect.Parameters.AddWithValue("@IDPOSTE", IdPoste);
-            objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContrat);
-            objSelect.Parameters.AddWithValue("@IDREGION", IdRegion);
-            objSelect.Parameters.AddWithValue("@IDCONTACT", IdContact);
-            objSelect.Parameters.AddWithValue("@TITRE", Titre);
-            objSelect.Parameters.AddWithValue("@DATEPARUTION", DateParution);
-            objSelect.Parameters.AddWithValue("@DESCRIPTION", Description);
-            objSelect.Parameters.AddWithValue("@LIENWEB", LienWeb);
-            objSelect.Parameters.AddWithValue("@NOMCONTACT", NomContact);
-            objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
-            objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
-            return  objSelect.ExecuteNonQuery();
-           
+                SqlCommand objSelect = new SqlCommand();
+                objSelect.Connection = cn;
+                cn.Open();
+                objSelect.CommandText = "dbo.UpdateOffre";
+                objSelect.CommandType = CommandType.StoredProcedure;
+                objSelect.Parameters.AddWithValue("@IDOFFRE", IdOffre);
+                objSelect.Parameters.AddWithValue("@IDPOSTE", IdPoste);
+                objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContrat);
+                objSelect.Parameters.AddWithValue("@IDREGION", IdRegion);
+                objSelect.Parameters.AddWithValue("@IDCONTACT", IdContact);
+                objSelect.Parameters.AddWithValue("@TITRE", Titre);
+                objSelect.Parameters.AddWithValue("@DATEPARUTION", DateParution);
+                objSelect.Parameters.AddWithValue("@DESCRIPTION", Description);
+                objSelect.Parameters.AddWithValue("@LIENWEB", LienWeb);
+                objSelect.Parameters.AddWithValue("@NOMCONTACT", NomContact);
+                objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
+                objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
+                return objSelect.ExecuteNonQuery();
 
+            }
+            catch (SqlException ex)
+            {
+                throw new DAOException("Problème de connexion", ex);
+            }
         }
     }
 }
