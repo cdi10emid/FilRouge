@@ -64,7 +64,14 @@ namespace ClassAccesData
                 offre2.DateParution =Convert.ToDateTime(offre["DATEPARUTION"]);
                 offre2.Description = Convert.ToString( offre["DESCRIPTION"]);
                 offre2.LienWeb = offre["LIENWEB"].ToString();
-                
+                offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
+                offre2.NomContact = offre["NOMCONTACT"].ToString();
+                offre2.TelContact = offre["TELCONTACT"].ToString() ;
+                offre2.MailContact = offre["MAILCONTACT"].ToString();
+                offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
+                offre2.Nomregion = offre["NOMREGION"].ToString();
+                offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+
                 offreRetour.Add(offre2);
 
             }
@@ -107,6 +114,33 @@ namespace ClassAccesData
             objSelect.Parameters.AddWithValue("@IDOFFRE", idOffre);
 
             return objSelect.ExecuteNonQuery();
+        }
+        public int UpdatetOffre(int IdOffre, int IdPoste, int IdContrat, int IdRegion, int IdContact, string Titre, 
+            DateTime DateParution, string Description, string LienWeb , string NomContact,string TelContact, string MailContact)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            cn.Open();
+            objSelect.CommandText = "dbo.UpdateOffre";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@IDOFFRE", IdOffre);
+            objSelect.Parameters.AddWithValue("@IDPOSTE", IdPoste);
+            objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContrat);
+            objSelect.Parameters.AddWithValue("@IDREGION", IdRegion);
+            objSelect.Parameters.AddWithValue("@IDCONTACT", IdContact);
+            objSelect.Parameters.AddWithValue("@TITRE", Titre);
+            objSelect.Parameters.AddWithValue("@DATEPARUTION", DateParution);
+            objSelect.Parameters.AddWithValue("@DESCRIPTION", Description);
+            objSelect.Parameters.AddWithValue("@LIENWEB", LienWeb);
+            objSelect.Parameters.AddWithValue("@NOMCONTACT", NomContact);
+            objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
+            objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
+            return  objSelect.ExecuteNonQuery();
+           
+
         }
     }
 }

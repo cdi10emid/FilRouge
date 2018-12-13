@@ -45,7 +45,7 @@ namespace ClassAccesData
                 Contact2.IdContact = Convert.ToInt32(contact["IDCONTACT"]);
                 Contact2.NomEntreprise = contact["NOMENTREPRISE"].ToString();
                 Contact2.NomContact = contact["NOMCONTACT"].ToString();
-                Contact2.TelContact = Convert.ToInt32(contact["TELCONTACT"]);
+                Contact2.TelContact = contact["TELCONTACT"].ToString();
                 Contact2.MailContact = contact["MAILCONTACT"].ToString();
                 ListeContact.Add(Contact2);
 
@@ -69,7 +69,7 @@ namespace ClassAccesData
                 Contact.IdContact = Convert.ToInt32( reader.GetInt32(0));
                 Contact.NomEntreprise = Convert.ToString( reader.GetString(1));
                 Contact.NomContact = Convert.ToString(reader.GetString(2));
-                Contact.TelContact = Convert.ToInt32(reader.GetInt32(3));
+                Contact.TelContact = Convert.ToString(reader.GetString(3));
                 Contact.MailContact = Convert.ToString(reader.GetString(4));
 
 
@@ -78,7 +78,7 @@ namespace ClassAccesData
 
 
         }
-        public int InsertContact(string NomEntreprise,string NomContact,int TelContact,string MailContact)
+        public int InsertContact(string NomEntreprise,string NomContact,string TelContact,string MailContact)
         {
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;

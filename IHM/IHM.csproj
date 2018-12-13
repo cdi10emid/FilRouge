@@ -113,6 +113,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -145,6 +146,18 @@
       <Project>{d2b48e24-5e6d-4fc8-83a9-dbd18ea1015e}</Project>
       <Name>WebService</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Symbol-Delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Symbol-Refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Symbol-Check.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image002.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

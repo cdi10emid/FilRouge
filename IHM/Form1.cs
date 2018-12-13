@@ -83,7 +83,7 @@ namespace IHM
                 int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
                 Contact contact = accesContact2.GetContactByIdContact(value);
                 textBoxNomContact.Text = contact.NomContact;
-                textBoxTelContact.Text = Convert.ToString(contact.TelContact);
+                textBoxTelContact.Text = Convert.ToString( contact.TelContact);
                 textBoxMailContact.Text = contact.MailContact;
             }
 
@@ -95,7 +95,7 @@ namespace IHM
             AccesContact accesContact = new AccesContact();
            
 
-            if (accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, Convert.ToInt32(textBoxTelContact.Text), textBoxMailContact.Text) == 1)
+            if (accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text) == 1)
             {
                 MessageBox.Show("Ajout du nouveau contact effectué !");
             }
@@ -103,8 +103,8 @@ namespace IHM
             {
                 MessageBox.Show("Ajout impossible !");
             }
-            afficheCombo();
-            afficheContact();
+           
+           
         }
         /// <summary>
         /// Méthode pour afficher les contacts
@@ -156,6 +156,21 @@ namespace IHM
             Form2 f = new Form2();
            
                      f.ShowDialog(); 
+        }
+       public void chiffre(System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void textBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            chiffre(e);
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

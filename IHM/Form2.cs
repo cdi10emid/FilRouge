@@ -48,17 +48,21 @@ namespace IHM
         public int idOffreSelectransmit { get; set; }
         private void buttonSuprimOffre_Click(object sender, EventArgs e)
         {
-           int idOffreSelec = Convert.ToInt32( dataGridView1.CurrentRow.Cells["IDOFFRE"].Value);
-            AccesOffre accesOffre = new AccesOffre();
-            if (accesOffre.SuprimOffre(idOffreSelec) == 1)
+            if((MessageBox.Show("Attention voulez-vous vraiment supprimer cette offre !", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
-                MessageBox.Show("Offre supprimée !");
-                AfficheDataGried();
+                int idOffreSelec = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDOFFRE"].Value);
+                AccesOffre accesOffre = new AccesOffre();
+                if (accesOffre.SuprimOffre(idOffreSelec) == 1)
+                {
+                    MessageBox.Show("Offre supprimée !");
+                    AfficheDataGried();
+                }
+                else
+                {
+                    MessageBox.Show("Suppression de l'offre impossible !");
+                }
             }
-            else
-            {
-                MessageBox.Show("Suppression de l'offre impossible !");
-            }
+          
 
         }
 
@@ -66,6 +70,11 @@ namespace IHM
         {
             Form3 frm2 = new Form3(idOffreSelectransmit);
             frm2.ShowDialog();
+        }
+
+        private void buttonmAJ_Click(object sender, EventArgs e)
+        {
+            AfficheDataGried();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace ClassMetier
         /// <summary>
         /// attribut nom du contact
         /// </summary>
-        public int TelContact { get; set; }
+        public string TelContact { get; set; }
         /// <summary>
         /// attribut mail du contact
         /// </summary>

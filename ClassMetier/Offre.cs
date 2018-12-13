@@ -46,6 +46,44 @@ namespace ClassMetier
         /// </summary>
         [DataMember]
         public string LienWeb { get; set; }
+        /// <summary>
+        /// attribut nom de l'entreprise
+        /// </summary>
+        [DataMember]
+        public string NomEntreprise { get; set; }
+        /// <summary>
+        /// Attribut nom du contact
+        /// </summary>
+        [DataMember]
+        public string NomContact { get; set; }
+        /// <summary>
+        /// atrribut téléphone du contact
+        /// </summary>
+        [DataMember]
+        public string TelContact { get; set; }
+        /// <summary>
+        /// Attribut mail du contact
+        /// </summary>
+        [DataMember]
+        public string MailContact { get; set; }
+        /// <summary>
+        /// attribut type de contrat
+        /// </summary>
+        [DataMember]
+        public string TypeContrat { get; set; }
+        /// <summary>
+        /// attribut nom de la région
+        /// </summary>
+        [DataMember]
+        public string Nomregion { get; set; }
+        /// <summary>
+        /// attribut type de poste
+        /// </summary>
+        [DataMember]
+        public string TypePoste { get; set; }
+       
+       
+
         public Offre()
         {
 
