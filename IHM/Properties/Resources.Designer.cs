@@ -63,6 +63,16 @@ namespace IHM.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap abstract_blue_pink_pastel_watercolor_background_sky_paint_95024338 {
+            get {
+                object obj = ResourceManager.GetObject("abstract-blue-pink-pastel-watercolor-background-sky-paint-95024338", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image002 {
             get {
                 object obj = ResourceManager.GetObject("image002", resourceCulture);

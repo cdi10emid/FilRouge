@@ -61,8 +61,7 @@ namespace ClassAccesData
         /// <returns></returns>
         public int ajoutContrat(string TypeContrat)
         {
-            try
-            {
+           
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
                 cn.Open();
@@ -72,11 +71,7 @@ namespace ClassAccesData
                 objSelect.CommandType = CommandType.StoredProcedure;
                 objSelect.Parameters.AddWithValue("@TYPECONTRAT", TypeContrat);
                 return objSelect.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                throw new DAOException("Problème de connexion", ex);
-            }
+          
         }
 
     }

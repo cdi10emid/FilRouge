@@ -63,8 +63,7 @@ namespace ClassAccesData
         /// <returns></returns>
         public Contact GetContactByIdContact(int idContact)
         {
-            try
-            {
+            
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
@@ -85,11 +84,7 @@ namespace ClassAccesData
 
 
                 return Contact;
-            }
-            catch (SqlException ex)
-            {
-                throw new DAOException("Problème de connexion", ex);
-            }
+           
 
 
 
@@ -105,8 +100,7 @@ namespace ClassAccesData
         /// <returns></returns>
         public int InsertContact(string NomEntreprise,string NomContact,string TelContact,string MailContact)
         {
-            try
-            {
+            
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
@@ -120,11 +114,7 @@ namespace ClassAccesData
                 objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
                 objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
                 return objSelect.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                throw new DAOException("Problème de connexion", ex);
-            }
+            
 
         }
     }

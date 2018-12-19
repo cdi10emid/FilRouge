@@ -1,9 +1,11 @@
 ﻿using ClassAccesData;
 using ClassMetier;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,8 +23,16 @@ namespace IHM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            afficheCombo();
-            afficheContact();
+            try
+            {
+                afficheCombo();
+                afficheContact();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Problème de connection essayez plus tard");
+                this.Close();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -93,18 +103,26 @@ namespace IHM
         private void buttonAjoutContact_Click(object sender, EventArgs e)
         {
             AccesContact accesContact = new AccesContact();
-           
+            try
+            {
+                if (accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text) == 1)
+                {
+                    MessageBox.Show("Ajout du nouveau contact effectué !");
+                    afficheContact();
+                }
+                else
+                {
+                    MessageBox.Show("Ajout impossible !");
+                }
+            }
 
-            if (accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text) == 1)
+          
+            catch (SqlException)
             {
-                MessageBox.Show("Ajout du nouveau contact effectué !");
+                MessageBox.Show("Problème de connection essayez plus tard");
+                this.Close();
             }
-            else
-            {
-                MessageBox.Show("Ajout impossible !");
-            }
-           
-           
+
         }
         /// <summary>
         /// Méthode pour afficher les contacts
@@ -133,21 +151,30 @@ namespace IHM
         private void buttonValidOffre_Click(object sender, EventArgs e)
         {
             AccesOffre accesOffre = new AccesOffre();
-           if( accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()), 
-                                   Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()), 
-                                   Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
-                                   Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString()),
-                                   Convert.ToString(textBoxTitre.Text),
-                                   dateTimePicker1.Value,
-                                   Convert.ToString(richTextBox1.Text),
-                                   Convert.ToString(textBoxLienWeb.Text))==1)
+            try
             {
+                if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
+                                  Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
+                                  Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
+                                  Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString()),
+                                  Convert.ToString(textBoxTitre.Text),
+                                  dateTimePicker1.Value,
+                                  Convert.ToString(richTextBox1.Text),
+                                  Convert.ToString(textBoxLienWeb.Text)) == 1)
+                {
 
-                MessageBox.Show("Ajout de l'offre effectuée !");
+                    MessageBox.Show("Ajout de l'offre effectuée !");
+                }
+                else
+                {
+                    MessageBox.Show("Ajout de l'offre impossible !");
+                }
             }
-            else
+          
+            catch (SqlException)
             {
-                MessageBox.Show("Ajout de l'offre impossible !");
+                MessageBox.Show("Problème de connection essayez plus tard");
+                this.Close();
             }
         }
 

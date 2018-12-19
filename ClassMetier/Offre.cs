@@ -11,6 +11,16 @@ namespace ClassMetier
     public class Offre
     {
         /// <summary>
+        /// attribut idregion
+        /// </summary>
+        [DataMember]
+        public int IdRegion { get; set; }
+        /// <summary>
+        /// attribut idcontrat
+        /// </summary>
+        [DataMember]
+        public int IdContrat { get; set; }
+        /// <summary>
         /// attribut idcontact
         /// </summary>
         [DataMember]

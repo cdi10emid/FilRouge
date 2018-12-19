@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassAccesData", "ClassAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controleur", "Controleur\Controleur.csproj", "{110A196E-C89B-414C-A6A5-326B1DA16741}"
 EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Documentation", "Documentation\Documentation.shfbproj", "{56AC54C1-ED97-4497-AD61-42B6EC5ACB6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{110A196E-C89B-414C-A6A5-326B1DA16741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{110A196E-C89B-414C-A6A5-326B1DA16741}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{110A196E-C89B-414C-A6A5-326B1DA16741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56AC54C1-ED97-4497-AD61-42B6EC5ACB6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56AC54C1-ED97-4497-AD61-42B6EC5ACB6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56AC54C1-ED97-4497-AD61-42B6EC5ACB6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56AC54C1-ED97-4497-AD61-42B6EC5ACB6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

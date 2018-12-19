@@ -25,8 +25,7 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Region> listeRegion()
         {
-            try
-            {
+            
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
@@ -53,11 +52,7 @@ namespace ClassAccesData
 
                 }
                 return ListeRegion;
-            }
-            catch (SqlException ex)
-            {
-                throw new DAOException("Problème de connexion", ex);
-            }
+          
         }
     }
 }

@@ -25,8 +25,7 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Poste> listePoste()
         {
-            try
-            {
+            
                 SqlConnection cn = new SqlConnection();
 
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
@@ -54,11 +53,7 @@ namespace ClassAccesData
 
                 }
                 return ListePoste;
-            }
-            catch (SqlException ex)
-            {
-                throw new DAOException("Problème de connexion", ex);
-            }
+          
         }
         /// <summary>
         /// Méthode de rajout d'un poste
@@ -67,8 +62,7 @@ namespace ClassAccesData
         /// <returns></returns>
         public int ajoutPoste(string TypePoste)
         {
-            try
-            {
+           
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
                 cn.Open();
@@ -78,11 +72,7 @@ namespace ClassAccesData
                 objSelect.CommandType = CommandType.StoredProcedure;
                 objSelect.Parameters.AddWithValue("@TYPEPOSTE", TypePoste);
                 return objSelect.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                throw new DAOException("Problème de connexion", ex);
-            }
+         
 
         }
     }

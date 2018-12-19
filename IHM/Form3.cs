@@ -23,6 +23,9 @@ namespace IHM
         {
             _idOffreSeelect = IdOffreSelect;
             InitializeComponent();
+            AfficheOffreSelect();
+            afficheContact();
+            afficheCombo();
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -39,23 +42,30 @@ namespace IHM
         /// </summary>
         private void afficheCombo()
         {
+            AccesOffre accesOffre = new AccesOffre();
+            Offre offreSelect = new Offre();
+
+            offreSelect = accesOffre.GetOffreByidoffre(_idOffreSeelect);
             AccesPoste accesPoste = new AccesPoste();
             List<Poste> ListePoste = accesPoste.listePoste();
             comboBoxPoste.DataSource = ListePoste;
             comboBoxPoste.DisplayMember = "TYPEPOSTE";
             comboBoxPoste.ValueMember = "IDPOSTE";
+            comboBoxPoste.SelectedValue = offreSelect.IdPoste;
 
             AccesContrat accesContrat = new AccesContrat();
             List<Contrat> listeContrat = accesContrat.ListeContrat();
             comboBoxContrat.DataSource = listeContrat;
             comboBoxContrat.DisplayMember = "TYPECONTRAT";
             comboBoxContrat.ValueMember = "IDCONTRAT";
+            comboBoxContrat.SelectedValue = offreSelect.IdContrat;
 
             AccesRegion accesRegion = new AccesRegion();
             List<ClassMetier.Region> listeRegion = accesRegion.listeRegion();
             comboBoxRegion.DataSource = listeRegion;
             comboBoxRegion.DisplayMember = "NOMREGION";
             comboBoxRegion.ValueMember = "IDREGION";
+            comboBoxRegion.SelectedValue = offreSelect.IdRegion;
         }
         int idcontactSelect;
         /// <summary>
@@ -91,38 +101,6 @@ namespace IHM
 
         private void buttonValidOffre_Click(object sender, EventArgs e)
         {
-            if((MessageBox.Show(" Voulez-vous vraiment modifier cette offre !", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
-            {
-                AccesOffre accesOffre = new AccesOffre();
-                if (accesOffre.UpdatetOffre(_idOffreSeelect,
-                                         Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
-                                         Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
-                                        Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
-                                        idcontactSelect,
-                                        Convert.ToString(textBoxTitre.Text),
-                                        dateTimePicker1.Value,
-                                        Convert.ToString(richTextBox1.Text),
-                                        Convert.ToString(textBoxLienWeb.Text),
-                                        textBoxNomContact.Text,
-                                        textBoxTelContact.Text,
-                                        textBoxMailContact.Text) == 2)
-                {
-                    MessageBox.Show("Offre mise à jour !");
-                    
-
-                }
-                else
-                {
-                    MessageBox.Show("Mise à jour de l'offre impossible !");
-                }
-            }
-            else
-            {
-                AfficheOffreSelect();
-                afficheContact();
-                afficheCombo();
-            }
-          
 
         }
         /// <summary>
@@ -140,6 +118,6 @@ namespace IHM
             chiffre(e);
         }
 
-       
+
     }
 }
