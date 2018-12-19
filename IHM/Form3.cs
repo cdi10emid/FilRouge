@@ -99,10 +99,7 @@ namespace IHM
 
         }
 
-        private void buttonValidOffre_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         /// <summary>
         /// méthode de vérification si l'utilisateur saisi bien des chiffres
         /// </summary>
@@ -118,6 +115,21 @@ namespace IHM
             chiffre(e);
         }
 
-
+        private void buttonValidOffre_Click(object sender, EventArgs e)
+        {
+            AccesOffre accesOffre = new AccesOffre();
+            int retour = accesOffre.UpdatetOffre(_idOffreSeelect, Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
+                                     Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()), Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
+                                     idcontactSelect, textBoxTitre.Text, dateTimePicker1.Value, richTextBox1.Text, textBoxLienWeb.Text,
+                                     textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text);
+            if (retour > 1)
+            {
+                MessageBox.Show("Mise à jour de l'offre effectuée !");
+            }
+            else
+            {
+                MessageBox.Show("Mise à jour l'offre impossible !");
+            }
+        }
     }
 }

@@ -21,8 +21,8 @@ namespace IHM
         {
             InitializeComponent();
             objControleur = new AccesWebService() ;
-         
-
+            //AfficheDataGried();
+            //afficheCombo();
         }
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -49,8 +49,9 @@ namespace IHM
             List<Offre> listOffre = objControleur.WebAfficheOffre();
 
             dataGridView1.DataSource = listOffre;
-           
-            
+
+          
+
             dataGridView1.Columns["IdOffre"].Visible =false;
             dataGridView1.Columns["IdPoste"].Visible = false;
             dataGridView1.Columns["IdContact"].Visible = false;
@@ -58,6 +59,7 @@ namespace IHM
             dataGridView1.Columns["IdRegion"].Visible = false;
             dataGridView1.Columns["Description"].Visible = false;
             dataGridView1.Columns["LienWeb"].Visible = false;
+            
             if (dataGridView1.CurrentRow != null)
             {
                 idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
@@ -97,6 +99,11 @@ namespace IHM
         private void buttonmAJ_Click(object sender, EventArgs e)
         {
             AfficheDataGried();
+            comboBoxContrat.Enabled = true;
+            comboBoxContrat.Visible = false;
+            comboBoxPoste.Enabled = true;
+            comboBoxRegion.Enabled = true;
+            comboBoxRegion.Visible = false;
         }
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
@@ -123,45 +130,14 @@ namespace IHM
 
 
         }
-        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-            }
-
-
-        }
+      
     
 
       
 
       
 
-        private void comboBoxPoste_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-
-                comboBoxPoste.ValueMember = "IDPOSTE";
-                List<Offre> listOffre = objControleur.WebAfficheOffreByIdPoste(comboBoxPoste.SelectedValue.ToString());
-
-                dataGridView1.DataSource = listOffre;
-
-                dataGridView1.Columns["IdOffre"].Visible = false;
-                dataGridView1.Columns["IdPoste"].Visible = false;
-                dataGridView1.Columns["IdContact"].Visible = false;
-                dataGridView1.Columns["IdContrat"].Visible = false;
-                dataGridView1.Columns["IdRegion"].Visible = false;
-                comboBoxContrat.Visible = true;
-                if (dataGridView1.CurrentRow != null)
-                {
-                    idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-                }
-            }
-
-
-        }
+       
 
         private void comboBoxContrat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -181,6 +157,8 @@ namespace IHM
                     dataGridView1.Columns["IdContrat"].Visible = false;
                     dataGridView1.Columns["IdRegion"].Visible = false;
                     comboBoxRegion.Visible = true;
+                    comboBoxContrat.Enabled = false;
+
                 }
 
 
@@ -209,10 +187,42 @@ namespace IHM
                     dataGridView1.Columns["IdContact"].Visible = false;
                     dataGridView1.Columns["IdContrat"].Visible = false;
                     dataGridView1.Columns["IdRegion"].Visible = false;
-
+                    comboBoxRegion.Enabled = false;
                 }
 
 
+                if (dataGridView1.CurrentRow != null)
+                {
+                    idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
+                }
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
+            }
+        }
+
+        private void comboBoxPoste_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+
+                comboBoxPoste.ValueMember = "IDPOSTE";
+                List<Offre> listOffre = objControleur.WebAfficheOffreByIdPoste(comboBoxPoste.SelectedValue.ToString());
+
+                dataGridView1.DataSource = listOffre;
+
+                dataGridView1.Columns["IdOffre"].Visible = false;
+                dataGridView1.Columns["IdPoste"].Visible = false;
+                dataGridView1.Columns["IdContact"].Visible = false;
+                dataGridView1.Columns["IdContrat"].Visible = false;
+                dataGridView1.Columns["IdRegion"].Visible = false;
+                comboBoxContrat.Visible = true;
+                comboBoxPoste.Enabled = false;
                 if (dataGridView1.CurrentRow != null)
                 {
                     idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
