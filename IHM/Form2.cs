@@ -49,9 +49,11 @@ namespace IHM
             List<Offre> listOffre = objControleur.WebAfficheOffre();
 
             dataGridView1.DataSource = listOffre;
-
-          
-
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
+            dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
+            dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
+            
+           
             dataGridView1.Columns["IdOffre"].Visible =false;
             dataGridView1.Columns["IdPoste"].Visible = false;
             dataGridView1.Columns["IdContact"].Visible = false;
