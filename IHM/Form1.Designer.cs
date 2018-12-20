@@ -43,7 +43,6 @@
             this.textBoxMailContact = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxLienWeb = new System.Windows.Forms.TextBox();
-            this.buttonAjoutContact = new System.Windows.Forms.Button();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonValidOffre = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -134,7 +133,6 @@
             this.flowLayoutPanel3.Controls.Add(this.label12);
             this.flowLayoutPanel3.Controls.Add(this.textBoxLienWeb);
             this.flowLayoutPanel3.Controls.Add(this.label14);
-            this.flowLayoutPanel3.Controls.Add(this.buttonAjoutContact);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(4, 5);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -250,20 +248,6 @@
             this.textBoxLienWeb.Size = new System.Drawing.Size(335, 26);
             this.textBoxLienWeb.TabIndex = 20;
             this.toolTip1.SetToolTip(this.textBoxLienWeb, "Saisissez le lien web de l\'offre");
-            // 
-            // buttonAjoutContact
-            // 
-            this.buttonAjoutContact.Image = global::IHM.Properties.Resources.Symbol_Check;
-            this.buttonAjoutContact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAjoutContact.Location = new System.Drawing.Point(340, 177);
-            this.buttonAjoutContact.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonAjoutContact.Name = "buttonAjoutContact";
-            this.buttonAjoutContact.Size = new System.Drawing.Size(334, 26);
-            this.buttonAjoutContact.TabIndex = 18;
-            this.buttonAjoutContact.Text = "Ajouter un nouveau contact";
-            this.toolTip1.SetToolTip(this.buttonAjoutContact, "Ajouter un contact si absent de la liste");
-            this.buttonAjoutContact.UseVisualStyleBackColor = true;
-            this.buttonAjoutContact.Click += new System.EventHandler(this.buttonAjoutContact_Click);
             // 
             // flowLayoutPanel4
             // 
@@ -400,6 +384,7 @@
             // 
             this.comboBoxPoste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxPoste.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBoxPoste.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPoste.FormattingEnabled = true;
             this.comboBoxPoste.ItemHeight = 19;
@@ -687,7 +672,6 @@
         private System.Windows.Forms.Button buttonValidOffre;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonListOffres;
-        private System.Windows.Forms.Button buttonAjoutContact;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxLienWeb;
         private System.Windows.Forms.PictureBox pictureBox1;

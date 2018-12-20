@@ -46,6 +46,8 @@ namespace ClassMetier
         /// </summary>
         [DataMember]
         public DateTime DateParution { get; set; }
+     
+       
         /// <summary>
         /// Attribut Description de l'offre
         /// </summary>

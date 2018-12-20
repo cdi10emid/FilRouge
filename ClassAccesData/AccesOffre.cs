@@ -362,5 +362,52 @@ namespace ClassAccesData
 
 
         }
+        //public List<Offre> AfficheOffreByDate(string DateDebut, string DateFin)
+        //{
+
+        //    SqlConnection cn = new SqlConnection();
+        //    cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+
+        //    SqlCommand objSelect = new SqlCommand();
+        //    objSelect.Connection = cn;
+        //    objSelect.CommandText = "dbo.AfficheOffreByDate";
+        //    objSelect.CommandType = CommandType.StoredProcedure;
+        //    objSelect.Parameters.AddWithValue("@DATEDEBUT", DateDebut.ToString());
+        //    objSelect.Parameters.AddWithValue("@DATEFIN", DateFin.ToString());
+        //    List<Offre> offreRetour = new List<Offre>();
+
+        //    DataTable objDataset = new DataTable();
+        //    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
+
+        //    objDataAdapter.Fill(objDataset);
+
+        //    foreach (DataRow offre in objDataset.Rows)
+        //    {
+
+        //        Offre offre2 = new Offre();
+
+        //        offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
+        //        offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
+        //        offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
+        //        offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
+        //        offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
+        //        offre2.Titre = offre["TITRE"].ToString();
+        //        offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
+        //        offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
+        //        offre2.LienWeb = offre["LIENWEB"].ToString();
+        //        offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
+        //        offre2.NomContact = offre["NOMCONTACT"].ToString();
+        //        offre2.TelContact = offre["TELCONTACT"].ToString();
+        //        offre2.MailContact = offre["MAILCONTACT"].ToString();
+        //        offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
+        //        offre2.Nomregion = offre["NOMREGION"].ToString();
+        //        offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+
+        //        offreRetour.Add(offre2);
+
+        //    }
+        //    return offreRetour;
+
+        //}
     }
 }

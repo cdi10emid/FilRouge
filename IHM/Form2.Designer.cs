@@ -43,6 +43,10 @@
             this.comboBoxContrat = new System.Windows.Forms.ComboBox();
             this.comboBoxRegion = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePickerDateDebut = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDateFin = new System.Windows.Forms.DateTimePicker();
+            this.buttonDate = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -61,8 +65,8 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.508135F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.49187F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.26408F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.73592F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1387, 899);
@@ -89,13 +93,13 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 54);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 92);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1382, 744);
+            this.dataGridView1.Size = new System.Drawing.Size(1382, 706);
             this.dataGridView1.TabIndex = 0;
             this.toolTip1.SetToolTip(this.dataGridView1, "Liste des offres");
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -152,9 +156,13 @@
             this.flowLayoutPanel1.Controls.Add(this.comboBoxContrat);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxRegion);
             this.flowLayoutPanel1.Controls.Add(this.buttonmAJ);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.dateTimePickerDateDebut);
+            this.flowLayoutPanel1.Controls.Add(this.dateTimePickerDateFin);
+            this.flowLayoutPanel1.Controls.Add(this.buttonDate);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1381, 46);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1381, 84);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // label1
@@ -211,6 +219,45 @@
             this.comboBoxRegion.Visible = false;
             this.comboBoxRegion.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegion_SelectedIndexChanged);
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Location = new System.Drawing.Point(3, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(416, 33);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Filtres par dates de parution";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dateTimePickerDateDebut
+            // 
+            this.dateTimePickerDateDebut.Location = new System.Drawing.Point(425, 36);
+            this.dateTimePickerDateDebut.Name = "dateTimePickerDateDebut";
+            this.dateTimePickerDateDebut.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerDateDebut.TabIndex = 7;
+            // 
+            // dateTimePickerDateFin
+            // 
+            this.dateTimePickerDateFin.Location = new System.Drawing.Point(631, 36);
+            this.dateTimePickerDateFin.Name = "dateTimePickerDateFin";
+            this.dateTimePickerDateFin.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerDateFin.TabIndex = 8;
+            // 
+            // buttonDate
+            // 
+            this.buttonDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonDate.Image = global::IHM.Properties.Resources.Symbol_Refresh;
+            this.buttonDate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDate.Location = new System.Drawing.Point(835, 35);
+            this.buttonDate.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
+            this.buttonDate.Name = "buttonDate";
+            this.buttonDate.Size = new System.Drawing.Size(349, 29);
+            this.buttonDate.TabIndex = 9;
+            this.buttonDate.Text = "Sélectionner les offres par date";
+            this.toolTip1.SetToolTip(this.buttonDate, "Recharge la liste après une modification");
+            this.buttonDate.UseVisualStyleBackColor = true;
+            this.buttonDate.Click += new System.EventHandler(this.buttonDate_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -248,5 +295,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonmAJ;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDateDebut;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDateFin;
+        private System.Windows.Forms.Button buttonDate;
     }
 }

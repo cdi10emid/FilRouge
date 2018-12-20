@@ -454,6 +454,8 @@
             this.textBoxNomEntreprise.ReadOnly = true;
             this.textBoxNomEntreprise.Size = new System.Drawing.Size(333, 26);
             this.textBoxNomEntreprise.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.textBoxNomEntreprise, "Le nom de l\'entreprise n\'est pas modifiable.En cas d\'erreur merci d\'éffacer et de" +
+        " saisir à nouveau l\'offre");
             // 
             // label10
             // 

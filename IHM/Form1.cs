@@ -19,21 +19,26 @@ namespace IHM
         public Form1()
         {
             InitializeComponent();
+            
         }
-
+        int repere = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
+                
                 afficheCombo();
+                
                 afficheContact();
+                repere = 1;
+               
             }
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
                 this.Close();
             }
-        }
+            }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -60,20 +65,28 @@ namespace IHM
             AccesPoste accesPoste = new AccesPoste();
             List<Poste> ListePoste = accesPoste.listePoste();
             comboBoxPoste.DataSource = ListePoste;
+            
             comboBoxPoste.DisplayMember = "TYPEPOSTE";
             comboBoxPoste.ValueMember = "IDPOSTE";
+            comboBoxPoste.SelectedIndex = -1;
+        
+
 
             AccesContrat accesContrat = new AccesContrat();
             List<Contrat> listeContrat = accesContrat.ListeContrat();
             comboBoxContrat.DataSource = listeContrat;
             comboBoxContrat.DisplayMember = "TYPECONTRAT";
             comboBoxContrat.ValueMember = "IDCONTRAT";
+            comboBoxContrat.SelectedIndex = -1;
+
 
             AccesRegion accesRegion = new AccesRegion();
             List<ClassMetier.Region> listeRegion = accesRegion.listeRegion();
             comboBoxRegion.DataSource = listeRegion;
             comboBoxRegion.DisplayMember = "NOMREGION";
             comboBoxRegion.ValueMember = "IDREGION";
+            comboBoxRegion.SelectedIndex = -1;
+
 
 
         }
@@ -86,8 +99,9 @@ namespace IHM
        
         private void comboBoxNomEntreprise_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             comboBoxNomEntreprise.ValueMember = "IDCONTACT";
-            if (comboBoxNomEntreprise.SelectedValue != null)
+            if (comboBoxNomEntreprise.SelectedValue != null && repere != 0)
             {
                 AccesContact accesContact2 = new AccesContact();
                 int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
@@ -96,7 +110,7 @@ namespace IHM
                 textBoxTelContact.Text = Convert.ToString( contact.TelContact);
                 textBoxMailContact.Text = contact.MailContact;
             }
-
+           
 
         }
 
@@ -136,7 +150,8 @@ namespace IHM
             comboBoxNomEntreprise.DisplayMember = "NOMENTREPRISE";
 
             comboBoxNomEntreprise.ValueMember = "IDCONTACT";
-            if (comboBoxNomEntreprise.SelectedValue != null)
+            comboBoxNomEntreprise.SelectedIndex = -1;
+            if (comboBoxNomEntreprise.SelectedValue != null && comboBoxNomEntreprise.SelectedIndex != -1)
             {
                 AccesContact accesContact2 = new AccesContact();
                 int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
@@ -151,30 +166,63 @@ namespace IHM
         private void buttonValidOffre_Click(object sender, EventArgs e)
         {
             AccesOffre accesOffre = new AccesOffre();
+            AccesContact accesContact = new AccesContact();
             try
             {
-                if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
-                                  Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
-                                  Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
-                                  Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString()),
-                                  Convert.ToString(textBoxTitre.Text),
-                                  dateTimePicker1.Value,
-                                  Convert.ToString(richTextBox1.Text),
-                                  Convert.ToString(textBoxLienWeb.Text)) == 1)
+                if(comboBoxNomEntreprise.SelectedValue == null)
                 {
 
-                    MessageBox.Show("Ajout de l'offre effectuée !");
+                    accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text);
+                      
+                   
+                   Contact contact = accesContact.GetContactByNomEnt(comboBoxNomEntreprise.Text);
+                    textBoxNomContact.Text = contact.NomContact;
+                    textBoxTelContact.Text = Convert.ToString(contact.TelContact);
+                    textBoxMailContact.Text = contact.MailContact;
+                    int Idcontact = contact.IdContact;
+                    if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
+                                Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
+                                Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
+                                Idcontact,
+                                Convert.ToString(textBoxTitre.Text),
+                                dateTimePicker1.Value,
+                                Convert.ToString(richTextBox1.Text),
+                                Convert.ToString(textBoxLienWeb.Text)) == 1)
+                    {
+
+                        MessageBox.Show("Ajout de l'offre effectuée !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ajout de l'offre impossible !");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Ajout de l'offre impossible !");
+                    if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
+                                 Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
+                                 Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
+                                 Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString()),
+                                 Convert.ToString(textBoxTitre.Text),
+                                 dateTimePicker1.Value,
+                                 Convert.ToString(richTextBox1.Text),
+                                 Convert.ToString(textBoxLienWeb.Text)) == 1)
+                    {
+
+                        MessageBox.Show("Ajout de l'offre effectuée !");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ajout de l'offre impossible !");
+                    }
                 }
+               
             }
           
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
+             
             }
         }
 

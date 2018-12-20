@@ -117,5 +117,34 @@ namespace ClassAccesData
             
 
         }
+        public Contact GetContactByNomEnt(string NomEnt)
+        {
+
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            cn.Open();
+            objSelect.CommandText = "dbo.GetContactByNomEnt";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@NOMENTREPRISE", NomEnt);
+            SqlDataReader reader = objSelect.ExecuteReader();
+            Contact Contact = new Contact();
+            reader.Read();
+            Contact.IdContact = Convert.ToInt32(reader.GetInt32(0));
+            Contact.NomEntreprise = Convert.ToString(reader.GetString(1));
+            Contact.NomContact = Convert.ToString(reader.GetString(2));
+            Contact.TelContact = Convert.ToString(reader.GetString(3));
+            Contact.MailContact = Convert.ToString(reader.GetString(4));
+
+
+            return Contact;
+
+
+
+
+
+        }
     }
 }

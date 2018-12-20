@@ -32,5 +32,9 @@ namespace WebService
         [OperationContract]
         [WebGet(UriTemplate = "contrat", ResponseFormat = WebMessageFormat.Json)]
         List<Contrat> GetContrats();
+
+        //[OperationContract]
+        //[WebGet(UriTemplate = "offre/{DateDebut}/{DateFin}", ResponseFormat = WebMessageFormat.Json)]
+        //List<Offre> AfficheOffreByDate(string DateDebut, string DateFin);
     }
 }

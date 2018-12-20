@@ -77,5 +77,19 @@ namespace Controleur
             }
             return listeOffre;
         }
+        //public List<Offre> WebAfficheOffreByDate(string DateDebut,string DateFin)
+        //{
+        //    List<Offre> listeOffre = null;
+        //    var request = new RestRequest("offre/{DateDebut}/{DateFin}", Method.GET);
+        //    request.AddUrlSegment("DateDebut", DateDebut.ToString());
+        //    request.AddUrlSegment("DateFin", DateFin.ToString());
+
+        //    var response = client.Execute<List<Offre>>(request);
+        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //    {
+        //        listeOffre = response.Data;
+        //    }
+        //    return listeOffre;
+        //}
     }
 }
