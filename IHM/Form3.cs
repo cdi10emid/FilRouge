@@ -81,7 +81,7 @@ namespace IHM
             textBoxLienWeb.Text = offreSelect.LienWeb;
             textBoxTitre.Text = offreSelect.Titre;
             richTextBox1.Text = offreSelect.Description;
-            dateTimePicker1.Value = offreSelect.DateParution;
+            dateTimePicker1.Value =Convert.ToDateTime( offreSelect.DateParution);
 
         }
         /// <summary>

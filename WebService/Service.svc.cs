@@ -14,17 +14,13 @@ namespace WebService
     // REMARQUE : pour lancer le client test WCF afin de tester ce service, sélectionnez Service1.svc ou Service1.svc.cs dans l'Explorateur de solutions et démarrez le débogage.
     public class Service : IService
     {
-        //public List<Offre> AfficheOffreByDate(string DateDebut, string DateFin)
-        //{
-        //    AccesOffre accesOffre = new AccesOffre();
-        //    return accesOffre.AfficheOffreByDate(DateDebut, DateFin);
-        //}
-
-        public List<Contrat> GetContrats()
+        public List<Offre> AfficheOffreByDate(string Debut, string Fin)
         {
-            AccesContrat accesContrat = new AccesContrat();
-            return accesContrat.ListeContrat();
+            AccesOffre accesOffre = new AccesOffre();
+            return accesOffre.AfficheOffreByDate(Debut, Fin);
         }
+
+
 
         public List<Offre> GetOffreAsJson()
         {

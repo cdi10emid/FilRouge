@@ -29,12 +29,10 @@ namespace WebService
         [WebGet(UriTemplate = "offre/{IdPoste}/{IdContrat}/{IdRegion}", ResponseFormat = WebMessageFormat.Json)]
         List<Offre> GetOffreByIdPosteIdContratIdRegion(string IdPoste, string IdContrat, string IdRegion);
 
-        [OperationContract]
-        [WebGet(UriTemplate = "contrat", ResponseFormat = WebMessageFormat.Json)]
-        List<Contrat> GetContrats();
 
-        //[OperationContract]
-        //[WebGet(UriTemplate = "offre/{DateDebut}/{DateFin}", ResponseFormat = WebMessageFormat.Json)]
-        //List<Offre> AfficheOffreByDate(string DateDebut, string DateFin);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "tridate/{Debut}/{Fin}", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> AfficheOffreByDate(string Debut, string Fin);
     }
 }

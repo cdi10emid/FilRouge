@@ -234,26 +234,28 @@ namespace IHM
 
         private void buttonDate_Click(object sender, EventArgs e)
         {
-            //List<Offre> listOffre = objControleur.WebAfficheOffreByDate(Convert.ToString(dateTimePickerDateDebut.Value),Convert.ToString (dateTimePickerDateFin.Value));
+            AccesOffre accesOffre = new AccesOffre();
 
-            //dataGridView1.DataSource = listOffre;
-            //dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
-            //dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
-            //dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
+            List<Offre> listOffre = objControleur.WebAfficheOffreByDate(dateTimePickerDateDebut.Value, dateTimePickerDateFin.Value);
+
+            dataGridView1.DataSource = listOffre;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
+            dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
+            dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
 
 
-            //dataGridView1.Columns["IdOffre"].Visible = false;
-            //dataGridView1.Columns["IdPoste"].Visible = false;
-            //dataGridView1.Columns["IdContact"].Visible = false;
-            //dataGridView1.Columns["IdContrat"].Visible = false;
-            //dataGridView1.Columns["IdRegion"].Visible = false;
-            //dataGridView1.Columns["Description"].Visible = false;
-            //dataGridView1.Columns["LienWeb"].Visible = false;
+            dataGridView1.Columns["IdOffre"].Visible = false;
+            dataGridView1.Columns["IdPoste"].Visible = false;
+            dataGridView1.Columns["IdContact"].Visible = false;
+            dataGridView1.Columns["IdContrat"].Visible = false;
+            dataGridView1.Columns["IdRegion"].Visible = false;
+            dataGridView1.Columns["Description"].Visible = false;
+            dataGridView1.Columns["LienWeb"].Visible = false;
 
-            //if (dataGridView1.CurrentRow != null)
-            //{
-            //    idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-            //}
+            if (dataGridView1.CurrentRow != null)
+            {
+                idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
+            }
         }
     }
 }
