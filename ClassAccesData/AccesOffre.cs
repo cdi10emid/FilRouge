@@ -362,7 +362,7 @@ namespace ClassAccesData
 
 
         }
-        public List<Offre> AfficheOffreByDate(string Debut, string Fin)
+        public List<Offre> AfficheOffreByDate(int Debut, int Fin)
         {
 
             SqlConnection cn = new SqlConnection();
@@ -370,11 +370,11 @@ namespace ClassAccesData
 
             SqlCommand objSelect = new SqlCommand();
             objSelect.Connection = cn;
-            cn.Open();
+           
             objSelect.CommandText = "dbo.AfficheOffreByDate";
             objSelect.CommandType = CommandType.StoredProcedure;
-            objSelect.Parameters.AddWithValue("@DEBUT",Convert.ToDateTime(Debut));
-            objSelect.Parameters.AddWithValue("@DFIN",Convert.ToDateTime(Fin));
+            objSelect.Parameters.AddWithValue("@DEBUT",Debut.ToString());
+            objSelect.Parameters.AddWithValue("@FIN",Fin.ToString());
 
             List<Offre> offreRetour = new List<Offre>();
 

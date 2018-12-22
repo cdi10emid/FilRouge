@@ -77,15 +77,15 @@ namespace Controleur
             }
             return listeOffre;
         }
-        public List<Offre> WebAfficheOffreByDate(DateTime Debut,DateTime Fin)
+        public List<Offre> WebAfficheOffreByDate(string Debut,string Fin)
         {
 
-            string d1 = Debut.ToString("yyyy-MM-dd");
-            string d2 = Fin.ToString("yyyy-MM-dd");
+            //string d1 = Debut.ToString("ddMMyyyy");
+            //string d2 = Fin.ToString("ddMMyyyy");
             List<Offre> listeOffre = null;
             var request = new RestRequest("tridate/{Debut}/{Fin}", Method.GET);
-            request.AddUrlSegment("Debut", d1 );
-            request.AddUrlSegment("Fin", d2);
+            request.AddUrlSegment("Debut", Debut.ToString());
+            request.AddUrlSegment("Fin", Fin.ToString());
 
             var response = client.Execute<List<Offre>>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)

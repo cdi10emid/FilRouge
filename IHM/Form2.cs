@@ -236,7 +236,7 @@ namespace IHM
         {
             AccesOffre accesOffre = new AccesOffre();
 
-            List<Offre> listOffre = objControleur.WebAfficheOffreByDate(dateTimePickerDateDebut.Value, dateTimePickerDateFin.Value);
+            List<Offre> listOffre = objControleur.WebAfficheOffreByDate (dateTimePickerDateDebut.Value.ToString("yyMMdd"), dateTimePickerDateFin.Value.ToString("yyMMdd"));
 
             dataGridView1.DataSource = listOffre;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;

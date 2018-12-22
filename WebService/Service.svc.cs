@@ -17,7 +17,7 @@ namespace WebService
         public List<Offre> AfficheOffreByDate(string Debut, string Fin)
         {
             AccesOffre accesOffre = new AccesOffre();
-            return accesOffre.AfficheOffreByDate(Debut, Fin);
+            return accesOffre.AfficheOffreByDate(Convert.ToInt32(Debut), Convert.ToInt32( Fin));
         }
 
 
