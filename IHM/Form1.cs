@@ -19,26 +19,26 @@ namespace IHM
         public Form1()
         {
             InitializeComponent();
-            
+
         }
         int repere = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                
+
                 afficheCombo();
-                
+
                 afficheContact();
                 repere = 1;
-               
+
             }
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
                 this.Close();
             }
-            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -53,10 +53,10 @@ namespace IHM
             accesContrat.ajoutContrat(comboBoxContrat.Text);
 
             afficheCombo();
-           
-           
+
+
         }
-      
+
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
         /// </summary>
@@ -65,11 +65,11 @@ namespace IHM
             AccesPoste accesPoste = new AccesPoste();
             List<Poste> ListePoste = accesPoste.listePoste();
             comboBoxPoste.DataSource = ListePoste;
-            
+
             comboBoxPoste.DisplayMember = "TYPEPOSTE";
             comboBoxPoste.ValueMember = "IDPOSTE";
             comboBoxPoste.SelectedIndex = -1;
-        
+
 
 
             AccesContrat accesContrat = new AccesContrat();
@@ -91,15 +91,15 @@ namespace IHM
 
         }
 
-      /// <summary>
-      /// Affichage des textBox suivant la sélection de la combobox Nom entreprise
-      /// </summary>
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
-       
+        /// <summary>
+        /// Affichage des textBox suivant la sélection de la combobox Nom entreprise
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void comboBoxNomEntreprise_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             comboBoxNomEntreprise.ValueMember = "IDCONTACT";
             if (comboBoxNomEntreprise.SelectedValue != null && repere != 0)
             {
@@ -107,10 +107,10 @@ namespace IHM
                 int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
                 Contact contact = accesContact2.GetContactByIdContact(value);
                 textBoxNomContact.Text = contact.NomContact;
-                textBoxTelContact.Text = Convert.ToString( contact.TelContact);
+                textBoxTelContact.Text = Convert.ToString(contact.TelContact);
                 textBoxMailContact.Text = contact.MailContact;
             }
-           
+
 
         }
 
@@ -130,7 +130,7 @@ namespace IHM
                 }
             }
 
-          
+
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
@@ -160,7 +160,7 @@ namespace IHM
                 textBoxTelContact.Text = Convert.ToString(contact.TelContact);
                 textBoxMailContact.Text = contact.MailContact;
             }
-          
+
         }
 
         private void buttonValidOffre_Click(object sender, EventArgs e)
@@ -169,13 +169,13 @@ namespace IHM
             AccesContact accesContact = new AccesContact();
             try
             {
-                if(comboBoxNomEntreprise.SelectedValue == null)
+                if (comboBoxNomEntreprise.SelectedValue == null)
                 {
 
                     accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text);
-                      
-                   
-                   Contact contact = accesContact.GetContactByNomEnt(comboBoxNomEntreprise.Text);
+
+
+                    Contact contact = accesContact.GetContactByNomEnt(comboBoxNomEntreprise.Text);
                     textBoxNomContact.Text = contact.NomContact;
                     textBoxTelContact.Text = Convert.ToString(contact.TelContact);
                     textBoxMailContact.Text = contact.MailContact;
@@ -191,6 +191,23 @@ namespace IHM
                     {
 
                         MessageBox.Show("Ajout de l'offre effectuée !");
+                        try
+                        {
+
+                            afficheCombo();
+                            
+                            afficheContact();
+                            EffaceBox();
+                            repere = 1;
+
+                        }
+                        catch (SqlException)
+                        {
+                            MessageBox.Show("Problème de connection essayez plus tard");
+                            this.Close();
+                        }
+
+
                     }
                     else
                     {
@@ -216,34 +233,56 @@ namespace IHM
                         MessageBox.Show("Ajout de l'offre impossible !");
                     }
                 }
-               
+
             }
-          
+
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-             
+
             }
+        }
+        private void EffaceBox()
+        {
+            richTextBox1.Clear();
+            textBoxTitre.Clear();
+            textBoxTelContact.Clear();
+            textBoxNomContact.Clear();
+            textBoxMailContact.Clear();
+            textBoxLienWeb.Clear();
         }
 
         private void buttonListOffres_Click(object sender, EventArgs e)
         {
             Form2 f = new Form2();
-           
-                     f.ShowDialog(); 
+
+            f.ShowDialog();
         }
-       public void chiffre(System.Windows.Forms.KeyPressEventArgs e)
+        /// <summary>
+        /// Methode  pour que ne soit pris en compte que les chiffres et la touche back space
+        /// </summary>
+        /// <param name="e"></param>
+        public void chiffre(System.Windows.Forms.KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
+        /// <summary>
+        /// surveillance de textBoxTelContact avec utilisation de la méthode chiffre()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void textBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
         {
             chiffre(e);
         }
+        /// <summary>
+        /// Fermeture de la form avce demande à l'utilisateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-       
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if ((MessageBox.Show("Voulez-vous vraiment quitter la gestion des offres ?", "Attention ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
