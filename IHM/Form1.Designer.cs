@@ -43,6 +43,7 @@
             this.textBoxMailContact = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxLienWeb = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonValidOffre = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -70,7 +71,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBoxTitre = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label14 = new System.Windows.Forms.Label();
+            this.buttonQuitter = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -177,7 +179,6 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Nom du contact";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBoxNomContact
             // 
@@ -249,11 +250,21 @@
             this.textBoxLienWeb.TabIndex = 20;
             this.toolTip1.SetToolTip(this.textBoxLienWeb, "Saisissez le lien web de l\'offre");
             // 
+            // label14
+            // 
+            this.label14.Location = new System.Drawing.Point(3, 173);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(331, 28);
+            this.label14.TabIndex = 21;
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.buttonValidOffre);
             this.flowLayoutPanel4.Controls.Add(this.label13);
             this.flowLayoutPanel4.Controls.Add(this.buttonListOffres);
+            this.flowLayoutPanel4.Controls.Add(this.label15);
+            this.flowLayoutPanel4.Controls.Add(this.buttonQuitter);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(929, 5);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -280,7 +291,7 @@
             // 
             this.label13.Location = new System.Drawing.Point(3, 42);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(190, 34);
+            this.label13.Size = new System.Drawing.Size(300, 34);
             this.label13.TabIndex = 3;
             // 
             // buttonListOffres
@@ -594,13 +605,27 @@
             this.textBoxTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxTitre, "Saisissez le titre de l\'offre");
             // 
-            // label14
+            // buttonQuitter
             // 
-            this.label14.Location = new System.Drawing.Point(3, 173);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(331, 28);
-            this.label14.TabIndex = 21;
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuitter.Location = new System.Drawing.Point(3, 156);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
+            this.buttonQuitter.TabIndex = 4;
+            this.buttonQuitter.Text = "Quitter";
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Accès à la liste des offres");
+            this.buttonQuitter.UseVisualStyleBackColor = true;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(3, 118);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(300, 34);
+            this.label15.TabIndex = 5;
             // 
             // Form1
             // 
@@ -616,6 +641,7 @@
             this.MinimumSize = new System.Drawing.Size(1403, 938);
             this.Name = "Form1";
             this.Text = "Gestion des offres";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -677,6 +703,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button buttonQuitter;
     }
 }
 
