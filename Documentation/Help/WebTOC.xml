@@ -2,29 +2,29 @@
 <HelpTOC>
 
   <HelpTOCNode Title="Welcome to the [TODO: Add project name]" Url="html/5849edea-0ff3-4d37-a9ca-16c7010cabed.htm" />
-  <HelpTOCNode Id="9302f70e-ee0d-4540-b0ae-6e1c659c79ec" Title="Version History" Url="html/9cdcd3a6-d400-4cf0-8a10-4ecaa451e6f3.htm">
+  <HelpTOCNode Id="0728ceeb-b60f-4d43-9e20-e60ac5ced2d5" Title="Version History" Url="html/9cdcd3a6-d400-4cf0-8a10-4ecaa451e6f3.htm">
     <HelpTOCNode Title="Version 1.0.0.0" Url="html/aba5f80d-2dfc-43f1-9346-4d6f66f931ba.htm" />
   </HelpTOCNode>
-  <HelpTOCNode Id="082b184b-97f6-453f-8e87-2dd1bf5a8e01" Title="ClassAccesData" Url="html/6e34ce9f-e550-f2a9-602d-030214887022.htm">
-    <HelpTOCNode Id="8b89debc-93db-4ad0-b7c6-0a2ceac5d8d8" Title="AccesContact Class" Url="html/3d0cbb80-fba7-100c-9b26-f0458eb7c6e8.htm">
+  <HelpTOCNode Id="3f5e6619-c4e2-47b2-92de-7c7c4778934d" Title="ClassAccesData" Url="html/6e34ce9f-e550-f2a9-602d-030214887022.htm">
+    <HelpTOCNode Id="7633b1c0-279b-480e-b683-bbc703859cfa" Title="AccesContact Class" Url="html/3d0cbb80-fba7-100c-9b26-f0458eb7c6e8.htm">
       <HelpTOCNode Title="AccesContact Constructor " Url="html/3c666992-2218-bfb8-31bb-7395e1cc26bc.htm" />
-      <HelpTOCNode Id="ead80e70-895d-4882-aaa6-befe2ae44c4b" Title="AccesContact Methods" Url="html/aa01d7b0-0ac3-4165-f009-6ec9f9594eac.htm">
+      <HelpTOCNode Id="f1bcb9e5-dacb-4893-b79d-0934b8f9c2c3" Title="AccesContact Methods" Url="html/aa01d7b0-0ac3-4165-f009-6ec9f9594eac.htm">
         <HelpTOCNode Title="GetContactByIdContact Method " Url="html/924bea88-7797-edad-c3bb-670ae4cc8eff.htm" />
         <HelpTOCNode Title="GetContactByNomEnt Method " Url="html/4f5c9331-1966-880a-95ac-0d56efdb63cd.htm" />
         <HelpTOCNode Title="InsertContact Method " Url="html/3815eead-2642-35a3-e7ba-4de066ab4192.htm" />
         <HelpTOCNode Title="ListeContact Method " Url="html/8343ec44-4216-a92f-6317-6fd6de19bc40.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="e958b7ca-00aa-42f2-b1af-7b05f34ca457" Title="AccesContrat Class" Url="html/bad8788c-5913-2c69-a582-f2e398ebe0c2.htm">
+    <HelpTOCNode Id="c90d2412-783f-459b-9a49-011490054769" Title="AccesContrat Class" Url="html/bad8788c-5913-2c69-a582-f2e398ebe0c2.htm">
       <HelpTOCNode Title="AccesContrat Constructor " Url="html/93cae29f-7d2c-4be9-9f6f-6385d1561111.htm" />
-      <HelpTOCNode Id="c983f75b-e759-45d3-a4f3-3c00052dcf2f" Title="AccesContrat Methods" Url="html/13787d3c-6a63-315d-e2b6-f43b9478d859.htm">
+      <HelpTOCNode Id="c7f5095b-3556-4c3d-a16b-4c3ed0025b9e" Title="AccesContrat Methods" Url="html/13787d3c-6a63-315d-e2b6-f43b9478d859.htm">
         <HelpTOCNode Title="ajoutContrat Method " Url="html/32c95e53-bec2-e604-7d95-8980a4e7a124.htm" />
         <HelpTOCNode Title="ListeContrat Method " Url="html/96d6c157-fe97-1a6f-4c74-2017b5b69a87.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="ba4b7bb1-6519-44ce-afee-244bafe5f986" Title="AccesOffre Class" Url="html/b389c441-cca5-a960-20e2-ceb8ec5f25f4.htm">
+    <HelpTOCNode Id="74729192-cb9c-4283-9d2e-514fd2346216" Title="AccesOffre Class" Url="html/b389c441-cca5-a960-20e2-ceb8ec5f25f4.htm">
       <HelpTOCNode Title="AccesOffre Constructor " Url="html/2b45c349-3f78-fe0b-4548-8ef63b631166.htm" />
-      <HelpTOCNode Id="e12ce5f5-985f-49f2-9455-ce9a0189a8f1" Title="AccesOffre Methods" Url="html/4e88a654-b461-da37-d1fc-ec2828df333c.htm">
+      <HelpTOCNode Id="743e5e14-bdda-43c0-9dfb-175c177b30d9" Title="AccesOffre Methods" Url="html/4e88a654-b461-da37-d1fc-ec2828df333c.htm">
         <HelpTOCNode Title="AfficheOffre Method " Url="html/42d67a8b-ad67-a2a2-499d-39234e07b0d2.htm" />
         <HelpTOCNode Title="AfficheOffreByDate Method " Url="html/626c478c-fce1-59d8-f92c-0c6b9ef4d97f.htm" />
         <HelpTOCNode Title="AfficheOffreByIdPoste Method " Url="html/73c3775a-9e45-1f2b-311b-e39cfcca77ba.htm" />
@@ -36,21 +36,21 @@
         <HelpTOCNode Title="UpdatetOffre Method " Url="html/41e5a5c0-3a1d-c91d-0eb6-1faa4b841187.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="bbcd5c0d-f358-410a-a772-d304f7a22a8d" Title="AccesPoste Class" Url="html/aa3bb358-1d72-7535-7294-2b80a0cb5ae4.htm">
+    <HelpTOCNode Id="cd9b883f-cb44-436a-8cca-29deacc8f562" Title="AccesPoste Class" Url="html/aa3bb358-1d72-7535-7294-2b80a0cb5ae4.htm">
       <HelpTOCNode Title="AccesPoste Constructor " Url="html/9a1046f3-1328-45db-ec7e-4aded5a98e7a.htm" />
-      <HelpTOCNode Id="758c3ed9-a02c-40a3-a3b5-7ff5577af32e" Title="AccesPoste Methods" Url="html/2a970779-ef89-f50e-51d2-b234c3cbb32f.htm">
+      <HelpTOCNode Id="e31e852e-366a-4c00-a83b-dca6a2c36a5c" Title="AccesPoste Methods" Url="html/2a970779-ef89-f50e-51d2-b234c3cbb32f.htm">
         <HelpTOCNode Title="ajoutPoste Method " Url="html/d978b644-7586-459f-a2b7-add1b9c46c2e.htm" />
         <HelpTOCNode Title="listePoste Method " Url="html/6dea69b2-c355-b223-6980-1aa9f57859c6.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="0e8c5f81-2ddf-4b0d-8cae-dbd0176e925b" Title="AccesRegion Class" Url="html/980b2ed8-7144-428d-1682-29e29ffd1c20.htm">
+    <HelpTOCNode Id="d3dd343c-e7cf-4db5-b793-e10f1838d755" Title="AccesRegion Class" Url="html/980b2ed8-7144-428d-1682-29e29ffd1c20.htm">
       <HelpTOCNode Title="AccesRegion Constructor " Url="html/68d70f32-a9f9-0b63-df72-9afc5bf962f8.htm" />
-      <HelpTOCNode Id="656b0ca9-36c9-4586-85d7-c4ea16013d56" Title="AccesRegion Methods" Url="html/eb4e3733-3e26-ea8e-4971-85143ba1d7b2.htm">
+      <HelpTOCNode Id="57d281e7-3fd7-45f3-90e1-2a8bcf2d473d" Title="AccesRegion Methods" Url="html/eb4e3733-3e26-ea8e-4971-85143ba1d7b2.htm">
         <HelpTOCNode Title="listeRegion Method " Url="html/6ed83914-931b-01ca-b6fa-7dc8078885b0.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="090eaaea-aecf-4615-96b8-ebae71f4d50d" Title="DAOException Class" Url="html/f5e6c87b-d1b7-7210-689e-9aa60cbea30c.htm">
-      <HelpTOCNode Id="dc40b96b-d667-41fb-a32c-1c7047c8643b" Title="DAOException Constructor " Url="html/633224bb-2601-b50e-8e8e-a27450c9a84b.htm">
+    <HelpTOCNode Id="7df0d68c-ff31-4e31-9e42-abb5f0bf0ea8" Title="DAOException Class" Url="html/f5e6c87b-d1b7-7210-689e-9aa60cbea30c.htm">
+      <HelpTOCNode Id="00c10fac-5ade-4472-87ed-9bc4676fcdd6" Title="DAOException Constructor " Url="html/633224bb-2601-b50e-8e8e-a27450c9a84b.htm">
         <HelpTOCNode Title="DAOException Constructor " Url="html/0d5152f2-8dbf-a11d-1814-eeba4ddc57b8.htm" />
         <HelpTOCNode Title="DAOException Constructor (String)" Url="html/4d2c6396-2327-e287-60f3-26692776348e.htm" />
         <HelpTOCNode Title="DAOException Constructor (SerializationInfo, StreamingContext)" Url="html/66337882-c12d-8fc5-e3d7-5386aeda6d6a.htm" />

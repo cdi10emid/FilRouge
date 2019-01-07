@@ -11,6 +11,9 @@ using ClassMetier;
 
 namespace ClassAccesData
 {
+    /// <summary>
+    /// Class d'accès aux contrats
+    /// </summary>
     public class AccesContrat
     {
         /// <summary>

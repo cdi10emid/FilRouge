@@ -10,6 +10,9 @@ using ClassMetier;
 
 namespace ClassAccesData
 {
+    /// <summary>
+    /// Class d'accès aux contacts
+    /// </summary>
    public class AccesContact
     {
         /// <summary>
@@ -117,6 +120,11 @@ namespace ClassAccesData
             
 
         }
+        /// <summary>
+        /// Methode de récupérationdes contacts par le nom de l'entreprise
+        /// </summary>
+        /// <param name="NomEnt"></param>
+        /// <returns></returns>
         public Contact GetContactByNomEnt(string NomEnt)
         {
 

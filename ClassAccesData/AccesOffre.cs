@@ -362,6 +362,12 @@ namespace ClassAccesData
 
 
         }
+        /// <summary>
+        /// Méthode d'affichage des offres par sélection des dates
+        /// </summary>
+        /// <param name="Debut"></param>
+        /// <param name="Fin"></param>
+        /// <returns></returns>
         public List<Offre> AfficheOffreByDate(int Debut, int Fin)
         {
 

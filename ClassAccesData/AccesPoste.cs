@@ -10,6 +10,9 @@ using ClassMetier;
 
 namespace ClassAccesData
 {
+    /// <summary>
+    /// Class d'accès aux postes
+    /// </summary>
     public class AccesPoste
     {
         /// <summary>
