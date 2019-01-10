@@ -32,6 +32,7 @@ namespace ClassAccesData
                 SqlConnection cn = new SqlConnection();
 
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+
                 cn.Open();
                 SqlCommand objSelect = new SqlCommand();
                 objSelect.Connection = cn;

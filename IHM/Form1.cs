@@ -24,37 +24,42 @@ namespace IHM
         int repere = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-
-                afficheCombo();
-
-                afficheContact();
-                repere = 1;
-
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
-            }
+            afficheCombo();
+            afficheContact();
+            repere = 1;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AccesPoste accesPoste = new AccesPoste();
-            accesPoste.ajoutPoste(comboBoxPoste.Text);
-            afficheCombo();
+            try
+            {
+                AccesPoste accesPoste = new AccesPoste();
+                accesPoste.ajoutPoste(comboBoxPoste.Text);
+                afficheCombo();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Problème de connection essayez plus tard");
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AccesContrat accesContrat = new AccesContrat();
-            accesContrat.ajoutContrat(comboBoxContrat.Text);
-
-            afficheCombo();
+            try
+            {
 
 
+                AccesContrat accesContrat = new AccesContrat();
+                accesContrat.ajoutContrat(comboBoxContrat.Text);
+
+                afficheCombo();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Problème de connection essayez plus tard");
+
+            }
         }
 
         /// <summary>
@@ -62,30 +67,38 @@ namespace IHM
         /// </summary>
         private void afficheCombo()
         {
-            AccesPoste accesPoste = new AccesPoste();
-            List<Poste> ListePoste = accesPoste.listePoste();
-            comboBoxPoste.DataSource = ListePoste;
+            try
+            {
+                AccesPoste accesPoste = new AccesPoste();
+                List<Poste> ListePoste = accesPoste.listePoste();
+                comboBoxPoste.DataSource = ListePoste;
 
-            comboBoxPoste.DisplayMember = "TYPEPOSTE";
-            comboBoxPoste.ValueMember = "IDPOSTE";
-            comboBoxPoste.SelectedIndex = -1;
-
-
-
-            AccesContrat accesContrat = new AccesContrat();
-            List<Contrat> listeContrat = accesContrat.ListeContrat();
-            comboBoxContrat.DataSource = listeContrat;
-            comboBoxContrat.DisplayMember = "TYPECONTRAT";
-            comboBoxContrat.ValueMember = "IDCONTRAT";
-            comboBoxContrat.SelectedIndex = -1;
+                comboBoxPoste.DisplayMember = "TYPEPOSTE";
+                comboBoxPoste.ValueMember = "IDPOSTE";
+                comboBoxPoste.SelectedIndex = -1;
 
 
-            AccesRegion accesRegion = new AccesRegion();
-            List<ClassMetier.Region> listeRegion = accesRegion.listeRegion();
-            comboBoxRegion.DataSource = listeRegion;
-            comboBoxRegion.DisplayMember = "NOMREGION";
-            comboBoxRegion.ValueMember = "IDREGION";
-            comboBoxRegion.SelectedIndex = -1;
+
+                AccesContrat accesContrat = new AccesContrat();
+                List<Contrat> listeContrat = accesContrat.ListeContrat();
+                comboBoxContrat.DataSource = listeContrat;
+                comboBoxContrat.DisplayMember = "TYPECONTRAT";
+                comboBoxContrat.ValueMember = "IDCONTRAT";
+                comboBoxContrat.SelectedIndex = -1;
+
+
+                AccesRegion accesRegion = new AccesRegion();
+                List<ClassMetier.Region> listeRegion = accesRegion.listeRegion();
+                comboBoxRegion.DataSource = listeRegion;
+                comboBoxRegion.DisplayMember = "NOMREGION";
+                comboBoxRegion.ValueMember = "IDREGION";
+                comboBoxRegion.SelectedIndex = -1;
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Problème de connection essayez plus tard");
+
+            }
 
 
 
@@ -99,68 +112,62 @@ namespace IHM
 
         private void comboBoxNomEntreprise_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            comboBoxNomEntreprise.ValueMember = "IDCONTACT";
-            if (comboBoxNomEntreprise.SelectedValue != null && repere != 0)
+            try
             {
-                AccesContact accesContact2 = new AccesContact();
-                int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
-                Contact contact = accesContact2.GetContactByIdContact(value);
-                textBoxNomContact.Text = contact.NomContact;
-                textBoxTelContact.Text = Convert.ToString(contact.TelContact);
-                textBoxMailContact.Text = contact.MailContact;
-            }
 
+
+
+                comboBoxNomEntreprise.ValueMember = "IDCONTACT";
+                if (comboBoxNomEntreprise.SelectedValue != null && repere != 0)
+                {
+                    AccesContact accesContact2 = new AccesContact();
+                    int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
+                    Contact contact = accesContact2.GetContactByIdContact(value);
+                    textBoxNomContact.Text = contact.NomContact;
+                    textBoxTelContact.Text = Convert.ToString(contact.TelContact);
+                    textBoxMailContact.Text = contact.MailContact;
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Problème de connection essayez plus tard");
+
+            }
 
         }
 
-        private void buttonAjoutContact_Click(object sender, EventArgs e)
+
+        /// <summary>
+        /// Méthode pour afficher les contacts
+        /// </summary>
+        private void afficheContact()
         {
-            AccesContact accesContact = new AccesContact();
             try
             {
-                if (accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text) == 1)
+                AccesContact accesContact = new AccesContact();
+                List<Contact> listeContact = accesContact.ListeContact();
+                comboBoxNomEntreprise.DataSource = listeContact;
+
+                comboBoxNomEntreprise.DisplayMember = "NOMENTREPRISE";
+
+                comboBoxNomEntreprise.ValueMember = "IDCONTACT";
+                comboBoxNomEntreprise.SelectedIndex = -1;
+                if (comboBoxNomEntreprise.SelectedValue != null && comboBoxNomEntreprise.SelectedIndex != -1)
                 {
-                    MessageBox.Show("Ajout du nouveau contact effectué !");
-                    afficheContact();
-                }
-                else
-                {
-                    MessageBox.Show("Ajout impossible !");
+                    AccesContact accesContact2 = new AccesContact();
+                    int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
+                    Contact contact = accesContact2.GetContactByIdContact(value);
+                    textBoxNomContact.Text = contact.NomContact;
+                    textBoxTelContact.Text = Convert.ToString(contact.TelContact);
+                    textBoxMailContact.Text = contact.MailContact;
                 }
             }
-
 
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
                 this.Close();
             }
-
-        }
-        /// <summary>
-        /// Méthode pour afficher les contacts
-        /// </summary>
-        private void afficheContact()
-        {
-            AccesContact accesContact = new AccesContact();
-            List<Contact> listeContact = accesContact.ListeContact();
-            comboBoxNomEntreprise.DataSource = listeContact;
-
-            comboBoxNomEntreprise.DisplayMember = "NOMENTREPRISE";
-
-            comboBoxNomEntreprise.ValueMember = "IDCONTACT";
-            comboBoxNomEntreprise.SelectedIndex = -1;
-            if (comboBoxNomEntreprise.SelectedValue != null && comboBoxNomEntreprise.SelectedIndex != -1)
-            {
-                AccesContact accesContact2 = new AccesContact();
-                int value = Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString());
-                Contact contact = accesContact2.GetContactByIdContact(value);
-                textBoxNomContact.Text = contact.NomContact;
-                textBoxTelContact.Text = Convert.ToString(contact.TelContact);
-                textBoxMailContact.Text = contact.MailContact;
-            }
-
         }
 
         private void buttonValidOffre_Click(object sender, EventArgs e)
@@ -169,42 +176,47 @@ namespace IHM
             AccesContact accesContact = new AccesContact();
             try
             {
-                if (comboBoxNomEntreprise.SelectedValue == null)
+                if (comboBoxNomEntreprise.Text != "") //vérification si une entreprise a été saisie
                 {
-
-                    accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text);
-
-
                     Contact contact = accesContact.GetContactByNomEnt(comboBoxNomEntreprise.Text);
-                    textBoxNomContact.Text = contact.NomContact;
-                    textBoxTelContact.Text = Convert.ToString(contact.TelContact);
-                    textBoxMailContact.Text = contact.MailContact;
-                    int Idcontact = contact.IdContact;
-                    if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
-                                Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
-                                Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
-                                Idcontact,
-                                Convert.ToString(textBoxTitre.Text),
-                                dateTimePicker1.Value,
-                                Convert.ToString(richTextBox1.Text),
-                                Convert.ToString(textBoxLienWeb.Text)) == 1)
+                    if(contact.IdContact == 0)
+                    {
+                        accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text);
+                    }
+
+                    if(comboBoxNomEntreprise.Text != "")
                     {
 
-                        MessageBox.Show("Ajout de l'offre effectuée !");
-                        try
+                        textBoxNomContact.Text = contact.NomContact;
+                        textBoxTelContact.Text = Convert.ToString(contact.TelContact);
+                        textBoxMailContact.Text = contact.MailContact;
+                        int Idcontact = contact.IdContact;
+                        if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
+                                    Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
+                                    Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
+                                    Idcontact,
+                                    Convert.ToString(textBoxTitre.Text),
+                                    dateTimePicker1.Value,
+                                    Convert.ToString(richTextBox1.Text),
+                                    Convert.ToString(textBoxLienWeb.Text)) == 1)
                         {
 
-                            afficheCombo();
-                            
-                            afficheContact();
-                            EffaceBox();
-                            repere = 1;
+                            MessageBox.Show("Ajout de l'offre effectuée !");
+                            try
+                            {
 
-                        }
-                        catch (SqlException)
-                        {
-                            MessageBox.Show("Problème de connection essayez plus tard");
-                            this.Close();
+                                afficheCombo();
+
+                                afficheContact();
+                                EffaceBox();
+                                repere = 1;
+
+                            }
+                            catch (SqlException)
+                            {
+                                MessageBox.Show("Problème de connection essayez plus tard");
+                                this.Close();
+                            }
                         }
 
 
@@ -214,25 +226,25 @@ namespace IHM
                         MessageBox.Show("Ajout de l'offre impossible !");
                     }
                 }
-                else
-                {
-                    if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
-                                 Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
-                                 Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
-                                 Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString()),
-                                 Convert.ToString(textBoxTitre.Text),
-                                 dateTimePicker1.Value,
-                                 Convert.ToString(richTextBox1.Text),
-                                 Convert.ToString(textBoxLienWeb.Text)) == 1)
-                    {
+                //else
+                //{
+                //    if (accesOffre.InsertOffre(Convert.ToInt32(comboBoxPoste.SelectedValue.ToString()),
+                //                 Convert.ToInt32(comboBoxContrat.SelectedValue.ToString()),
+                //                 Convert.ToInt32(comboBoxRegion.SelectedValue.ToString()),
+                //                 Convert.ToInt32(comboBoxNomEntreprise.SelectedValue.ToString()),
+                //                 Convert.ToString(textBoxTitre.Text),
+                //                 dateTimePicker1.Value,
+                //                 Convert.ToString(richTextBox1.Text),
+                //                 Convert.ToString(textBoxLienWeb.Text)) == 1)
+                //    {
 
-                        MessageBox.Show("Ajout de l'offre effectuée !");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ajout de l'offre impossible !");
-                    }
-                }
+                //        MessageBox.Show("Ajout de l'offre effectuée !");
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Ajout de l'offre impossible !");
+                //    }
+                //}
 
             }
 

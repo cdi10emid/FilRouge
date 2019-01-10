@@ -140,15 +140,27 @@ namespace ClassAccesData
             SqlDataReader reader = objSelect.ExecuteReader();
             Contact Contact = new Contact();
             reader.Read();
-            Contact.IdContact = Convert.ToInt32(reader.GetInt32(0));
-            Contact.NomEntreprise = Convert.ToString(reader.GetString(1));
-            Contact.NomContact = Convert.ToString(reader.GetString(2));
-            Contact.TelContact = Convert.ToString(reader.GetString(3));
-            Contact.MailContact = Convert.ToString(reader.GetString(4));
+            if (Convert.ToInt32(reader.GetInt32(0)) != 0)
+            {
+                Contact.IdContact = Convert.ToInt32(reader.GetInt32(0));
+                Contact.NomEntreprise = Convert.ToString(reader.GetString(1));
+                Contact.NomContact = Convert.ToString(reader.GetString(2));
+                Contact.TelContact = Convert.ToString(reader.GetString(3));
+                Contact.MailContact = Convert.ToString(reader.GetString(4));
 
+
+               
+            }
+            else
+            {
+                Contact.IdContact = 0;
+                Contact.NomEntreprise = "";
+                Contact.NomContact = "";
+                Contact.TelContact = "";
+                Contact.MailContact = "";
+            }
 
             return Contact;
-
 
 
 
