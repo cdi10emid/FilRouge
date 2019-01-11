@@ -31,7 +31,6 @@ namespace ClassAccesData
 
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
             SqlCommand objSelect = new SqlCommand();
             objSelect.Connection = cn;
             objSelect.CommandText = "dbo.GetContact";
@@ -41,21 +40,16 @@ namespace ClassAccesData
 
             DataTable objDataset = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
             objDataAdapter.Fill(objDataset);
-
             foreach (DataRow contact in objDataset.Rows)
             {
                 Contact Contact2 = new Contact();
-
-
                 Contact2.IdContact = Convert.ToInt32(contact["IDCONTACT"]);
                 Contact2.NomEntreprise = contact["NOMENTREPRISE"].ToString();
                 Contact2.NomContact = contact["NOMCONTACT"].ToString();
                 Contact2.TelContact = contact["TELCONTACT"].ToString();
                 Contact2.MailContact = contact["MAILCONTACT"].ToString();
                 ListeContact.Add(Contact2);
-
             }
             return ListeContact;
         }
@@ -66,7 +60,6 @@ namespace ClassAccesData
         /// <returns></returns>
         public Contact GetContactByIdContact(int idContact)
         {
-            
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
 
@@ -84,14 +77,7 @@ namespace ClassAccesData
                 Contact.NomContact = Convert.ToString(reader.GetString(2));
                 Contact.TelContact = Convert.ToString(reader.GetString(3));
                 Contact.MailContact = Convert.ToString(reader.GetString(4));
-
-
                 return Contact;
-           
-
-
-
-
         }
         /// <summary>
         /// Méthode d'insertion des contacts dans la base de données
@@ -103,10 +89,8 @@ namespace ClassAccesData
         /// <returns></returns>
         public int InsertContact(string NomEntreprise,string NomContact,string TelContact,string MailContact)
         {
-            
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
                 SqlCommand objSelect = new SqlCommand();
                 objSelect.Connection = cn;
                 cn.Open();
@@ -117,8 +101,6 @@ namespace ClassAccesData
                 objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
                 objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
                 return objSelect.ExecuteNonQuery();
-            
-
         }
         /// <summary>
         /// Methode de récupérationdes contacts par le nom de l'entreprise
@@ -130,7 +112,6 @@ namespace ClassAccesData
 
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
             SqlCommand objSelect = new SqlCommand();
             objSelect.Connection = cn;
             cn.Open();
@@ -140,16 +121,13 @@ namespace ClassAccesData
             SqlDataReader reader = objSelect.ExecuteReader();
             Contact Contact = new Contact();
             reader.Read();
-            if (Convert.ToInt32(reader.GetInt32(0)) != 0)
+            if (reader.HasRows)
             {
                 Contact.IdContact = Convert.ToInt32(reader.GetInt32(0));
                 Contact.NomEntreprise = Convert.ToString(reader.GetString(1));
                 Contact.NomContact = Convert.ToString(reader.GetString(2));
                 Contact.TelContact = Convert.ToString(reader.GetString(3));
                 Contact.MailContact = Convert.ToString(reader.GetString(4));
-
-
-               
             }
             else
             {
@@ -159,12 +137,49 @@ namespace ClassAccesData
                 Contact.TelContact = "";
                 Contact.MailContact = "";
             }
-
             return Contact;
-
-
-
-
+        }
+        /// <summary>
+        /// Methode de récupérationdes contacts par toutes les coordonnées du contact
+        /// </summary>
+        /// <param name="NomEnt"></param>
+        /// <param name="NomContact"></param>
+        /// <param name="TelContact"></param>
+        /// <param name="MailContact"></param>
+        /// <returns></returns>
+        public Contact GetContactByEntComplete(string NomEnt, string NomContact,string TelContact, string MailContact)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            cn.Open();
+            objSelect.CommandText = "dbo.GetContactByEntComplete";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@NOMENTREPRISE", NomEnt);
+            objSelect.Parameters.AddWithValue("@NOMCONTACT", NomContact);
+            objSelect.Parameters.AddWithValue("@TELCONTACT", TelContact);
+            objSelect.Parameters.AddWithValue("@MAILCONTACT", MailContact);
+            SqlDataReader reader = objSelect.ExecuteReader();
+            Contact Contact = new Contact();
+            reader.Read();
+            if (reader.HasRows)// si la requete retourne des lignes
+            {
+                Contact.IdContact = Convert.ToInt32(reader.GetInt32(0));
+                Contact.NomEntreprise = Convert.ToString(reader.GetString(1));
+                Contact.NomContact = Convert.ToString(reader.GetString(2));
+                Contact.TelContact = Convert.ToString(reader.GetString(3));
+                Contact.MailContact = Convert.ToString(reader.GetString(4));
+            }
+            else
+            {
+                Contact.IdContact = 0;
+                Contact.NomEntreprise = "";
+                Contact.NomContact = "";
+                Contact.TelContact = "";
+                Contact.MailContact = "";
+            }
+            return Contact;
         }
     }
 }

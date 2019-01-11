@@ -34,8 +34,6 @@ namespace IHM
             AfficheOffreSelect();
             afficheContact();
             afficheCombo();
-
-
         }
 
         /// <summary>
@@ -73,7 +71,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
         int idcontactSelect;
@@ -97,7 +94,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
         /// <summary>
@@ -117,7 +113,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
 
         }
@@ -159,7 +154,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
     }

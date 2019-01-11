@@ -13,7 +13,7 @@ namespace ClassAccesData
     /// <summary>
     /// Class d'accès aux régions
     /// </summary>
-   public class AccesRegion
+    public class AccesRegion
     {
         /// <summary>
         /// Constructeur acces aux régions
@@ -28,34 +28,27 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Region> listeRegion()
         {
-            
-                SqlConnection cn = new SqlConnection();
-                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            objSelect.CommandText = "dbo.GetRegion";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            List<Region> ListeRegion = new List<Region>();
+            DataTable objDataset = new DataTable();
+            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
+            objDataAdapter.Fill(objDataset);
 
-                SqlCommand objSelect = new SqlCommand();
-                objSelect.Connection = cn;
-                objSelect.CommandText = "dbo.GetRegion";
-                objSelect.CommandType = CommandType.StoredProcedure;
+            foreach (DataRow region in objDataset.Rows)
+            {
+                Region Region2 = new Region();
+                Region2.IdRegion = Convert.ToInt32(region["IDREGION"]);
+                Region2.NomRegion = region["NOMREGION"].ToString();
+                ListeRegion.Add(Region2);
 
-                List<Region> ListeRegion = new List<Region>();
+            }
+            return ListeRegion;
 
-                DataTable objDataset = new DataTable();
-                SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
-                objDataAdapter.Fill(objDataset);
-
-                foreach (DataRow region in objDataset.Rows)
-                {
-                    Region Region2 = new Region();
-
-
-                    Region2.IdRegion = Convert.ToInt32(region["IDREGION"]);
-                    Region2.NomRegion = region["NOMREGION"].ToString();
-                    ListeRegion.Add(Region2);
-
-                }
-                return ListeRegion;
-          
         }
     }
 }

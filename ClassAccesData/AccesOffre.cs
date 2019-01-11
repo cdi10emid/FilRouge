@@ -39,7 +39,6 @@ namespace ClassAccesData
 
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
             SqlCommand objSelect = new SqlCommand();
             objSelect.Connection = cn;
             cn.Open();
@@ -65,12 +64,10 @@ namespace ClassAccesData
 
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
             SqlCommand objSelect = new SqlCommand();
             objSelect.Connection = cn;
             objSelect.CommandText = "dbo.AfficheOffre";
             objSelect.CommandType = CommandType.StoredProcedure;
-
             List<Offre> offreRetour = new List<Offre>();
 
             DataTable objDataset = new DataTable();
@@ -112,10 +109,8 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Offre> AfficheOffreByIdPoste(int IdPoste)
         {
-
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
             SqlCommand objSelect = new SqlCommand();
             objSelect.Connection = cn;
            // cn.Open();
@@ -134,7 +129,6 @@ namespace ClassAccesData
             {
 
                 Offre offre2 = new Offre();
-
                 offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
                 offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
                 offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
@@ -151,9 +145,7 @@ namespace ClassAccesData
                 offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
                 offre2.Nomregion = offre["NOMREGION"].ToString();
                 offre2.TypePoste = offre["TYPEPOSTE"].ToString();
-
                 offreRetour.Add(offre2);
-
             }
             return offreRetour;
 
@@ -410,12 +402,9 @@ namespace ClassAccesData
                 offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
                 offre2.Nomregion = offre["NOMREGION"].ToString();
                 offre2.TypePoste = offre["TYPEPOSTE"].ToString();
-
                 offreRetour.Add(offre2);
-
             }
             return offreRetour;
-
         }
     }
 }

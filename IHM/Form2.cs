@@ -20,21 +20,13 @@ namespace IHM
         public Form2()
         {
             InitializeComponent();
-            objControleur = new AccesWebService() ;
-            //AfficheDataGried();
-            //afficheCombo();
+            objControleur = new AccesWebService();
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            
-                afficheCombo();
-                AfficheDataGried();
-
-            
-
-           
+            afficheCombo();
+            AfficheDataGried();
         }
-
         /// <summary>
         /// Méthode affichage de la DataGridView
         /// </summary>
@@ -42,7 +34,7 @@ namespace IHM
         {
             try
             {
-
+                // Récupération de la liste des offres à partir du WebService
                 List<Offre> listOffre = objControleur.WebAfficheOffre();
 
                 dataGridView1.DataSource = listOffre;
@@ -67,16 +59,12 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
-    
-
-     
         public int idOffreSelectransmit { get; set; }
         private void buttonSuprimOffre_Click(object sender, EventArgs e)
         {
-            if((MessageBox.Show("Attention voulez-vous vraiment supprimer cette offre !", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
+            if ((MessageBox.Show("Attention voulez-vous vraiment supprimer cette offre !", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
                 int idOffreSelec = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IDOFFRE"].Value);
                 AccesOffre accesOffre = new AccesOffre();
@@ -90,7 +78,7 @@ namespace IHM
                     MessageBox.Show("Suppression de l'offre impossible !");
                 }
             }
-          
+
 
         }
 
@@ -137,26 +125,14 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
-
         }
-      
-    
-
-      
-
-      
-
-       
-
         private void comboBoxContrat_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 if (dataGridView1.CurrentRow != null)
                 {
-
                     comboBoxPoste.ValueMember = "IDPOSTE";
                     comboBoxContrat.ValueMember = "IDCONTRAT";
                     List<Offre> listOffre = objControleur.WebAfficheOffreByIdPosteIdContrat(comboBoxPoste.SelectedValue.ToString(), comboBoxContrat.SelectedValue.ToString());
@@ -171,10 +147,7 @@ namespace IHM
                         dataGridView1.Columns["IdRegion"].Visible = false;
                         comboBoxRegion.Visible = true;
                         comboBoxContrat.Enabled = false;
-
                     }
-
-
                     if (dataGridView1.CurrentRow != null)
                     {
                         idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
@@ -184,7 +157,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
 
@@ -210,8 +182,6 @@ namespace IHM
                         dataGridView1.Columns["IdRegion"].Visible = false;
                         comboBoxRegion.Enabled = false;
                     }
-
-
                     if (dataGridView1.CurrentRow != null)
                     {
                         idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
@@ -221,7 +191,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
 
@@ -261,7 +230,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
 
@@ -295,7 +263,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
             }
         }
     }

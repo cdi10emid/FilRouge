@@ -29,10 +29,8 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Contrat> ListeContrat()
         {
-
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
             SqlCommand objSelect = new SqlCommand();
             objSelect.Connection = cn;
             objSelect.CommandText = "dbo.GetContrat";
@@ -48,12 +46,9 @@ namespace ClassAccesData
             foreach (DataRow contrat in objDataset.Rows)
             {
                 Contrat Contrat2 = new Contrat();
-
-
                 Contrat2.IdContrat = Convert.ToInt32(contrat["IDCONTRAT"]);
                 Contrat2.TypeContrat = contrat["TYPECONTRAT"].ToString();
                 ListeContrat.Add(Contrat2);
-
             }
             return ListeContrat;
         }
@@ -64,18 +59,15 @@ namespace ClassAccesData
         /// <returns></returns>
         public int ajoutContrat(string TypeContrat)
         {
-           
-                SqlConnection cn = new SqlConnection();
-                cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-                cn.Open();
-                SqlCommand objSelect = new SqlCommand();
-                objSelect.Connection = cn;
-                objSelect.CommandText = "dbo.InsertContrat";
-                objSelect.CommandType = CommandType.StoredProcedure;
-                objSelect.Parameters.AddWithValue("@TYPECONTRAT", TypeContrat);
-                return objSelect.ExecuteNonQuery();
-          
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+            cn.Open();
+            SqlCommand objSelect = new SqlCommand();
+            objSelect.Connection = cn;
+            objSelect.CommandText = "dbo.InsertContrat";
+            objSelect.CommandType = CommandType.StoredProcedure;
+            objSelect.Parameters.AddWithValue("@TYPECONTRAT", TypeContrat);
+            return objSelect.ExecuteNonQuery();
         }
-
     }
 }

@@ -79,14 +79,10 @@ namespace Controleur
         }
         public List<Offre> WebAfficheOffreByDate(string Debut,string Fin)
         {
-
-            //string d1 = Debut.ToString("ddMMyyyy");
-            //string d2 = Fin.ToString("ddMMyyyy");
             List<Offre> listeOffre = null;
             var request = new RestRequest("tridate/{Debut}/{Fin}", Method.GET);
             request.AddUrlSegment("Debut", Debut.ToString());
             request.AddUrlSegment("Fin", Fin.ToString());
-
             var response = client.Execute<List<Offre>>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {

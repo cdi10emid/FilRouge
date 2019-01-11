@@ -28,11 +28,8 @@ namespace ClassAccesData
         /// <returns></returns>
         public List<Poste> listePoste()
         {
-            
                 SqlConnection cn = new SqlConnection();
-
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
-
                 cn.Open();
                 SqlCommand objSelect = new SqlCommand();
                 objSelect.Connection = cn;
@@ -49,12 +46,9 @@ namespace ClassAccesData
                 foreach (DataRow poste in objDataset.Rows)
                 {
                     Poste Poste2 = new Poste();
-
-
                     Poste2.Idposte = Convert.ToInt32(poste["IDPOSTE"]);
                     Poste2.TypePoste = poste["TYPEPOSTE"].ToString();
                     ListePoste.Add(Poste2);
-
                 }
                 return ListePoste;
           
@@ -66,7 +60,6 @@ namespace ClassAccesData
         /// <returns></returns>
         public int ajoutPoste(string TypePoste)
         {
-           
                 SqlConnection cn = new SqlConnection();
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
                 cn.Open();
@@ -76,8 +69,6 @@ namespace ClassAccesData
                 objSelect.CommandType = CommandType.StoredProcedure;
                 objSelect.Parameters.AddWithValue("@TYPEPOSTE", TypePoste);
                 return objSelect.ExecuteNonQuery();
-         
-
         }
     }
 }
