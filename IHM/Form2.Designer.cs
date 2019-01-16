@@ -34,23 +34,25 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonSuprimOffre = new System.Windows.Forms.Button();
+            this.buttonModifOffre = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxPoste = new System.Windows.Forms.ComboBox();
             this.comboBoxContrat = new System.Windows.Forms.ComboBox();
             this.comboBoxRegion = new System.Windows.Forms.ComboBox();
+            this.buttonmAJ = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerDateDebut = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDateFin = new System.Windows.Forms.DateTimePicker();
+            this.buttonDate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxMois = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonSuprimOffre = new System.Windows.Forms.Button();
-            this.buttonModifOffre = new System.Windows.Forms.Button();
-            this.buttonmAJ = new System.Windows.Forms.Button();
-            this.buttonDate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonQuitter = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -115,10 +117,42 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.Controls.Add(this.buttonSuprimOffre);
             this.flowLayoutPanel2.Controls.Add(this.buttonModifOffre);
+            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.buttonQuitter);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 802);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1381, 94);
             this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // buttonSuprimOffre
+            // 
+            this.buttonSuprimOffre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSuprimOffre.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonSuprimOffre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSuprimOffre.Location = new System.Drawing.Point(4, 5);
+            this.buttonSuprimOffre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSuprimOffre.Name = "buttonSuprimOffre";
+            this.buttonSuprimOffre.Size = new System.Drawing.Size(416, 33);
+            this.buttonSuprimOffre.TabIndex = 0;
+            this.buttonSuprimOffre.Text = "Supprimer l\'offre sélectionnée";
+            this.toolTip1.SetToolTip(this.buttonSuprimOffre, "Supprimer l\'offre sélectionnée");
+            this.buttonSuprimOffre.UseVisualStyleBackColor = true;
+            this.buttonSuprimOffre.Click += new System.EventHandler(this.buttonSuprimOffre_Click);
+            // 
+            // buttonModifOffre
+            // 
+            this.buttonModifOffre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonModifOffre.Image = global::IHM.Properties.Resources.Symbol_Check;
+            this.buttonModifOffre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonModifOffre.Location = new System.Drawing.Point(428, 5);
+            this.buttonModifOffre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonModifOffre.Name = "buttonModifOffre";
+            this.buttonModifOffre.Size = new System.Drawing.Size(416, 33);
+            this.buttonModifOffre.TabIndex = 1;
+            this.buttonModifOffre.Text = "Modifier l\'offre sélectionnée";
+            this.toolTip1.SetToolTip(this.buttonModifOffre, "Modifier l\'offre sélectionnée");
+            this.buttonModifOffre.UseVisualStyleBackColor = true;
+            this.buttonModifOffre.Click += new System.EventHandler(this.buttonModifOffre_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -182,6 +216,21 @@
             this.comboBoxRegion.Visible = false;
             this.comboBoxRegion.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegion_SelectedIndexChanged);
             // 
+            // buttonmAJ
+            // 
+            this.buttonmAJ.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonmAJ.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonmAJ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonmAJ.Location = new System.Drawing.Point(1040, 2);
+            this.buttonmAJ.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
+            this.buttonmAJ.Name = "buttonmAJ";
+            this.buttonmAJ.Size = new System.Drawing.Size(331, 29);
+            this.buttonmAJ.TabIndex = 2;
+            this.buttonmAJ.Text = "Annulation des filtres";
+            this.toolTip1.SetToolTip(this.buttonmAJ, "Recharge la liste après une modification");
+            this.buttonmAJ.UseVisualStyleBackColor = true;
+            this.buttonmAJ.Click += new System.EventHandler(this.buttonmAJ_Click);
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -205,6 +254,21 @@
             this.dateTimePickerDateFin.Name = "dateTimePickerDateFin";
             this.dateTimePickerDateFin.Size = new System.Drawing.Size(200, 26);
             this.dateTimePickerDateFin.TabIndex = 8;
+            // 
+            // buttonDate
+            // 
+            this.buttonDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonDate.Image = global::IHM.Properties.Resources.Symbol_Check;
+            this.buttonDate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDate.Location = new System.Drawing.Point(835, 35);
+            this.buttonDate.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
+            this.buttonDate.Name = "buttonDate";
+            this.buttonDate.Size = new System.Drawing.Size(349, 29);
+            this.buttonDate.TabIndex = 9;
+            this.buttonDate.Text = "Sélectionner les offres par date";
+            this.toolTip1.SetToolTip(this.buttonDate, "Recharge la liste après une modification");
+            this.buttonDate.UseVisualStyleBackColor = true;
+            this.buttonDate.Click += new System.EventHandler(this.buttonDate_Click);
             // 
             // label3
             // 
@@ -237,66 +301,6 @@
             this.label4.Text = " derniers mois";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // buttonSuprimOffre
-            // 
-            this.buttonSuprimOffre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSuprimOffre.Image = global::IHM.Properties.Resources.Symbol_Delete;
-            this.buttonSuprimOffre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSuprimOffre.Location = new System.Drawing.Point(4, 5);
-            this.buttonSuprimOffre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonSuprimOffre.Name = "buttonSuprimOffre";
-            this.buttonSuprimOffre.Size = new System.Drawing.Size(416, 33);
-            this.buttonSuprimOffre.TabIndex = 0;
-            this.buttonSuprimOffre.Text = "Supprimer l\'offre sélectionnée";
-            this.toolTip1.SetToolTip(this.buttonSuprimOffre, "Supprimer l\'offre sélectionnée");
-            this.buttonSuprimOffre.UseVisualStyleBackColor = true;
-            this.buttonSuprimOffre.Click += new System.EventHandler(this.buttonSuprimOffre_Click);
-            // 
-            // buttonModifOffre
-            // 
-            this.buttonModifOffre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonModifOffre.Image = global::IHM.Properties.Resources.Symbol_Check;
-            this.buttonModifOffre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModifOffre.Location = new System.Drawing.Point(428, 5);
-            this.buttonModifOffre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonModifOffre.Name = "buttonModifOffre";
-            this.buttonModifOffre.Size = new System.Drawing.Size(416, 33);
-            this.buttonModifOffre.TabIndex = 1;
-            this.buttonModifOffre.Text = "Modifier l\'offre sélectionnée";
-            this.toolTip1.SetToolTip(this.buttonModifOffre, "Modifier l\'offre sélectionnée");
-            this.buttonModifOffre.UseVisualStyleBackColor = true;
-            this.buttonModifOffre.Click += new System.EventHandler(this.buttonModifOffre_Click);
-            // 
-            // buttonmAJ
-            // 
-            this.buttonmAJ.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonmAJ.Image = global::IHM.Properties.Resources.Symbol_Delete;
-            this.buttonmAJ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonmAJ.Location = new System.Drawing.Point(1040, 2);
-            this.buttonmAJ.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
-            this.buttonmAJ.Name = "buttonmAJ";
-            this.buttonmAJ.Size = new System.Drawing.Size(331, 29);
-            this.buttonmAJ.TabIndex = 2;
-            this.buttonmAJ.Text = "Annulation des filtres";
-            this.toolTip1.SetToolTip(this.buttonmAJ, "Recharge la liste après une modification");
-            this.buttonmAJ.UseVisualStyleBackColor = true;
-            this.buttonmAJ.Click += new System.EventHandler(this.buttonmAJ_Click);
-            // 
-            // buttonDate
-            // 
-            this.buttonDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonDate.Image = global::IHM.Properties.Resources.Symbol_Check;
-            this.buttonDate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDate.Location = new System.Drawing.Point(835, 35);
-            this.buttonDate.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
-            this.buttonDate.Name = "buttonDate";
-            this.buttonDate.Size = new System.Drawing.Size(349, 29);
-            this.buttonDate.TabIndex = 9;
-            this.buttonDate.Text = "Sélectionner les offres par date";
-            this.toolTip1.SetToolTip(this.buttonDate, "Recharge la liste après une modification");
-            this.buttonDate.UseVisualStyleBackColor = true;
-            this.buttonDate.Click += new System.EventHandler(this.buttonDate_Click);
-            // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -311,6 +315,28 @@
             this.toolTip1.SetToolTip(this.button1, "Recharge la liste après une modification");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonQuitter
+            // 
+            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuitter.Location = new System.Drawing.Point(957, 5);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(416, 33);
+            this.buttonQuitter.TabIndex = 5;
+            this.buttonQuitter.Text = "Quitter";
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Validation de l\'offre");
+            this.buttonQuitter.UseVisualStyleBackColor = false;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(851, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 33);
+            this.label5.TabIndex = 6;
             // 
             // Form2
             // 
@@ -349,7 +375,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonmAJ;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePickerDateDebut;
         private System.Windows.Forms.DateTimePicker dateTimePickerDateFin;
@@ -358,5 +383,8 @@
         private System.Windows.Forms.TextBox textBoxMois;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonmAJ;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonQuitter;
     }
 }

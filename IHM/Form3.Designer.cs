@@ -54,12 +54,12 @@
             this.textBoxMailContact = new System.Windows.Forms.TextBox();
             this.textBoxLienWeb = new System.Windows.Forms.TextBox();
             this.buttonValidOffre = new System.Windows.Forms.Button();
+            this.textBoxNomEntreprise = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxNomEntreprise = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonQuitter = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -361,6 +362,17 @@
             this.buttonValidOffre.UseVisualStyleBackColor = false;
             this.buttonValidOffre.Click += new System.EventHandler(this.buttonValidOffre_Click);
             // 
+            // textBoxNomEntreprise
+            // 
+            this.textBoxNomEntreprise.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxNomEntreprise.Location = new System.Drawing.Point(347, 3);
+            this.textBoxNomEntreprise.Name = "textBoxNomEntreprise";
+            this.textBoxNomEntreprise.ReadOnly = true;
+            this.textBoxNomEntreprise.Size = new System.Drawing.Size(333, 26);
+            this.textBoxNomEntreprise.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.textBoxNomEntreprise, "Le nom de l\'entreprise n\'est pas modifiable.En cas d\'erreur merci d\'éffacer et de" +
+        " saisir à nouveau l\'offre");
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -446,17 +458,6 @@
             this.label8.Text = "Nom de l\'entreprise";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxNomEntreprise
-            // 
-            this.textBoxNomEntreprise.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxNomEntreprise.Location = new System.Drawing.Point(347, 3);
-            this.textBoxNomEntreprise.Name = "textBoxNomEntreprise";
-            this.textBoxNomEntreprise.ReadOnly = true;
-            this.textBoxNomEntreprise.Size = new System.Drawing.Size(333, 26);
-            this.textBoxNomEntreprise.TabIndex = 21;
-            this.toolTip1.SetToolTip(this.textBoxNomEntreprise, "Le nom de l\'entreprise n\'est pas modifiable.En cas d\'erreur merci d\'éffacer et de" +
-        " saisir à nouveau l\'offre");
-            // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -505,6 +506,7 @@
             // 
             this.flowLayoutPanel4.Controls.Add(this.buttonValidOffre);
             this.flowLayoutPanel4.Controls.Add(this.label13);
+            this.flowLayoutPanel4.Controls.Add(this.buttonQuitter);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(887, 7);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(7);
@@ -517,7 +519,7 @@
             this.label13.Location = new System.Drawing.Point(4, 44);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(284, 53);
+            this.label13.Size = new System.Drawing.Size(284, 91);
             this.label13.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -572,6 +574,21 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.85174F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(775, 365);
             this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // buttonQuitter
+            // 
+            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuitter.Location = new System.Drawing.Point(4, 140);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
+            this.buttonQuitter.TabIndex = 4;
+            this.buttonQuitter.Text = "Quitter";
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Validation de l\'offre");
+            this.buttonQuitter.UseVisualStyleBackColor = false;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
             // Form3
             // 
@@ -644,5 +661,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button buttonQuitter;
     }
 }

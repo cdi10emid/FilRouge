@@ -145,6 +145,7 @@ namespace IHM
                 if (retour > 1)
                 {
                     MessageBox.Show("Mise à jour de l'offre effectuée !");
+
                 }
                 else
                 {
@@ -155,6 +156,11 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+        }
+
+        private void buttonQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
