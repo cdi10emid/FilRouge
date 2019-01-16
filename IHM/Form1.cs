@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.DirectoryServices.AccountManagement;
 
 namespace IHM
 {
@@ -26,6 +27,8 @@ namespace IHM
             afficheCombo();
             afficheContact();
             repere = 1;
+            labelPrenom.Text = UserPrincipal.Current.GivenName;
+            labelNom.Text = UserPrincipal.Current.Surname;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -81,6 +81,21 @@
       <Project>{be1802e2-3861-4c73-8214-5d2a6ae1af91}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\ClassMetier\ClassMetier.csproj">
+      <Name>ClassMetier</Name>
+      <Project>{f37d2c91-c9af-45c3-ae2c-1170c81bff43}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Controleur\Controleur.csproj">
+      <Name>Controleur</Name>
+      <Project>{110a196e-c89b-414c-a6a5-326b1da16741}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\WebService\WebService.csproj">
+      <Name>WebService</Name>
+      <Project>{d2b48e24-5e6d-4fc8-83a9-dbd18ea1015e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <!-- Import the SHFB build targets -->
   <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />

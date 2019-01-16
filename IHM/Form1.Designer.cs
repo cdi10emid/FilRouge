@@ -48,6 +48,8 @@
             this.buttonValidOffre = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.buttonListOffres = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.buttonQuitter = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -71,8 +73,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBoxTitre = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonQuitter = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
+            this.labelPrenom = new System.Windows.Forms.Label();
+            this.labelNom = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -309,6 +311,28 @@
             this.buttonListOffres.UseVisualStyleBackColor = true;
             this.buttonListOffres.Click += new System.EventHandler(this.buttonListOffres_Click);
             // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(3, 118);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(300, 34);
+            this.label15.TabIndex = 5;
+            // 
+            // buttonQuitter
+            // 
+            this.buttonQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuitter.Location = new System.Drawing.Point(3, 156);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
+            this.buttonQuitter.TabIndex = 4;
+            this.buttonQuitter.Text = "Quitter";
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Accès à la liste des offres");
+            this.buttonQuitter.UseVisualStyleBackColor = true;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -486,6 +510,8 @@
             this.flowLayoutPanel2.Controls.Add(this.label6);
             this.flowLayoutPanel2.Controls.Add(this.button2);
             this.flowLayoutPanel2.Controls.Add(this.pictureBox1);
+            this.flowLayoutPanel2.Controls.Add(this.labelPrenom);
+            this.flowLayoutPanel2.Controls.Add(this.labelNom);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(360, 5);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -605,27 +631,21 @@
             this.textBoxTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxTitre, "Saisissez le titre de l\'offre");
             // 
-            // buttonQuitter
+            // labelPrenom
             // 
-            this.buttonQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
-            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonQuitter.Location = new System.Drawing.Point(3, 156);
-            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonQuitter.Name = "buttonQuitter";
-            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
-            this.buttonQuitter.TabIndex = 4;
-            this.buttonQuitter.Text = "Quitter";
-            this.toolTip1.SetToolTip(this.buttonQuitter, "Accès à la liste des offres");
-            this.buttonQuitter.UseVisualStyleBackColor = true;
-            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            this.labelPrenom.Location = new System.Drawing.Point(3, 277);
+            this.labelPrenom.Name = "labelPrenom";
+            this.labelPrenom.Size = new System.Drawing.Size(192, 32);
+            this.labelPrenom.TabIndex = 5;
+            this.labelPrenom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label15
+            // labelNom
             // 
-            this.label15.Location = new System.Drawing.Point(3, 118);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(300, 34);
-            this.label15.TabIndex = 5;
+            this.labelNom.Location = new System.Drawing.Point(3, 309);
+            this.labelNom.Name = "labelNom";
+            this.labelNom.Size = new System.Drawing.Size(192, 32);
+            this.labelNom.TabIndex = 6;
+            this.labelNom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -705,6 +725,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button buttonQuitter;
+        private System.Windows.Forms.Label labelPrenom;
+        private System.Windows.Forms.Label labelNom;
     }
 }
 
