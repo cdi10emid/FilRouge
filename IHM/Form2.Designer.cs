@@ -34,19 +34,23 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonSuprimOffre = new System.Windows.Forms.Button();
-            this.buttonModifOffre = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonmAJ = new System.Windows.Forms.Button();
             this.comboBoxPoste = new System.Windows.Forms.ComboBox();
             this.comboBoxContrat = new System.Windows.Forms.ComboBox();
             this.comboBoxRegion = new System.Windows.Forms.ComboBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerDateDebut = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDateFin = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxMois = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonSuprimOffre = new System.Windows.Forms.Button();
+            this.buttonModifOffre = new System.Windows.Forms.Button();
+            this.buttonmAJ = new System.Windows.Forms.Button();
             this.buttonDate = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -65,8 +69,8 @@
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.26408F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.73592F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.76846F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.23154F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1387, 899);
@@ -93,13 +97,13 @@
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 120);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1382, 706);
+            this.dataGridView1.Size = new System.Drawing.Size(1382, 678);
             this.dataGridView1.TabIndex = 0;
             this.toolTip1.SetToolTip(this.dataGridView1, "Liste des offres");
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -115,6 +119,123 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1381, 94);
             this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxPoste);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxContrat);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxRegion);
+            this.flowLayoutPanel1.Controls.Add(this.buttonmAJ);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.dateTimePickerDateDebut);
+            this.flowLayoutPanel1.Controls.Add(this.dateTimePickerDateFin);
+            this.flowLayoutPanel1.Controls.Add(this.buttonDate);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxMois);
+            this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1381, 112);
+            this.flowLayoutPanel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(416, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Filtres des offres";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBoxPoste
+            // 
+            this.comboBoxPoste.FormattingEnabled = true;
+            this.comboBoxPoste.Location = new System.Drawing.Point(425, 3);
+            this.comboBoxPoste.Name = "comboBoxPoste";
+            this.comboBoxPoste.Size = new System.Drawing.Size(201, 27);
+            this.comboBoxPoste.TabIndex = 3;
+            this.comboBoxPoste.SelectedIndexChanged += new System.EventHandler(this.comboBoxPoste_SelectedIndexChanged);
+            // 
+            // comboBoxContrat
+            // 
+            this.comboBoxContrat.FormattingEnabled = true;
+            this.comboBoxContrat.Location = new System.Drawing.Point(632, 3);
+            this.comboBoxContrat.Name = "comboBoxContrat";
+            this.comboBoxContrat.Size = new System.Drawing.Size(199, 27);
+            this.comboBoxContrat.TabIndex = 5;
+            this.comboBoxContrat.Visible = false;
+            this.comboBoxContrat.SelectedIndexChanged += new System.EventHandler(this.comboBoxContrat_SelectedIndexChanged);
+            // 
+            // comboBoxRegion
+            // 
+            this.comboBoxRegion.FormattingEnabled = true;
+            this.comboBoxRegion.Location = new System.Drawing.Point(837, 3);
+            this.comboBoxRegion.Name = "comboBoxRegion";
+            this.comboBoxRegion.Size = new System.Drawing.Size(199, 27);
+            this.comboBoxRegion.TabIndex = 4;
+            this.comboBoxRegion.Visible = false;
+            this.comboBoxRegion.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegion_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Location = new System.Drawing.Point(3, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(416, 33);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Filtres par dates de parution";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dateTimePickerDateDebut
+            // 
+            this.dateTimePickerDateDebut.Location = new System.Drawing.Point(425, 36);
+            this.dateTimePickerDateDebut.Name = "dateTimePickerDateDebut";
+            this.dateTimePickerDateDebut.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerDateDebut.TabIndex = 7;
+            // 
+            // dateTimePickerDateFin
+            // 
+            this.dateTimePickerDateFin.Location = new System.Drawing.Point(631, 36);
+            this.dateTimePickerDateFin.Name = "dateTimePickerDateFin";
+            this.dateTimePickerDateFin.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePickerDateFin.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Location = new System.Drawing.Point(3, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(417, 33);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Sélectionner  les offres des";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxMois
+            // 
+            this.textBoxMois.Location = new System.Drawing.Point(426, 69);
+            this.textBoxMois.MaxLength = 2;
+            this.textBoxMois.Name = "textBoxMois";
+            this.textBoxMois.Size = new System.Drawing.Size(44, 26);
+            this.textBoxMois.TabIndex = 11;
+            this.textBoxMois.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.textBoxMois, "Nombre de mois limité à 99");
+            this.textBoxMois.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSemaine_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.Location = new System.Drawing.Point(476, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(355, 33);
+            this.label4.TabIndex = 12;
+            this.label4.Text = " derniers mois";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonSuprimOffre
             // 
@@ -146,107 +267,25 @@
             this.buttonModifOffre.UseVisualStyleBackColor = true;
             this.buttonModifOffre.Click += new System.EventHandler(this.buttonModifOffre_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.comboBoxPoste);
-            this.flowLayoutPanel1.Controls.Add(this.comboBoxContrat);
-            this.flowLayoutPanel1.Controls.Add(this.comboBoxRegion);
-            this.flowLayoutPanel1.Controls.Add(this.buttonmAJ);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.dateTimePickerDateDebut);
-            this.flowLayoutPanel1.Controls.Add(this.dateTimePickerDateFin);
-            this.flowLayoutPanel1.Controls.Add(this.buttonDate);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1381, 84);
-            this.flowLayoutPanel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(416, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Filtres des offres";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // buttonmAJ
             // 
             this.buttonmAJ.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonmAJ.Image = global::IHM.Properties.Resources.Symbol_Refresh;
+            this.buttonmAJ.Image = global::IHM.Properties.Resources.Symbol_Delete;
             this.buttonmAJ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonmAJ.Location = new System.Drawing.Point(1027, 2);
+            this.buttonmAJ.Location = new System.Drawing.Point(1040, 2);
             this.buttonmAJ.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
             this.buttonmAJ.Name = "buttonmAJ";
-            this.buttonmAJ.Size = new System.Drawing.Size(349, 29);
+            this.buttonmAJ.Size = new System.Drawing.Size(331, 29);
             this.buttonmAJ.TabIndex = 2;
             this.buttonmAJ.Text = "Annulation des filtres";
             this.toolTip1.SetToolTip(this.buttonmAJ, "Recharge la liste après une modification");
             this.buttonmAJ.UseVisualStyleBackColor = true;
             this.buttonmAJ.Click += new System.EventHandler(this.buttonmAJ_Click);
             // 
-            // comboBoxPoste
-            // 
-            this.comboBoxPoste.FormattingEnabled = true;
-            this.comboBoxPoste.Location = new System.Drawing.Point(425, 3);
-            this.comboBoxPoste.Name = "comboBoxPoste";
-            this.comboBoxPoste.Size = new System.Drawing.Size(201, 27);
-            this.comboBoxPoste.TabIndex = 3;
-            this.comboBoxPoste.SelectedIndexChanged += new System.EventHandler(this.comboBoxPoste_SelectedIndexChanged);
-            // 
-            // comboBoxContrat
-            // 
-            this.comboBoxContrat.FormattingEnabled = true;
-            this.comboBoxContrat.Location = new System.Drawing.Point(632, 3);
-            this.comboBoxContrat.Name = "comboBoxContrat";
-            this.comboBoxContrat.Size = new System.Drawing.Size(194, 27);
-            this.comboBoxContrat.TabIndex = 5;
-            this.comboBoxContrat.Visible = false;
-            this.comboBoxContrat.SelectedIndexChanged += new System.EventHandler(this.comboBoxContrat_SelectedIndexChanged);
-            // 
-            // comboBoxRegion
-            // 
-            this.comboBoxRegion.FormattingEnabled = true;
-            this.comboBoxRegion.Location = new System.Drawing.Point(832, 3);
-            this.comboBoxRegion.Name = "comboBoxRegion";
-            this.comboBoxRegion.Size = new System.Drawing.Size(191, 27);
-            this.comboBoxRegion.TabIndex = 4;
-            this.comboBoxRegion.Visible = false;
-            this.comboBoxRegion.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegion_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.Location = new System.Drawing.Point(3, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(416, 33);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Filtres par dates de parution";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dateTimePickerDateDebut
-            // 
-            this.dateTimePickerDateDebut.Location = new System.Drawing.Point(425, 36);
-            this.dateTimePickerDateDebut.Name = "dateTimePickerDateDebut";
-            this.dateTimePickerDateDebut.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePickerDateDebut.TabIndex = 7;
-            // 
-            // dateTimePickerDateFin
-            // 
-            this.dateTimePickerDateFin.Location = new System.Drawing.Point(631, 36);
-            this.dateTimePickerDateFin.Name = "dateTimePickerDateFin";
-            this.dateTimePickerDateFin.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePickerDateFin.TabIndex = 8;
-            // 
             // buttonDate
             // 
             this.buttonDate.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonDate.Image = global::IHM.Properties.Resources.Symbol_Refresh;
+            this.buttonDate.Image = global::IHM.Properties.Resources.Symbol_Check;
             this.buttonDate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDate.Location = new System.Drawing.Point(835, 35);
             this.buttonDate.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
@@ -257,6 +296,21 @@
             this.toolTip1.SetToolTip(this.buttonDate, "Recharge la liste après une modification");
             this.buttonDate.UseVisualStyleBackColor = true;
             this.buttonDate.Click += new System.EventHandler(this.buttonDate_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button1.Image = global::IHM.Properties.Resources.Symbol_Check;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(835, 69);
+            this.button1.Margin = new System.Windows.Forms.Padding(1, 2, 4, 1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(349, 27);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Sélectionner";
+            this.toolTip1.SetToolTip(this.button1, "Recharge la liste après une modification");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form2
             // 
@@ -277,6 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +354,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDateDebut;
         private System.Windows.Forms.DateTimePicker dateTimePickerDateFin;
         private System.Windows.Forms.Button buttonDate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxMois;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }
