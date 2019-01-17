@@ -41,7 +41,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::IHM.Properties.Resources.job_channel1;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.Image = global::IHM.Properties.Resources.job_channel2;
             this.pictureBox1.Location = new System.Drawing.Point(26, 23);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pictureBox1.Name = "pictureBox1";
@@ -81,7 +82,7 @@
             this.labelNom.Location = new System.Drawing.Point(16, 832);
             this.labelNom.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.labelNom.Name = "labelNom";
-            this.labelNom.Size = new System.Drawing.Size(366, 44);
+            this.labelNom.Size = new System.Drawing.Size(270, 44);
             this.labelNom.TabIndex = 3;
             // 
             // labelPrenom
@@ -90,7 +91,7 @@
             this.labelPrenom.Location = new System.Drawing.Point(15, 766);
             this.labelPrenom.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.labelPrenom.Name = "labelPrenom";
-            this.labelPrenom.Size = new System.Drawing.Size(367, 44);
+            this.labelPrenom.Size = new System.Drawing.Size(271, 44);
             this.labelPrenom.TabIndex = 4;
             // 
             // button1

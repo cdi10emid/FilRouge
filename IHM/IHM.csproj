@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -242,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network %282%29.ico" />
+    <None Include="Resources\job_channel2.jpg" />
     <None Include="Resources\image de fond.jpg" />
     <None Include="Resources\job_channel1.jpg" />
     <None Include="Resources\job_channel.jpg" />
