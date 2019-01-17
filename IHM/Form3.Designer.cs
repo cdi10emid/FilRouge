@@ -55,6 +55,7 @@
             this.textBoxLienWeb = new System.Windows.Forms.TextBox();
             this.buttonValidOffre = new System.Windows.Forms.Button();
             this.textBoxNomEntreprise = new System.Windows.Forms.TextBox();
+            this.buttonQuitter = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,7 +70,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonQuitter = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -373,6 +373,21 @@
             this.toolTip1.SetToolTip(this.textBoxNomEntreprise, "Le nom de l\'entreprise n\'est pas modifiable.En cas d\'erreur merci d\'éffacer et de" +
         " saisir à nouveau l\'offre");
             // 
+            // buttonQuitter
+            // 
+            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuitter.Location = new System.Drawing.Point(4, 140);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
+            this.buttonQuitter.TabIndex = 4;
+            this.buttonQuitter.Text = "Quitter";
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Validation de l\'offre");
+            this.buttonQuitter.UseVisualStyleBackColor = false;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -575,21 +590,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(775, 365);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
-            // buttonQuitter
-            // 
-            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
-            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonQuitter.Location = new System.Drawing.Point(4, 140);
-            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonQuitter.Name = "buttonQuitter";
-            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
-            this.buttonQuitter.TabIndex = 4;
-            this.buttonQuitter.Text = "Quitter";
-            this.toolTip1.SetToolTip(this.buttonQuitter, "Validation de l\'offre");
-            this.buttonQuitter.UseVisualStyleBackColor = false;
-            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -602,6 +602,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1403, 938);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Modification des offres";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);

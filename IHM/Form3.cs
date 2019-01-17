@@ -31,6 +31,7 @@ namespace IHM
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(0, 0);
             AfficheOffreSelect();
             afficheContact();
             afficheCombo();

@@ -36,6 +36,8 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSuprimOffre = new System.Windows.Forms.Button();
             this.buttonModifOffre = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.buttonQuitter = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxPoste = new System.Windows.Forms.ComboBox();
@@ -51,8 +53,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonQuitter = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -109,6 +109,7 @@
             this.dataGridView1.TabIndex = 0;
             this.toolTip1.SetToolTip(this.dataGridView1, "Liste des offres");
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.buttonModifOffre_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -153,6 +154,28 @@
             this.toolTip1.SetToolTip(this.buttonModifOffre, "Modifier l\'offre sélectionnée");
             this.buttonModifOffre.UseVisualStyleBackColor = true;
             this.buttonModifOffre.Click += new System.EventHandler(this.buttonModifOffre_Click);
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(851, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 33);
+            this.label5.TabIndex = 6;
+            // 
+            // buttonQuitter
+            // 
+            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuitter.Location = new System.Drawing.Point(957, 5);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(416, 33);
+            this.buttonQuitter.TabIndex = 5;
+            this.buttonQuitter.Text = "Quitter";
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Validation de l\'offre");
+            this.buttonQuitter.UseVisualStyleBackColor = false;
+            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -316,28 +339,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // buttonQuitter
-            // 
-            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
-            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonQuitter.Location = new System.Drawing.Point(957, 5);
-            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonQuitter.Name = "buttonQuitter";
-            this.buttonQuitter.Size = new System.Drawing.Size(416, 33);
-            this.buttonQuitter.TabIndex = 5;
-            this.buttonQuitter.Text = "Quitter";
-            this.toolTip1.SetToolTip(this.buttonQuitter, "Validation de l\'offre");
-            this.buttonQuitter.UseVisualStyleBackColor = false;
-            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(851, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 33);
-            this.label5.TabIndex = 6;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -351,6 +352,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1403, 938);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Liste des offres";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -25,6 +25,7 @@ namespace IHM
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(0, 0);
             afficheCombo();
             AfficheDataGried();
             

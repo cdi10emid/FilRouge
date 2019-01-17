@@ -68,13 +68,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelPrenom = new System.Windows.Forms.Label();
+            this.labelNom = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBoxTitre = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.labelPrenom = new System.Windows.Forms.Label();
-            this.labelNom = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -577,6 +577,22 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // labelPrenom
+            // 
+            this.labelPrenom.Location = new System.Drawing.Point(3, 277);
+            this.labelPrenom.Name = "labelPrenom";
+            this.labelPrenom.Size = new System.Drawing.Size(192, 32);
+            this.labelPrenom.TabIndex = 5;
+            this.labelPrenom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelNom
+            // 
+            this.labelNom.Location = new System.Drawing.Point(3, 309);
+            this.labelNom.Name = "labelNom";
+            this.labelNom.Size = new System.Drawing.Size(192, 32);
+            this.labelNom.TabIndex = 6;
+            this.labelNom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -631,22 +647,6 @@
             this.textBoxTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxTitre, "Saisissez le titre de l\'offre");
             // 
-            // labelPrenom
-            // 
-            this.labelPrenom.Location = new System.Drawing.Point(3, 277);
-            this.labelPrenom.Name = "labelPrenom";
-            this.labelPrenom.Size = new System.Drawing.Size(192, 32);
-            this.labelPrenom.TabIndex = 5;
-            this.labelPrenom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelNom
-            // 
-            this.labelNom.Location = new System.Drawing.Point(3, 309);
-            this.labelNom.Name = "labelNom";
-            this.labelNom.Size = new System.Drawing.Size(192, 32);
-            this.labelNom.TabIndex = 6;
-            this.labelNom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -660,6 +660,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1403, 938);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Gestion des offres";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
