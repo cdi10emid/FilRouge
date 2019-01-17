@@ -35,6 +35,7 @@ namespace IHM
         /// </summary>
         private void AfficheDataGried()
         {
+            UseWaitCursor = true;
             try
             {
                 // Récupération de la liste des offres à partir du WebService
@@ -63,6 +64,7 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
         public int idOffreSelectransmit { get; set; }
         private void buttonSuprimOffre_Click(object sender, EventArgs e)
@@ -108,6 +110,7 @@ namespace IHM
         /// </summary>
         private void afficheCombo()
         {
+            UseWaitCursor = true;
             try
             {
                 AccesPoste accesPoste = new AccesPoste();
@@ -135,9 +138,11 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
         private void comboBoxContrat_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             try
             {
                 if (dataGridView1.CurrentRow != null)
@@ -167,10 +172,12 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
 
         private void comboBoxRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             try
             {
                 if (dataGridView1.CurrentRow != null)
@@ -201,6 +208,7 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -213,6 +221,7 @@ namespace IHM
 
         private void comboBoxPoste_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             try
             {
                 if (dataGridView1.CurrentRow != null)
@@ -241,10 +250,12 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
 
         private void buttonDate_Click(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             try
             {
                 AccesOffre accesOffre = new AccesOffre();
@@ -274,6 +285,7 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
         public void chiffre(System.Windows.Forms.KeyPressEventArgs e)
         {
@@ -283,6 +295,7 @@ namespace IHM
 
         private void button1_Click(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             try
             {
                 AccesOffre accesOffre = new AccesOffre();
@@ -315,6 +328,7 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
 
         private void textBoxSemaine_KeyPress(object sender, KeyPressEventArgs e)

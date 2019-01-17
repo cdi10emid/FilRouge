@@ -152,7 +152,7 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                this.Close();
+                
             }
         }
 
@@ -271,7 +271,7 @@ namespace IHM
 
         private void buttonQuitter_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

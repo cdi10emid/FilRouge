@@ -15,6 +15,7 @@ namespace IHM
 {
     public partial class Form3 : Form
     {
+        public static System.Windows.Forms.Cursor WaitCursor { get; }
         private int _idOffreSeelect;
         /// <summary>
         /// Constructeur de la form3 avec récupération de l'offre sélectionnée dans la DataGridView de la form 2
@@ -42,6 +43,7 @@ namespace IHM
         /// </summary>
         private void afficheCombo()
         {
+            UseWaitCursor = true;
             try
             {
                 AccesOffre accesOffre = new AccesOffre();
@@ -73,6 +75,7 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
         int idcontactSelect;
         /// <summary>
@@ -80,6 +83,7 @@ namespace IHM
         /// </summary>
         public void AfficheOffreSelect()
         {
+            UseWaitCursor = true;
             try
             {
                 AccesOffre accesOffre = new AccesOffre();
@@ -96,12 +100,14 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
         /// <summary>
         /// Méthode pour afficher le contact
         /// </summary>
         private void afficheContact()
         {
+            UseWaitCursor = true;
             try
             {
                 AccesContact accesContact = new AccesContact();
@@ -115,6 +121,7 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
 
         }
 
@@ -136,6 +143,7 @@ namespace IHM
 
         private void buttonValidOffre_Click(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             try
             {
                 AccesOffre accesOffre = new AccesOffre();
@@ -157,6 +165,7 @@ namespace IHM
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
+            UseWaitCursor = false;
         }
 
         private void buttonQuitter_Click(object sender, EventArgs e)

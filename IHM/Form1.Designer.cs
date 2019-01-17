@@ -325,11 +325,12 @@
             this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonQuitter.Location = new System.Drawing.Point(3, 156);
             this.buttonQuitter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonQuitter.MaximumSize = new System.Drawing.Size(300, 34);
             this.buttonQuitter.Name = "buttonQuitter";
             this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
             this.buttonQuitter.TabIndex = 4;
             this.buttonQuitter.Text = "Quitter";
-            this.toolTip1.SetToolTip(this.buttonQuitter, "Accès à la liste des offres");
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Quitter l\'application");
             this.buttonQuitter.UseVisualStyleBackColor = true;
             this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
             // 
@@ -658,6 +659,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1403, 938);
             this.MinimumSize = new System.Drawing.Size(1403, 938);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
