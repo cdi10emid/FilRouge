@@ -46,6 +46,14 @@ namespace IHM
                 dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
                 dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
 
+                dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
+                dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
+                dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
+                dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
+                dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
+                dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
+                dataGridView1.Columns["Nomregion"].HeaderText = "Région";
+                dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
 
                 dataGridView1.Columns["IdOffre"].Visible = false;
                 dataGridView1.Columns["IdPoste"].Visible = false;
@@ -154,6 +162,15 @@ namespace IHM
                     dataGridView1.DataSource = listOffre;
                     if (listOffre != null)
                     {
+                        dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
+                        dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
+                        dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
+                        dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
+                        dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
+                        dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
+                        dataGridView1.Columns["Nomregion"].HeaderText = "Région";
+                        dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
+
                         dataGridView1.Columns["IdOffre"].Visible = false;
                         dataGridView1.Columns["IdPoste"].Visible = false;
                         dataGridView1.Columns["IdContact"].Visible = false;
@@ -191,6 +208,14 @@ namespace IHM
                     dataGridView1.DataSource = listOffre;
                     if (listOffre != null)
                     {
+                        dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
+                        dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
+                        dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
+                        dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
+                        dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
+                        dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
+                        dataGridView1.Columns["Nomregion"].HeaderText = "Région";
+                        dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
                         dataGridView1.Columns["IdOffre"].Visible = false;
                         dataGridView1.Columns["IdPoste"].Visible = false;
                         dataGridView1.Columns["IdContact"].Visible = false;
@@ -231,7 +256,14 @@ namespace IHM
                     List<Offre> listOffre = objControleur.WebAfficheOffreByIdPoste(comboBoxPoste.SelectedValue.ToString());
 
                     dataGridView1.DataSource = listOffre;
-
+                    dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
+                    dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
+                    dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
+                    dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
+                    dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
+                    dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
+                    dataGridView1.Columns["Nomregion"].HeaderText = "Région";
+                    dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
                     dataGridView1.Columns["IdOffre"].Visible = false;
                     dataGridView1.Columns["IdPoste"].Visible = false;
                     dataGridView1.Columns["IdContact"].Visible = false;
@@ -266,7 +298,14 @@ namespace IHM
                 dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
                 dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
                 dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
-
+                dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
+                dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
+                dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
+                dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
+                dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
+                dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
+                dataGridView1.Columns["Nomregion"].HeaderText = "Région";
+                dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
 
                 dataGridView1.Columns["IdOffre"].Visible = false;
                 dataGridView1.Columns["IdPoste"].Visible = false;
@@ -309,6 +348,14 @@ namespace IHM
                 dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
                 dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
                 dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
+                dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
+                dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
+                dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
+                dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
+                dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
+                dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
+                dataGridView1.Columns["Nomregion"].HeaderText = "Région";
+                dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
 
 
                 dataGridView1.Columns["IdOffre"].Visible = false;
