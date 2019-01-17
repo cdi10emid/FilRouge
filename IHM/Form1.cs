@@ -257,17 +257,7 @@ namespace IHM
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if ((MessageBox.Show("Voulez-vous vraiment quitter la gestion des offres ?", "Attention ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
-            {
-                e.Cancel = false;
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+       
 
         private void buttonQuitter_Click(object sender, EventArgs e)
         {

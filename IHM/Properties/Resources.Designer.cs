@@ -73,9 +73,39 @@ namespace IHM.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap image_de_fond {
+            get {
+                object obj = ResourceManager.GetObject("image de fond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image002 {
             get {
                 object obj = ResourceManager.GetObject("image002", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap job_channel {
+            get {
+                object obj = ResourceManager.GetObject("job_channel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap job_channel1 {
+            get {
+                object obj = ResourceManager.GetObject("job_channel1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
