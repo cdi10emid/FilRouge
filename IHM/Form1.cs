@@ -49,20 +49,15 @@ namespace IHM
         {
             try
             {
-
-
                 AccesContrat accesContrat = new AccesContrat();
                 accesContrat.ajoutContrat(comboBoxContrat.Text);
-
                 afficheCombo();
             }
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-
             }
         }
-
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
         /// </summary>
@@ -122,8 +117,6 @@ namespace IHM
             }
 
         }
-
-
         /// <summary>
         /// Méthode pour afficher les contacts
         /// </summary>
@@ -134,9 +127,7 @@ namespace IHM
                 AccesContact accesContact = new AccesContact();
                 List<Contact> listeContact = accesContact.ListeContact();
                 comboBoxNomEntreprise.DataSource = listeContact;
-
                 comboBoxNomEntreprise.DisplayMember = "NOMENTREPRISE";
-
                 comboBoxNomEntreprise.ValueMember = "IDCONTACT";
                 comboBoxNomEntreprise.SelectedIndex = -1;
                 if (comboBoxNomEntreprise.SelectedValue != null && comboBoxNomEntreprise.SelectedIndex != -1)
@@ -152,7 +143,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-                
             }
         }
 

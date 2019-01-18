@@ -21,14 +21,13 @@ namespace IHM
         {
             InitializeComponent();
             objControleur = new AccesWebService();
-            
         }
         private void Form2_Load(object sender, EventArgs e)
         {
             this.Location = new Point(0, 0);
             afficheCombo();
+
             AfficheDataGried();
-            
         }
         /// <summary>
         /// Méthode affichage de la DataGridView
@@ -91,8 +90,6 @@ namespace IHM
                     MessageBox.Show("Suppression de l'offre impossible !");
                 }
             }
-
-
         }
 
         private void buttonModifOffre_Click(object sender, EventArgs e)
@@ -104,12 +101,9 @@ namespace IHM
         private void buttonmAJ_Click(object sender, EventArgs e)
         {
             AfficheDataGried();
-           
             comboBoxContrat.Enabled = true;
-           
             comboBoxContrat.Visible = false;
             comboBoxPoste.Enabled = true;
-           
             comboBoxRegion.Enabled = true;
             comboBoxRegion.Visible = false;
         }
