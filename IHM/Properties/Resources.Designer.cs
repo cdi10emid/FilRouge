@@ -93,6 +93,16 @@ namespace IHM.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap job_1 {
+            get {
+                object obj = ResourceManager.GetObject("job-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap job_channel {
             get {
                 object obj = ResourceManager.GetObject("job_channel", resourceCulture);

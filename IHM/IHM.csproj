@@ -242,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network %282%29.ico" />
+    <None Include="Resources\job-1.jpg" />
     <None Include="Resources\job_channel2.jpg" />
     <None Include="Resources\image de fond.jpg" />
     <None Include="Resources\job_channel1.jpg" />
