@@ -172,5 +172,12 @@ namespace IHM
         {
             this.Close();
         }
+
+      
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(textBoxLienWeb.Text);
+        }
     }
 }

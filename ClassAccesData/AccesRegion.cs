@@ -20,7 +20,6 @@ namespace ClassAccesData
         /// </summary>
         public AccesRegion()
         {
-
         }
         /// <summary>
         /// Méthode qui renvoie la liste des régions
@@ -38,17 +37,14 @@ namespace ClassAccesData
             DataTable objDataset = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
             objDataAdapter.Fill(objDataset);
-
             foreach (DataRow region in objDataset.Rows)
             {
                 Region Region2 = new Region();
                 Region2.IdRegion = Convert.ToInt32(region["IDREGION"]);
                 Region2.NomRegion = region["NOMREGION"].ToString();
                 ListeRegion.Add(Region2);
-
             }
             return ListeRegion;
-
         }
     }
 }
