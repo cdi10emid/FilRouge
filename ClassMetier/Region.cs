@@ -24,5 +24,9 @@ namespace ClassMetier
         {
 
         }
+        public override string ToString()
+        {
+            return NomRegion;
+        }
     }
 }

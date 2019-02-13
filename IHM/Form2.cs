@@ -1,6 +1,8 @@
-﻿using ClassAccesData;
+﻿
+using ClassAccesData;
 using ClassMetier;
 using Controleur;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +11,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,62 +19,99 @@ namespace IHM
 {
     public partial class Form2 : Form
     {
-        private AccesWebService objControleur;
+        private HubConnection _connection ;
+        TaskScheduler scheduler;
+       // private AccesWebService objControleur;
+        string txtadress = "user05.2isa.org";
+        int iniContrat = 0;
+        int initPoste = 0;
+        int initregion = 0;
         public Form2()
         {
             InitializeComponent();
-            objControleur = new AccesWebService();
+            
+        // objControleur = new AccesWebService();
+        scheduler = TaskScheduler.FromCurrentSynchronizationContext();
+            comboBoxPoste.Enabled = false;
         }
-        private void Form2_Load(object sender, EventArgs e)
+        private  void Form2_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(0, 0);
-            afficheCombo();
+            //  this.Location = new Point(0, 0);
 
-            AfficheDataGried();
+
+            
+        
+        afficheCombo();
+            ConnectHub();
+            comboBoxPoste.Enabled = true;
+        }
+        private async void ConnectHub()
+        {
+            string DateDebuturl = dateTimePickerDateDebut.Value.ToString("yyMMdd");
+            string DateFinurl = dateTimePickerDateFin.Value.ToString("yyMMdd");
+            string idposte = Convert.ToString(comboBoxPoste.SelectedValue);
+            string idcontrat = Convert.ToString(comboBoxContrat.SelectedValue);
+            string idregion = Convert.ToString(comboBoxRegion.SelectedValue);
+            try
+            {
+                HubConnectionBuilder builder = new HubConnectionBuilder();
+                string url = $"http://{txtadress}/chat?IdPoste={idposte}&IdContrat={idcontrat}&IdRegion={idregion}&DateDebut={DateDebuturl}&DateFin={DateFinurl}";
+                builder.WithUrl(url);
+                _connection = builder.Build();
+                 _connection.On<IList<Offre>>("SendOffreByDate", AfficheDataGried);
+                _connection.On<IList<Offre>>("SendOffreByIdPoste", AfficheDataGried);
+                await _connection.StartAsync();
+                comboBoxPoste.DisplayMember = "TYPEPOSTE";
+                comboBoxContrat.DisplayMember = "TYPECONTRAT";
+                comboBoxRegion.DisplayMember = "NOMREGION";
+                comboBoxRegion.SelectedIndex = -1;
+                comboBoxContrat.SelectedIndex = -1;
+                comboBoxPoste.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+              
+            }
+            
         }
         /// <summary>
         /// Méthode affichage de la DataGridView
         /// </summary>
-        private void AfficheDataGried()
+        private  void AfficheDataGried(IList<Offre> listeOffre)
         {
-            UseWaitCursor = true;
-            try
+            Task.Factory.StartNew(() =>
             {
-                // Récupération de la liste des offres à partir du WebService
-                List<Offre> listOffre = objControleur.WebAfficheOffre();
 
-                dataGridView1.DataSource = listOffre;
-                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
+                dataGridView1.DataSource = listeOffre;
+                    dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
+                    dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
+                    dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
 
-                dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
-                dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
-                dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
-                dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
-                dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
-                dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
-                dataGridView1.Columns["Nomregion"].HeaderText = "Région";
-                dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
+                    dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
+                    dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
+                    dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
+                    dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
+                    dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
+                    dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
+                    dataGridView1.Columns["Nomregion"].HeaderText = "Région";
+                    dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
 
-                dataGridView1.Columns["IdOffre"].Visible = false;
-                dataGridView1.Columns["IdPoste"].Visible = false;
-                dataGridView1.Columns["IdContact"].Visible = false;
-                dataGridView1.Columns["IdContrat"].Visible = false;
-                dataGridView1.Columns["IdRegion"].Visible = false;
-                dataGridView1.Columns["Description"].Visible = false;
-                dataGridView1.Columns["LienWeb"].Visible = false;
+                    dataGridView1.Columns["IdOffre"].Visible = false;
+                    dataGridView1.Columns["IdPoste"].Visible = false;
+                    dataGridView1.Columns["IdContact"].Visible = false;
+                    dataGridView1.Columns["IdContrat"].Visible = false;
+                    dataGridView1.Columns["IdRegion"].Visible = false;
+                    dataGridView1.Columns["Description"].Visible = false;
+                    dataGridView1.Columns["LienWeb"].Visible = false;
 
-                if (dataGridView1.CurrentRow != null)
-                {
-                    idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Problème de connection essayez plus tard");
-            }
-            UseWaitCursor = false;
+                    if (dataGridView1.CurrentRow != null)
+                    {
+                        idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
+                    }
+
+            }, CancellationToken.None, TaskCreationOptions.None, scheduler);
+
         }
         public int idOffreSelectransmit { get; set; }
         private void buttonSuprimOffre_Click(object sender, EventArgs e)
@@ -83,7 +123,7 @@ namespace IHM
                 if (accesOffre.SuprimOffre(idOffreSelec) == 1)
                 {
                     MessageBox.Show("Offre supprimée !");
-                    AfficheDataGried();
+                   // AfficheDataGried();
                 }
                 else
                 {
@@ -100,12 +140,17 @@ namespace IHM
 
         private void buttonmAJ_Click(object sender, EventArgs e)
         {
-            AfficheDataGried();
+             iniContrat = 0;
+            initPoste = 0;
+             initregion = 0;
+            afficheCombo();
+            ConnectHub();
             comboBoxContrat.Enabled = true;
-            comboBoxContrat.Visible = false;
+            comboBoxContrat.Visible = true;
             comboBoxPoste.Enabled = true;
             comboBoxRegion.Enabled = true;
-            comboBoxRegion.Visible = false;
+            comboBoxRegion.Visible = true;
+           
         }
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
@@ -118,23 +163,23 @@ namespace IHM
                 AccesPoste accesPoste = new AccesPoste();
                 List<Poste> ListePoste = accesPoste.listePoste();
                 comboBoxPoste.DataSource = ListePoste;
-                comboBoxPoste.DisplayMember = "TYPEPOSTE";
+                
                 comboBoxPoste.ValueMember = "IDPOSTE";
-                comboBoxPoste.SelectedIndex = -1;
+              
 
                 AccesContrat accesContrat = new AccesContrat();
                 List<Contrat> listeContrat = accesContrat.ListeContrat();
                 comboBoxContrat.DataSource = listeContrat;
-                comboBoxContrat.DisplayMember = "TYPECONTRAT";
+              
                 comboBoxContrat.ValueMember = "IDCONTRAT";
-                comboBoxContrat.SelectedIndex = -1;
+                
 
                 AccesRegion accesRegion = new AccesRegion();
                 List<ClassMetier.Region> listeRegion = accesRegion.listeRegion();
                 comboBoxRegion.DataSource = listeRegion;
-                comboBoxRegion.DisplayMember = "NOMREGION";
+                
                 comboBoxRegion.ValueMember = "IDREGION";
-                comboBoxRegion.SelectedIndex = -1;
+                
             }
             catch (SqlException)
             {
@@ -142,92 +187,69 @@ namespace IHM
             }
             UseWaitCursor = false;
         }
-        private void comboBoxContrat_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBoxContrat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UseWaitCursor = true;
-            try
+            
+            comboBoxPoste.Visible = true;
+            comboBoxContrat.Visible = true;
+            comboBoxRegion.Visible = true;
+            comboBoxPoste.ValueMember = "IDPOSTE";
+            comboBoxContrat.ValueMember = "IDCONTRAT";
+            comboBoxRegion.ValueMember = "IDREGION";
+
+           
+
+            string IdContrat = Convert.ToString(comboBoxContrat.SelectedValue);
+            string IdRegion = Convert.ToString(comboBoxRegion.SelectedValue);
+
+            string IdPoste = Convert.ToString(comboBoxPoste.SelectedValue);
+            if( iniContrat > 0)
             {
-                if (dataGridView1.CurrentRow != null)
+                try
                 {
-                    comboBoxPoste.ValueMember = "IDPOSTE";
-                    comboBoxContrat.ValueMember = "IDCONTRAT";
-                    List<Offre> listOffre = objControleur.WebAfficheOffreByIdPosteIdContrat(comboBoxPoste.SelectedValue.ToString(), comboBoxContrat.SelectedValue.ToString());
+                    await _connection.InvokeAsync("SendOffreByIdPoste", IdPoste, IdContrat, IdRegion);
 
-                    dataGridView1.DataSource = listOffre;
-                    if (listOffre != null)
-                    {
-                        dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
-                        dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
-                        dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
-                        dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
-                        dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
-                        dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
-                        dataGridView1.Columns["Nomregion"].HeaderText = "Région";
-                        dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
 
-                        dataGridView1.Columns["IdOffre"].Visible = false;
-                        dataGridView1.Columns["IdPoste"].Visible = false;
-                        dataGridView1.Columns["IdContact"].Visible = false;
-                        dataGridView1.Columns["IdContrat"].Visible = false;
-                        dataGridView1.Columns["IdRegion"].Visible = false;
-                        comboBoxRegion.Visible = true;
-                        comboBoxContrat.Enabled = false;
-                    }
-                    if (dataGridView1.CurrentRow != null)
-                    {
-                        idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-                    }
                 }
             }
-            catch (SqlException)
-            {
-                MessageBox.Show("Problème de connection essayez plus tard");
-            }
-            UseWaitCursor = false;
+
+            iniContrat++;
         }
 
-        private void comboBoxRegion_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBoxRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UseWaitCursor = true;
-            try
+            comboBoxPoste.Visible = true;
+            comboBoxContrat.Visible = true;
+            comboBoxRegion.Visible = true;
+            comboBoxPoste.ValueMember = "IDPOSTE";
+            comboBoxContrat.ValueMember = "IDCONTRAT";
+            comboBoxRegion.ValueMember = "IDREGION";
+
+          
+
+            string IdContrat = Convert.ToString(comboBoxContrat.SelectedValue);
+            string IdRegion = Convert.ToString(comboBoxRegion.SelectedValue);
+
+            string IdPoste = Convert.ToString(comboBoxPoste.SelectedValue);
+
+            if ( initregion > 0)
             {
-                if (dataGridView1.CurrentRow != null)
+                try
                 {
+                    await _connection.InvokeAsync("SendOffreByIdPoste", IdPoste, IdContrat, IdRegion);
 
-                    comboBoxPoste.ValueMember = "IDPOSTE";
-                    comboBoxContrat.ValueMember = "IDCONTRAT";
-                    comboBoxRegion.ValueMember = "IDREGION";
-                    List<Offre> listOffre = objControleur.WebAfficheOffreByIdPosteIdContratIdRegion(comboBoxPoste.SelectedValue.ToString(), comboBoxContrat.SelectedValue.ToString(), comboBoxRegion.SelectedValue.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
 
-                    dataGridView1.DataSource = listOffre;
-                    if (listOffre != null)
-                    {
-                        dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
-                        dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
-                        dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
-                        dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
-                        dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
-                        dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
-                        dataGridView1.Columns["Nomregion"].HeaderText = "Région";
-                        dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
-                        dataGridView1.Columns["IdOffre"].Visible = false;
-                        dataGridView1.Columns["IdPoste"].Visible = false;
-                        dataGridView1.Columns["IdContact"].Visible = false;
-                        dataGridView1.Columns["IdContrat"].Visible = false;
-                        dataGridView1.Columns["IdRegion"].Visible = false;
-                        comboBoxRegion.Enabled = false;
-                    }
-                    if (dataGridView1.CurrentRow != null)
-                    {
-                        idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-                    }
                 }
             }
-            catch (SqlException)
-            {
-                MessageBox.Show("Problème de connection essayez plus tard");
-            }
-            UseWaitCursor = false;
+            initregion++;
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -238,85 +260,51 @@ namespace IHM
             }
         }
 
-        private void comboBoxPoste_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBoxPoste_SelectedIndexChanged(object sender, EventArgs e)
         {
-            UseWaitCursor = true;
-            try
-            {
-                if (dataGridView1.CurrentRow != null)
-                {
-                    
-                    comboBoxPoste.ValueMember = "IDPOSTE";
-                    List<Offre> listOffre = objControleur.WebAfficheOffreByIdPoste(comboBoxPoste.SelectedValue.ToString());
+             comboBoxPoste.Visible = true;
+            comboBoxContrat.Visible = true;
+            comboBoxPoste.ValueMember = "IDPOSTE";
+            comboBoxContrat.ValueMember = "IDCONTRAT";
+            comboBoxRegion.ValueMember = "IDREGION";
 
-                    dataGridView1.DataSource = listOffre;
-                    dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
-                    dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
-                    dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
-                    dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
-                    dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
-                    dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
-                    dataGridView1.Columns["Nomregion"].HeaderText = "Région";
-                    dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
-                    dataGridView1.Columns["IdOffre"].Visible = false;
-                    dataGridView1.Columns["IdPoste"].Visible = false;
-                    dataGridView1.Columns["IdContact"].Visible = false;
-                    dataGridView1.Columns["IdContrat"].Visible = false;
-                    dataGridView1.Columns["IdRegion"].Visible = false;
-                    comboBoxContrat.Visible = true;
-                    comboBoxPoste.Enabled = false;
-                    
-                    if (dataGridView1.CurrentRow != null)
-                    {
-                        idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-                    }
+          
+            
+            string IdContrat = Convert.ToString(comboBoxContrat.SelectedValue);
+            string IdRegion = Convert.ToString(comboBoxRegion.SelectedValue);
+
+            string IdPoste = Convert.ToString(comboBoxPoste.SelectedValue);
+
+            if (initPoste > 0 )
+            {
+                try
+                {
+                    await _connection.InvokeAsync("SendOffreByIdPoste", IdPoste, IdContrat, IdRegion);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
                 }
             }
-            catch (SqlException)
-            {
-                MessageBox.Show("Problème de connection essayez plus tard");
-            }
-            UseWaitCursor = false;
+            initPoste++;
         }
 
-        private void buttonDate_Click(object sender, EventArgs e)
+        private async void buttonDate_Click(object sender, EventArgs e)
         {
+            string DateDebut = dateTimePickerDateDebut.Value.ToString("yyMMdd");
+            string DateFin = dateTimePickerDateFin.Value.ToString("yyMMdd");
             UseWaitCursor = true;
             try
             {
-                AccesOffre accesOffre = new AccesOffre();
+                await _connection.InvokeAsync("SendOffreByDate", DateDebut, DateFin);
 
-                List<Offre> listOffre = objControleur.WebAfficheOffreByDate(dateTimePickerDateDebut.Value.ToString("yyMMdd"), dateTimePickerDateFin.Value.ToString("yyMMdd"));
-
-                dataGridView1.DataSource = listOffre;
-                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
-                dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
-                dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
-                dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
-                dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
-                dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
-                dataGridView1.Columns["Nomregion"].HeaderText = "Région";
-                dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
-
-                dataGridView1.Columns["IdOffre"].Visible = false;
-                dataGridView1.Columns["IdPoste"].Visible = false;
-                dataGridView1.Columns["IdContact"].Visible = false;
-                dataGridView1.Columns["IdContrat"].Visible = false;
-                dataGridView1.Columns["IdRegion"].Visible = false;
-                dataGridView1.Columns["Description"].Visible = false;
-                dataGridView1.Columns["LienWeb"].Visible = false;
-
-                if (dataGridView1.CurrentRow != null)
-                {
-                    idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-                }
             }
-            catch (SqlException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Problème de connection essayez plus tard");
+                MessageBox.Show(ex.Message);
+
             }
             UseWaitCursor = false;
         }
@@ -326,48 +314,21 @@ namespace IHM
                 e.Handled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+            int nbMois = Convert.ToInt32(textBoxMois.Text);
+            string DateFin = DateTime.Today.ToString("yyMMdd");
+                string DateDebut = DateTime.Today.AddMonths(- nbMois).ToString("yyMMdd");
             UseWaitCursor = true;
             try
             {
-                AccesOffre accesOffre = new AccesOffre();
+                await _connection.InvokeAsync("SendOffreByDate", DateDebut, DateFin);
 
-                int nbMois = Convert.ToInt32(textBoxMois.Text);
-                string DateFin = DateTime.Today.ToString("yyMMdd");
-                string DateDebut = DateTime.Today.AddMonths(- nbMois).ToString("yyMMdd");
-                List<Offre> listOffre = objControleur.WebAfficheOffreByDate(DateDebut, DateFin);
-
-                dataGridView1.DataSource = listOffre;
-                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
-                dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
-                dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
-                dataGridView1.Columns["NomContact"].HeaderText = "Nom du contact";
-                dataGridView1.Columns["TelContact"].HeaderText = "Téléphone du contact";
-                dataGridView1.Columns["MailContact"].HeaderText = "Mail du contact";
-                dataGridView1.Columns["TypeContrat"].HeaderText = "Type de contrat";
-                dataGridView1.Columns["Nomregion"].HeaderText = "Région";
-                dataGridView1.Columns["TypePoste"].HeaderText = "Type de poste";
-
-
-                dataGridView1.Columns["IdOffre"].Visible = false;
-                dataGridView1.Columns["IdPoste"].Visible = false;
-                dataGridView1.Columns["IdContact"].Visible = false;
-                dataGridView1.Columns["IdContrat"].Visible = false;
-                dataGridView1.Columns["IdRegion"].Visible = false;
-                dataGridView1.Columns["Description"].Visible = false;
-                dataGridView1.Columns["LienWeb"].Visible = false;
-
-                if (dataGridView1.CurrentRow != null)
-                {
-                    idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
-                }
             }
-            catch (SqlException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Problème de connection essayez plus tard");
+                MessageBox.Show(ex.Message);
+
             }
             UseWaitCursor = false;
         }
