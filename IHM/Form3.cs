@@ -25,18 +25,13 @@ namespace IHM
         {
             _idOffreSeelect = IdOffreSelect;
             InitializeComponent();
-            AfficheOffreSelect();
-            afficheContact();
-            afficheCombo();
+          
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(0, 0);
-            AfficheOffreSelect();
-            afficheContact();
-            afficheCombo();
-        }
+            this.Cursor = Cursors.WaitCursor;
+        }      
 
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
@@ -178,6 +173,15 @@ namespace IHM
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(textBoxLienWeb.Text);
+        }
+
+        private void Form3_Shown(object sender, EventArgs e)
+        {
+            this.Location = new Point(0, 0);
+            AfficheOffreSelect();
+            afficheContact();
+            afficheCombo();
+            this.Cursor = Cursors.Default;
         }
     }
 }

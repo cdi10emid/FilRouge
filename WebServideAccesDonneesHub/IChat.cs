@@ -8,7 +8,6 @@ namespace WebServideAccesDonneesHub
 {
    public interface IChat
     {
-       // Task SendOffre(IList<Offre> ListeOffre);
         Task SendOffreByIdPoste(List<Offre> ListeOffre);
         Task SendOffreByDate(List<Offre> ListeOffre);
     }

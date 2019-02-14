@@ -19,17 +19,14 @@ namespace IHM
     {
         public Form1()
         {
+            
             InitializeComponent();
         }
         int repere = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(0, 0);
-            afficheCombo();
-            afficheContact();
-            repere = 1;
-            labelPrenom.Text = UserPrincipal.Current.GivenName;
-            labelNom.Text = UserPrincipal.Current.Surname;
+            this.Cursor = Cursors.WaitCursor;
+   
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +40,7 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
+              
             }
         }
         private void button2_Click(object sender, EventArgs e)
@@ -89,6 +87,7 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
+                this.Close();
             }
         }
         /// <summary>
@@ -114,6 +113,7 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
+             
             }
 
         }
@@ -180,17 +180,10 @@ namespace IHM
                                     Convert.ToString(textBoxLienWeb.Text)) == 1)
                         {
                             MessageBox.Show("Ajout de l'offre effectuée !");
-                            try
-                            {
                                 afficheCombo();
                                 afficheContact();
                                 EffaceBox();
                                 repere = 1;
-                            }
-                            catch (SqlException)
-                            {
-                                MessageBox.Show("Problème de connection essayez plus tard");
-                            }
                         }
                     }
                     else
@@ -252,6 +245,25 @@ namespace IHM
         private void buttonQuitter_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            this.Location = new Point(0, 0);
+            afficheCombo();
+            afficheContact();
+            repere = 1;
+            try
+            {
+                labelPrenom.Text = UserPrincipal.Current.GivenName;
+                labelNom.Text = UserPrincipal.Current.Surname;
+            }
+            catch (Exception)
+            {
+                labelPrenom.Text = "";
+            }
+           
+            this.Cursor = Cursors.Default;
         }
     }
 }

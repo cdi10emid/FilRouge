@@ -21,15 +21,24 @@ namespace IHM
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
             this.Location = new Point(0, 0);
-            labelPrenom.Text = UserPrincipal.Current.GivenName;
-            labelNom.Text = UserPrincipal.Current.Surname;
+            try
+            {
+                labelPrenom.Text = UserPrincipal.Current.GivenName;
+                labelNom.Text = UserPrincipal.Current.Surname;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Connection au serveur impossible !");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             Form1 f = new Form1();
 
             f.ShowDialog();
+            UseWaitCursor = false;
         }
 
         private void buttonQuitter_Click(object sender, EventArgs e)
