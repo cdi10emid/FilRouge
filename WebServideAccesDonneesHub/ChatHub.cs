@@ -14,12 +14,12 @@ namespace WebServideAccesDonneesHub
 
         public async override Task OnConnectedAsync()
         {
-            await Clients.Caller.SendOffreByIdPoste(await _accesOffre.ListeOffre());
+            await Clients.Caller.SendOffreAll(await _accesOffre.ListeOffre());
             await base.OnConnectedAsync();
         }
-        public async Task SendOffreByIdPoste(string IdPoste, string IdContrat, string IdRegion)
+        public async Task SendOffreById(string IdPoste, string IdContrat, string IdRegion)
         {
-            await Clients.Caller.SendOffreByIdPoste(await _accesOffre.ListeOffreInject(IdPoste, IdContrat, IdRegion));
+            await Clients.Caller.SendOffreById(await _accesOffre.ListeOffreInject(IdPoste, IdContrat, IdRegion));
             await base.OnConnectedAsync();
         }
         public async Task SendOffreByDate(string DateDebut, string DateFin )

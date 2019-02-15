@@ -19,14 +19,12 @@ namespace IHM
     {
         public Form1()
         {
-            
             InitializeComponent();
         }
         int repere = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-   
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +38,6 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-              
             }
         }
         private void button2_Click(object sender, EventArgs e)
@@ -113,9 +110,7 @@ namespace IHM
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-             
             }
-
         }
         /// <summary>
         /// Méthode pour afficher les contacts
@@ -160,7 +155,6 @@ namespace IHM
                         // si le contact n'est pas dans la base: il est ajouté
                         accesContact.InsertContact(comboBoxNomEntreprise.Text, textBoxNomContact.Text, textBoxTelContact.Text, textBoxMailContact.Text);
                     }
-
                     if (comboBoxNomEntreprise.Text != "")
                     {
                         //Récupération du contact nouvellement inséré
@@ -192,11 +186,9 @@ namespace IHM
                     }
                 }
             }
-
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
-
             }
         }
         private void EffaceBox()

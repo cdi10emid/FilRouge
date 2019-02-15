@@ -34,8 +34,6 @@ namespace IHM
         private void Form2_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-          
-            
         }
         private async void ConnectHub()
         {
@@ -51,7 +49,8 @@ namespace IHM
                 builder.WithUrl(url);
                 _connection = builder.Build();
                 _connection.On<IList<Offre>>("SendOffreByDate", AfficheDataGried);
-                _connection.On<IList<Offre>>("SendOffreByIdPoste", AfficheDataGried);
+                _connection.On<IList<Offre>>("SendOffreById", AfficheDataGried);
+                _connection.On<IList<Offre>>("SendOffreAll", AfficheDataGried);
                 await _connection.StartAsync();
                 comboBoxPoste.DisplayMember = "TYPEPOSTE";
                 comboBoxContrat.DisplayMember = "TYPECONTRAT";
@@ -66,9 +65,7 @@ namespace IHM
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
-
         }
         /// <summary>
         /// Méthode affichage de la DataGridView
@@ -139,7 +136,6 @@ namespace IHM
             comboBoxContrat.Visible = false;
             comboBoxPoste.Enabled = true;
             comboBoxRegion.Visible = false;
-
         }
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
@@ -163,7 +159,6 @@ namespace IHM
                 List<ClassMetier.Region> listeRegion = accesRegion.listeRegion();
                 comboBoxRegion.DataSource = listeRegion;
                 comboBoxRegion.ValueMember = "IDREGION";
-
             }
             catch (SqlException)
             {
@@ -189,7 +184,7 @@ namespace IHM
             {
                 try
                 {
-                    await _connection.InvokeAsync("SendOffreByIdPoste", IdPoste, IdContrat, IdRegion);
+                    await _connection.InvokeAsync("SendOffreById", IdPoste, IdContrat, IdRegion);
                 }
                 catch (Exception ex)
                 {
@@ -212,7 +207,7 @@ namespace IHM
             {
                 try
                 {
-                    await _connection.InvokeAsync("SendOffreByIdPoste", IdPoste, IdContrat, IdRegion);
+                    await _connection.InvokeAsync("SendOffreById", IdPoste, IdContrat, IdRegion);
                 }
                 catch (Exception ex)
                 {
@@ -239,24 +234,19 @@ namespace IHM
             comboBoxContrat.ValueMember = "IDCONTRAT";
             comboBoxRegion.ValueMember = "IDREGION";
 
-
-
             string IdContrat = Convert.ToString(comboBoxContrat.SelectedValue);
             string IdRegion = Convert.ToString(comboBoxRegion.SelectedValue);
-
             string IdPoste = Convert.ToString(comboBoxPoste.SelectedValue);
 
             if (initPoste > 0)
             {
                 try
                 {
-                    await _connection.InvokeAsync("SendOffreByIdPoste", IdPoste, IdContrat, IdRegion);
-
+                    await _connection.InvokeAsync("SendOffreById", IdPoste, IdContrat, IdRegion);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-
                 }
             }
             initPoste++;
@@ -270,12 +260,10 @@ namespace IHM
             try
             {
                 await _connection.InvokeAsync("SendOffreByDate", DateDebut, DateFin);
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
             UseWaitCursor = false;
         }
@@ -294,12 +282,10 @@ namespace IHM
             try
             {
                 await _connection.InvokeAsync("SendOffreByDate", DateDebut, DateFin);
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
             UseWaitCursor = false;
         }

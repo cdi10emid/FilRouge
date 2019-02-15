@@ -25,7 +25,6 @@ namespace IHM
         {
             _idOffreSeelect = IdOffreSelect;
             InitializeComponent();
-          
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -83,7 +82,6 @@ namespace IHM
             {
                 AccesOffre accesOffre = new AccesOffre();
                 Offre offreSelect = new Offre();
-
                 offreSelect = accesOffre.GetOffreByidoffre(_idOffreSeelect);
                 idcontactSelect = offreSelect.IdContact;
                 textBoxLienWeb.Text = offreSelect.LienWeb;
@@ -149,7 +147,6 @@ namespace IHM
                 if (retour > 1)
                 {
                     MessageBox.Show("Mise à jour de l'offre effectuée !");
-
                 }
                 else
                 {

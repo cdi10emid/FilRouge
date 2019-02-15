@@ -57,7 +57,5 @@ namespace IHM
                 e.Cancel = true;
             }
         }
-
-      
     }
 }
