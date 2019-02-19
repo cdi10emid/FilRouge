@@ -227,7 +227,7 @@ namespace IHM
             Chiffre(e);
         }
         /// <summary>
-        /// Fermeture de la form avce demande à l'utilisateur
+        /// Fermeture de la form avec demande à l'utilisateur
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -117,8 +117,6 @@ namespace IHM
             UseWaitCursor = false;
 
         }
-
-       
         /// <summary>
         /// méthode de vérification si l'utilisateur saisi bien des chiffres
         /// </summary>
@@ -159,19 +157,14 @@ namespace IHM
             }
             UseWaitCursor = false;
         }
-
         private void ButtonQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-      
-
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(textBoxLienWeb.Text);
         }
-
         private void Form3_Shown(object sender, EventArgs e)
         {
             this.Location = new Point(0, 0);

@@ -11,65 +11,31 @@ namespace WebServideAccesDonneesHub
     {
         private List<Offre> _listeOffre = new List<Offre>();
         private readonly AsyncLock _sem = new AsyncLock();
+        SqlConnection cn = new SqlConnection
+        {
+            ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
+        };
         public async Task<List<Offre>> ListeOffre()
         {
             using (await _sem.LockAsync())
             {
-                SqlConnection cn = new SqlConnection
-                {
-                    ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
-                };
                 SqlCommand objSelect = new SqlCommand
                 {
                     Connection = cn,
                     CommandText = "dbo.AfficheOffre",
                     CommandType = CommandType.StoredProcedure
                 };
-
-
                 DataTable objDataset = new DataTable();
                 SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
                 objDataAdapter.Fill(objDataset);
-
-                foreach (DataRow offre in objDataset.Rows)
-                {
-
-                    Offre offre2 = new Offre
-                    {
-                        IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
-                        IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
-                        IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
-                        IdRegion = Convert.ToInt32(offre["IDREGION"]),
-                        IdContact = Convert.ToInt32(offre["IDCONTACT"]),
-                        Titre = offre["TITRE"].ToString(),
-                        DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
-                        Description = Convert.ToString(offre["DESCRIPTION"]),
-                        LienWeb = offre["LIENWEB"].ToString(),
-                        NomEntreprise = offre["NOMENTREPRISE"].ToString(),
-                        NomContact = offre["NOMCONTACT"].ToString(),
-                        TelContact = offre["TELCONTACT"].ToString(),
-                        MailContact = offre["MAILCONTACT"].ToString(),
-                        TypeContrat = offre["TYPECONTRAT"].ToString(),
-                        Nomregion = offre["NOMREGION"].ToString(),
-                        TypePoste = offre["TYPEPOSTE"].ToString()
-                    };
-
-                    _listeOffre.Add(offre2);
-                }
-                return _listeOffre.ToList();
+               return DatasetToList(objDataset);
             }
         }
+        
         public async Task<List<Offre>> ListeOffrebyDate(string DateDebutint,string DateFinint)
         {
             using (await _sem.LockAsync())
             {
-
-                SqlConnection cn = new SqlConnection
-                {
-                    ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
-                };
-
                 new SqlCommand
                 {
                     Connection = cn,
@@ -85,46 +51,16 @@ namespace WebServideAccesDonneesHub
                     CommandType = CommandType.StoredProcedure
                 }.Parameters.AddWithValue("@FIN", DateFinint.ToString());
 
-
-
                 DataTable objDataset = new DataTable();
+
                 SqlDataAdapter objDataAdapter = new SqlDataAdapter(new SqlCommand
                 {
                     Connection = cn,
-
                     CommandText = "dbo.AfficheOffreByDate",
                     CommandType = CommandType.StoredProcedure
                 });
-
                 objDataAdapter.Fill(objDataset);
-
-                foreach (DataRow offre in objDataset.Rows)
-                {
-
-                    Offre offre2 = new Offre
-                    {
-                        IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
-                        IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
-                        IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
-                        IdRegion = Convert.ToInt32(offre["IDREGION"]),
-                        IdContact = Convert.ToInt32(offre["IDCONTACT"]),
-                        Titre = offre["TITRE"].ToString(),
-                        DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
-                        Description = Convert.ToString(offre["DESCRIPTION"]),
-                        LienWeb = offre["LIENWEB"].ToString(),
-                        NomEntreprise = offre["NOMENTREPRISE"].ToString(),
-                        NomContact = offre["NOMCONTACT"].ToString(),
-                        TelContact = offre["TELCONTACT"].ToString(),
-                        MailContact = offre["MAILCONTACT"].ToString(),
-                        TypeContrat = offre["TYPECONTRAT"].ToString(),
-                        Nomregion = offre["NOMREGION"].ToString(),
-                        TypePoste = offre["TYPEPOSTE"].ToString()
-                    };
-                    _listeOffre.Add(offre2);
-                }
-
-
-                return _listeOffre.ToList();
+                return DatasetToList(objDataset);
             }
         }
         public async Task<List<Offre>> ListeOffreInject(string IdPoste, string IdContrat, string IdRegion)
@@ -157,120 +93,38 @@ namespace WebServideAccesDonneesHub
             {
                 IdRegionint = null;
             }
-       
-
-
-            
             using (await _sem.LockAsync())
             {
                 if (IdPosteint == null && IdContratint == null && IdRegionint == null )
                 {
-
-                    SqlConnection cn = new SqlConnection
-                    {
-                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
-                    };
                     SqlCommand objSelect = new SqlCommand
                     {
                         Connection = cn,
                         CommandText = "dbo.AfficheOffre",
                         CommandType = CommandType.StoredProcedure
                     };
-
-
                     DataTable objDataset = new DataTable();
                     SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
                     objDataAdapter.Fill(objDataset);
-
-                    foreach (DataRow offre in objDataset.Rows)
-                    {
-
-                        Offre offre2 = new Offre
-                        {
-                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
-                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
-                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
-                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
-                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
-                            Titre = offre["TITRE"].ToString(),
-                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
-                            Description = Convert.ToString(offre["DESCRIPTION"]),
-                            LienWeb = offre["LIENWEB"].ToString(),
-                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
-                            NomContact = offre["NOMCONTACT"].ToString(),
-                            TelContact = offre["TELCONTACT"].ToString(),
-                            MailContact = offre["MAILCONTACT"].ToString(),
-                            TypeContrat = offre["TYPECONTRAT"].ToString(),
-                            Nomregion = offre["NOMREGION"].ToString(),
-                            TypePoste = offre["TYPEPOSTE"].ToString()
-                        };
-
-                        _listeOffre.Add(offre2);
-
-                    }
-
-
-
+                    CreateListOffre(objDataset);
                 }
                 else if (IdContratint == null && IdRegionint == null )
                 {
-
-                    SqlConnection cn = new SqlConnection
-                    {
-                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
-                    };
                     SqlCommand objSelect = new SqlCommand
                     {
                         Connection = cn,
-
                         CommandText = "dbo.AfficheOffreByIdPoste",
                         CommandType = CommandType.StoredProcedure
                     };
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
-
-
-
                     DataTable objDataset = new DataTable();
                     SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
 
                     objDataAdapter.Fill(objDataset);
-
-                    foreach (DataRow offre in objDataset.Rows)
-                    {
-
-                        Offre offre2 = new Offre
-                        {
-                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
-                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
-                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
-                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
-                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
-                            Titre = offre["TITRE"].ToString(),
-                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
-                            Description = Convert.ToString(offre["DESCRIPTION"]),
-                            LienWeb = offre["LIENWEB"].ToString(),
-                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
-                            NomContact = offre["NOMCONTACT"].ToString(),
-                            TelContact = offre["TELCONTACT"].ToString(),
-                            MailContact = offre["MAILCONTACT"].ToString(),
-                            TypeContrat = offre["TYPECONTRAT"].ToString(),
-                            Nomregion = offre["NOMREGION"].ToString(),
-                            TypePoste = offre["TYPEPOSTE"].ToString()
-                        };
-                        _listeOffre.Add(offre2);
-                    }
-
-
+                    CreateListOffre(objDataset);
                 }
                 else if (IdRegionint == null )
                 {
-
-                    SqlConnection cn = new SqlConnection
-                    {
-                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
-                    };
-
                     SqlCommand objSelect = new SqlCommand
                     {
                         Connection = cn,
@@ -280,50 +134,13 @@ namespace WebServideAccesDonneesHub
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
                     objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContratint);
 
-
-
                     DataTable objDataset = new DataTable();
                     SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
                     objDataAdapter.Fill(objDataset);
-
-                    foreach (DataRow offre in objDataset.Rows)
-                    {
-
-                        Offre offre2 = new Offre
-                        {
-                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
-                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
-                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
-                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
-                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
-                            Titre = offre["TITRE"].ToString(),
-                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
-                            Description = Convert.ToString(offre["DESCRIPTION"]),
-                            LienWeb = offre["LIENWEB"].ToString(),
-                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
-                            NomContact = offre["NOMCONTACT"].ToString(),
-                            TelContact = offre["TELCONTACT"].ToString(),
-                            MailContact = offre["MAILCONTACT"].ToString(),
-                            TypeContrat = offre["TYPECONTRAT"].ToString(),
-                            Nomregion = offre["NOMREGION"].ToString(),
-                            TypePoste = offre["TYPEPOSTE"].ToString()
-                        };
-
-                        _listeOffre.Add(offre2);
-
-                    }
-
-
+                    CreateListOffre(objDataset);
                 }
                 else 
                 {
-
-                    SqlConnection cn = new SqlConnection
-                    {
-                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
-                    };
-
                     SqlCommand objSelect = new SqlCommand
                     {
                         Connection = cn,
@@ -333,48 +150,47 @@ namespace WebServideAccesDonneesHub
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
                     objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContratint);
                     objSelect.Parameters.AddWithValue("@IDREGION", IdRegionint);
-
-
-
                     DataTable objDataset = new DataTable();
                     SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-
                     objDataAdapter.Fill(objDataset);
-
-                    foreach (DataRow offre in objDataset.Rows)
-                    {
-
-                        Offre offre2 = new Offre
-                        {
-                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
-                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
-                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
-                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
-                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
-                            Titre = offre["TITRE"].ToString(),
-                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
-                            Description = Convert.ToString(offre["DESCRIPTION"]),
-                            LienWeb = offre["LIENWEB"].ToString(),
-                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
-                            NomContact = offre["NOMCONTACT"].ToString(),
-                            TelContact = offre["TELCONTACT"].ToString(),
-                            MailContact = offre["MAILCONTACT"].ToString(),
-                            TypeContrat = offre["TYPECONTRAT"].ToString(),
-                            Nomregion = offre["NOMREGION"].ToString(),
-                            TypePoste = offre["TYPEPOSTE"].ToString()
-                        };
-
-                        _listeOffre.Add(offre2);
-
-                    }
-
-
+                    CreateListOffre(objDataset);
                 }
-                
                 return _listeOffre.ToList();
             }
-            
-
         }
+        #region Méthodes privées
+
+        private List<Offre> DatasetToList(DataTable objDataset)
+        {
+            CreateListOffre(objDataset);
+            return _listeOffre.ToList();
+        }
+        private void CreateListOffre(DataTable objDataset)
+        {
+            foreach (DataRow offre in objDataset.Rows)
+            {
+                Offre offre2 = new Offre
+                {
+                    IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                    IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                    IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                    IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                    IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                    Titre = offre["TITRE"].ToString(),
+                    DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                    Description = Convert.ToString(offre["DESCRIPTION"]),
+                    LienWeb = offre["LIENWEB"].ToString(),
+                    NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                    NomContact = offre["NOMCONTACT"].ToString(),
+                    TelContact = offre["TELCONTACT"].ToString(),
+                    MailContact = offre["MAILCONTACT"].ToString(),
+                    TypeContrat = offre["TYPECONTRAT"].ToString(),
+                    Nomregion = offre["NOMREGION"].ToString(),
+                    TypePoste = offre["TYPEPOSTE"].ToString()
+                };
+                _listeOffre.Add(offre2);
+            }
+        }
+        #endregion Méthodes privées
     }
 }
