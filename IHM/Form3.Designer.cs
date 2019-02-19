@@ -373,7 +373,7 @@
             this.buttonValidOffre.Text = "Validation de l\' offre";
             this.toolTip1.SetToolTip(this.buttonValidOffre, "Validation de l\'offre");
             this.buttonValidOffre.UseVisualStyleBackColor = false;
-            this.buttonValidOffre.Click += new System.EventHandler(this.buttonValidOffre_Click);
+            this.buttonValidOffre.Click += new System.EventHandler(this.ButtonValidOffre_Click);
             // 
             // buttonQuitter
             // 
@@ -386,9 +386,9 @@
             this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
             this.buttonQuitter.TabIndex = 4;
             this.buttonQuitter.Text = "Quitter";
-            this.toolTip1.SetToolTip(this.buttonQuitter, "Validation de l\'offre");
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Quitter cette page");
             this.buttonQuitter.UseVisualStyleBackColor = false;
-            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            this.buttonQuitter.Click += new System.EventHandler(this.ButtonQuitter_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -530,7 +530,8 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 27;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.toolTip1.SetToolTip(this.pictureBox2, "Accéder à la page web de l\'annonce");
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // flowLayoutPanel4
             // 

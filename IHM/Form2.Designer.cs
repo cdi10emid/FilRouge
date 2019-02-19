@@ -120,7 +120,7 @@
             this.comboBoxPoste.Size = new System.Drawing.Size(201, 27);
             this.comboBoxPoste.TabIndex = 3;
             this.toolTip1.SetToolTip(this.comboBoxPoste, "Séletion du type de poste");
-            this.comboBoxPoste.SelectedIndexChanged += new System.EventHandler(this.comboBoxPoste_SelectedIndexChanged);
+            this.comboBoxPoste.SelectedIndexChanged += new System.EventHandler(this.ComboBoxPoste_SelectedIndexChanged);
             // 
             // comboBoxContrat
             // 
@@ -131,7 +131,7 @@
             this.comboBoxContrat.TabIndex = 5;
             this.toolTip1.SetToolTip(this.comboBoxContrat, "Sélection du type de contrat de travail");
             this.comboBoxContrat.Visible = false;
-            this.comboBoxContrat.SelectedIndexChanged += new System.EventHandler(this.comboBoxContrat_SelectedIndexChanged);
+            this.comboBoxContrat.SelectedIndexChanged += new System.EventHandler(this.ComboBoxContrat_SelectedIndexChanged);
             // 
             // comboBoxRegion
             // 
@@ -142,7 +142,7 @@
             this.comboBoxRegion.TabIndex = 4;
             this.toolTip1.SetToolTip(this.comboBoxRegion, "Sélection de la région");
             this.comboBoxRegion.Visible = false;
-            this.comboBoxRegion.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegion_SelectedIndexChanged);
+            this.comboBoxRegion.SelectedIndexChanged += new System.EventHandler(this.ComboBoxRegion_SelectedIndexChanged);
             // 
             // buttonmAJ
             // 
@@ -157,7 +157,7 @@
             this.buttonmAJ.Text = "Annulation des filtres";
             this.toolTip1.SetToolTip(this.buttonmAJ, "annule les filtres");
             this.buttonmAJ.UseVisualStyleBackColor = true;
-            this.buttonmAJ.Click += new System.EventHandler(this.buttonmAJ_Click);
+            this.buttonmAJ.Click += new System.EventHandler(this.ButtonmAJ_Click);
             // 
             // label2
             // 
@@ -197,7 +197,7 @@
             this.buttonDate.Text = "Sélectionner les offres par date";
             this.toolTip1.SetToolTip(this.buttonDate, "Sélection sur las dates de parution saisies");
             this.buttonDate.UseVisualStyleBackColor = true;
-            this.buttonDate.Click += new System.EventHandler(this.buttonDate_Click);
+            this.buttonDate.Click += new System.EventHandler(this.ButtonDate_Click);
             // 
             // label3
             // 
@@ -218,7 +218,7 @@
             this.textBoxMois.TabIndex = 11;
             this.textBoxMois.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxMois, "Nombre de mois limité à 99");
-            this.textBoxMois.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSemaine_KeyPress);
+            this.textBoxMois.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxSemaine_KeyPress);
             // 
             // label4
             // 
@@ -243,7 +243,7 @@
             this.button1.Text = "Sélectionner";
             this.toolTip1.SetToolTip(this.button1, "Sélection sur les X derniers mois");
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // dataGridView1
             // 
@@ -289,8 +289,8 @@
             this.dataGridView1.Size = new System.Drawing.Size(1382, 678);
             this.dataGridView1.TabIndex = 0;
             this.toolTip1.SetToolTip(this.dataGridView1, "Liste des offres");
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.buttonModifOffre_Click);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.DataGridView1_SelectionChanged);
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.ButtonModifOffre_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -319,7 +319,7 @@
             this.buttonSuprimOffre.Text = "Supprimer l\'offre sélectionnée";
             this.toolTip1.SetToolTip(this.buttonSuprimOffre, "Supprimer l\'offre sélectionnée");
             this.buttonSuprimOffre.UseVisualStyleBackColor = true;
-            this.buttonSuprimOffre.Click += new System.EventHandler(this.buttonSuprimOffre_Click);
+            this.buttonSuprimOffre.Click += new System.EventHandler(this.ButtonSuprimOffre_Click);
             // 
             // buttonModifOffre
             // 
@@ -334,7 +334,7 @@
             this.buttonModifOffre.Text = "Modifier l\'offre sélectionnée";
             this.toolTip1.SetToolTip(this.buttonModifOffre, "Modifier l\'offre sélectionnée");
             this.buttonModifOffre.UseVisualStyleBackColor = true;
-            this.buttonModifOffre.Click += new System.EventHandler(this.buttonModifOffre_Click);
+            this.buttonModifOffre.Click += new System.EventHandler(this.ButtonModifOffre_Click);
             // 
             // label5
             // 
@@ -356,7 +356,7 @@
             this.buttonQuitter.Text = "Quitter";
             this.toolTip1.SetToolTip(this.buttonQuitter, "Quitter la page");
             this.buttonQuitter.UseVisualStyleBackColor = false;
-            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            this.buttonQuitter.Click += new System.EventHandler(this.ButtonQuitter_Click);
             // 
             // Form2
             // 

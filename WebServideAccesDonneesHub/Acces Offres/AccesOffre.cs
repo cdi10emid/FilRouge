@@ -15,12 +15,16 @@ namespace WebServideAccesDonneesHub
         {
             using (await _sem.LockAsync())
             {
-                SqlConnection cn = new SqlConnection();
-                cn.ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15";
-                SqlCommand objSelect = new SqlCommand();
-                objSelect.Connection = cn;
-                objSelect.CommandText = "dbo.AfficheOffre";
-                objSelect.CommandType = CommandType.StoredProcedure;
+                SqlConnection cn = new SqlConnection
+                {
+                    ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
+                };
+                SqlCommand objSelect = new SqlCommand
+                {
+                    Connection = cn,
+                    CommandText = "dbo.AfficheOffre",
+                    CommandType = CommandType.StoredProcedure
+                };
 
 
                 DataTable objDataset = new DataTable();
@@ -31,24 +35,25 @@ namespace WebServideAccesDonneesHub
                 foreach (DataRow offre in objDataset.Rows)
                 {
 
-                    Offre offre2 = new Offre();
-
-                    offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                    offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                    offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                    offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                    offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                    offre2.Titre = offre["TITRE"].ToString();
-                    offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                    offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                    offre2.LienWeb = offre["LIENWEB"].ToString();
-                    offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                    offre2.NomContact = offre["NOMCONTACT"].ToString();
-                    offre2.TelContact = offre["TELCONTACT"].ToString();
-                    offre2.MailContact = offre["MAILCONTACT"].ToString();
-                    offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                    offre2.Nomregion = offre["NOMREGION"].ToString();
-                    offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                    Offre offre2 = new Offre
+                    {
+                        IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                        IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                        IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                        IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                        IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                        Titre = offre["TITRE"].ToString(),
+                        DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                        Description = Convert.ToString(offre["DESCRIPTION"]),
+                        LienWeb = offre["LIENWEB"].ToString(),
+                        NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                        NomContact = offre["NOMCONTACT"].ToString(),
+                        TelContact = offre["TELCONTACT"].ToString(),
+                        MailContact = offre["MAILCONTACT"].ToString(),
+                        TypeContrat = offre["TYPECONTRAT"].ToString(),
+                        Nomregion = offre["NOMREGION"].ToString(),
+                        TypePoste = offre["TYPEPOSTE"].ToString()
+                    };
 
                     _listeOffre.Add(offre2);
                 }
@@ -60,45 +65,61 @@ namespace WebServideAccesDonneesHub
             using (await _sem.LockAsync())
             {
 
-                SqlConnection cn = new SqlConnection();
-                cn.ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15";
+                SqlConnection cn = new SqlConnection
+                {
+                    ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
+                };
 
-                SqlCommand objSelect = new SqlCommand();
-                objSelect.Connection = cn;
+                new SqlCommand
+                {
+                    Connection = cn,
 
-                objSelect.CommandText = "dbo.AfficheOffreByDate";
-                objSelect.CommandType = CommandType.StoredProcedure;
-                objSelect.Parameters.AddWithValue("@DEBUT", DateDebutint.ToString());
-                objSelect.Parameters.AddWithValue("@FIN", DateFinint.ToString());
+                    CommandText = "dbo.AfficheOffreByDate",
+                    CommandType = CommandType.StoredProcedure
+                }.Parameters.AddWithValue("@DEBUT", DateDebutint.ToString());
+                new SqlCommand
+                {
+                    Connection = cn,
+
+                    CommandText = "dbo.AfficheOffreByDate",
+                    CommandType = CommandType.StoredProcedure
+                }.Parameters.AddWithValue("@FIN", DateFinint.ToString());
 
 
 
                 DataTable objDataset = new DataTable();
-                SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
+                SqlDataAdapter objDataAdapter = new SqlDataAdapter(new SqlCommand
+                {
+                    Connection = cn,
+
+                    CommandText = "dbo.AfficheOffreByDate",
+                    CommandType = CommandType.StoredProcedure
+                });
 
                 objDataAdapter.Fill(objDataset);
 
                 foreach (DataRow offre in objDataset.Rows)
                 {
 
-                    Offre offre2 = new Offre();
-
-                    offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                    offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                    offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                    offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                    offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                    offre2.Titre = offre["TITRE"].ToString();
-                    offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                    offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                    offre2.LienWeb = offre["LIENWEB"].ToString();
-                    offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                    offre2.NomContact = offre["NOMCONTACT"].ToString();
-                    offre2.TelContact = offre["TELCONTACT"].ToString();
-                    offre2.MailContact = offre["MAILCONTACT"].ToString();
-                    offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                    offre2.Nomregion = offre["NOMREGION"].ToString();
-                    offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                    Offre offre2 = new Offre
+                    {
+                        IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                        IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                        IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                        IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                        IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                        Titre = offre["TITRE"].ToString(),
+                        DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                        Description = Convert.ToString(offre["DESCRIPTION"]),
+                        LienWeb = offre["LIENWEB"].ToString(),
+                        NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                        NomContact = offre["NOMCONTACT"].ToString(),
+                        TelContact = offre["TELCONTACT"].ToString(),
+                        MailContact = offre["MAILCONTACT"].ToString(),
+                        TypeContrat = offre["TYPECONTRAT"].ToString(),
+                        Nomregion = offre["NOMREGION"].ToString(),
+                        TypePoste = offre["TYPEPOSTE"].ToString()
+                    };
                     _listeOffre.Add(offre2);
                 }
 
@@ -145,12 +166,16 @@ namespace WebServideAccesDonneesHub
                 if (IdPosteint == null && IdContratint == null && IdRegionint == null )
                 {
 
-                    SqlConnection cn = new SqlConnection();
-                    cn.ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15";
-                    SqlCommand objSelect = new SqlCommand();
-                    objSelect.Connection = cn;
-                    objSelect.CommandText = "dbo.AfficheOffre";
-                    objSelect.CommandType = CommandType.StoredProcedure;
+                    SqlConnection cn = new SqlConnection
+                    {
+                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
+                    };
+                    SqlCommand objSelect = new SqlCommand
+                    {
+                        Connection = cn,
+                        CommandText = "dbo.AfficheOffre",
+                        CommandType = CommandType.StoredProcedure
+                    };
 
 
                     DataTable objDataset = new DataTable();
@@ -161,24 +186,25 @@ namespace WebServideAccesDonneesHub
                     foreach (DataRow offre in objDataset.Rows)
                     {
 
-                        Offre offre2 = new Offre();
-
-                        offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                        offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                        offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                        offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                        offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                        offre2.Titre = offre["TITRE"].ToString();
-                        offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                        offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                        offre2.LienWeb = offre["LIENWEB"].ToString();
-                        offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                        offre2.NomContact = offre["NOMCONTACT"].ToString();
-                        offre2.TelContact = offre["TELCONTACT"].ToString();
-                        offre2.MailContact = offre["MAILCONTACT"].ToString();
-                        offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                        offre2.Nomregion = offre["NOMREGION"].ToString();
-                        offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                        Offre offre2 = new Offre
+                        {
+                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                            Titre = offre["TITRE"].ToString(),
+                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                            Description = Convert.ToString(offre["DESCRIPTION"]),
+                            LienWeb = offre["LIENWEB"].ToString(),
+                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                            NomContact = offre["NOMCONTACT"].ToString(),
+                            TelContact = offre["TELCONTACT"].ToString(),
+                            MailContact = offre["MAILCONTACT"].ToString(),
+                            TypeContrat = offre["TYPECONTRAT"].ToString(),
+                            Nomregion = offre["NOMREGION"].ToString(),
+                            TypePoste = offre["TYPEPOSTE"].ToString()
+                        };
 
                         _listeOffre.Add(offre2);
 
@@ -190,13 +216,17 @@ namespace WebServideAccesDonneesHub
                 else if (IdContratint == null && IdRegionint == null )
                 {
 
-                    SqlConnection cn = new SqlConnection();
-                    cn.ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15";
-                    SqlCommand objSelect = new SqlCommand();
-                    objSelect.Connection = cn;
+                    SqlConnection cn = new SqlConnection
+                    {
+                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
+                    };
+                    SqlCommand objSelect = new SqlCommand
+                    {
+                        Connection = cn,
 
-                    objSelect.CommandText = "dbo.AfficheOffreByIdPoste";
-                    objSelect.CommandType = CommandType.StoredProcedure;
+                        CommandText = "dbo.AfficheOffreByIdPoste",
+                        CommandType = CommandType.StoredProcedure
+                    };
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
 
 
@@ -209,23 +239,25 @@ namespace WebServideAccesDonneesHub
                     foreach (DataRow offre in objDataset.Rows)
                     {
 
-                        Offre offre2 = new Offre();
-                        offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                        offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                        offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                        offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                        offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                        offre2.Titre = offre["TITRE"].ToString();
-                        offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                        offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                        offre2.LienWeb = offre["LIENWEB"].ToString();
-                        offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                        offre2.NomContact = offre["NOMCONTACT"].ToString();
-                        offre2.TelContact = offre["TELCONTACT"].ToString();
-                        offre2.MailContact = offre["MAILCONTACT"].ToString();
-                        offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                        offre2.Nomregion = offre["NOMREGION"].ToString();
-                        offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                        Offre offre2 = new Offre
+                        {
+                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                            Titre = offre["TITRE"].ToString(),
+                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                            Description = Convert.ToString(offre["DESCRIPTION"]),
+                            LienWeb = offre["LIENWEB"].ToString(),
+                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                            NomContact = offre["NOMCONTACT"].ToString(),
+                            TelContact = offre["TELCONTACT"].ToString(),
+                            MailContact = offre["MAILCONTACT"].ToString(),
+                            TypeContrat = offre["TYPECONTRAT"].ToString(),
+                            Nomregion = offre["NOMREGION"].ToString(),
+                            TypePoste = offre["TYPEPOSTE"].ToString()
+                        };
                         _listeOffre.Add(offre2);
                     }
 
@@ -234,13 +266,17 @@ namespace WebServideAccesDonneesHub
                 else if (IdRegionint == null )
                 {
 
-                    SqlConnection cn = new SqlConnection();
-                    cn.ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15";
+                    SqlConnection cn = new SqlConnection
+                    {
+                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
+                    };
 
-                    SqlCommand objSelect = new SqlCommand();
-                    objSelect.Connection = cn;
-                    objSelect.CommandText = "dbo.AfficheOffreByIdPosteIdContrat";
-                    objSelect.CommandType = CommandType.StoredProcedure;
+                    SqlCommand objSelect = new SqlCommand
+                    {
+                        Connection = cn,
+                        CommandText = "dbo.AfficheOffreByIdPosteIdContrat",
+                        CommandType = CommandType.StoredProcedure
+                    };
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
                     objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContratint);
 
@@ -254,24 +290,25 @@ namespace WebServideAccesDonneesHub
                     foreach (DataRow offre in objDataset.Rows)
                     {
 
-                        Offre offre2 = new Offre();
-
-                        offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                        offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                        offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                        offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                        offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                        offre2.Titre = offre["TITRE"].ToString();
-                        offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                        offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                        offre2.LienWeb = offre["LIENWEB"].ToString();
-                        offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                        offre2.NomContact = offre["NOMCONTACT"].ToString();
-                        offre2.TelContact = offre["TELCONTACT"].ToString();
-                        offre2.MailContact = offre["MAILCONTACT"].ToString();
-                        offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                        offre2.Nomregion = offre["NOMREGION"].ToString();
-                        offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                        Offre offre2 = new Offre
+                        {
+                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                            Titre = offre["TITRE"].ToString(),
+                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                            Description = Convert.ToString(offre["DESCRIPTION"]),
+                            LienWeb = offre["LIENWEB"].ToString(),
+                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                            NomContact = offre["NOMCONTACT"].ToString(),
+                            TelContact = offre["TELCONTACT"].ToString(),
+                            MailContact = offre["MAILCONTACT"].ToString(),
+                            TypeContrat = offre["TYPECONTRAT"].ToString(),
+                            Nomregion = offre["NOMREGION"].ToString(),
+                            TypePoste = offre["TYPEPOSTE"].ToString()
+                        };
 
                         _listeOffre.Add(offre2);
 
@@ -282,13 +319,17 @@ namespace WebServideAccesDonneesHub
                 else 
                 {
 
-                    SqlConnection cn = new SqlConnection();
-                    cn.ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15";
+                    SqlConnection cn = new SqlConnection
+                    {
+                        ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
+                    };
 
-                    SqlCommand objSelect = new SqlCommand();
-                    objSelect.Connection = cn;
-                    objSelect.CommandText = "dbo.AfficheOffreByIdPosteIdContratIdRegion";
-                    objSelect.CommandType = CommandType.StoredProcedure;
+                    SqlCommand objSelect = new SqlCommand
+                    {
+                        Connection = cn,
+                        CommandText = "dbo.AfficheOffreByIdPosteIdContratIdRegion",
+                        CommandType = CommandType.StoredProcedure
+                    };
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
                     objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContratint);
                     objSelect.Parameters.AddWithValue("@IDREGION", IdRegionint);
@@ -303,24 +344,25 @@ namespace WebServideAccesDonneesHub
                     foreach (DataRow offre in objDataset.Rows)
                     {
 
-                        Offre offre2 = new Offre();
-
-                        offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                        offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                        offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                        offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                        offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                        offre2.Titre = offre["TITRE"].ToString();
-                        offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                        offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                        offre2.LienWeb = offre["LIENWEB"].ToString();
-                        offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                        offre2.NomContact = offre["NOMCONTACT"].ToString();
-                        offre2.TelContact = offre["TELCONTACT"].ToString();
-                        offre2.MailContact = offre["MAILCONTACT"].ToString();
-                        offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                        offre2.Nomregion = offre["NOMREGION"].ToString();
-                        offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                        Offre offre2 = new Offre
+                        {
+                            IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                            IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                            IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                            IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                            IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                            Titre = offre["TITRE"].ToString(),
+                            DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                            Description = Convert.ToString(offre["DESCRIPTION"]),
+                            LienWeb = offre["LIENWEB"].ToString(),
+                            NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                            NomContact = offre["NOMCONTACT"].ToString(),
+                            TelContact = offre["TELCONTACT"].ToString(),
+                            MailContact = offre["MAILCONTACT"].ToString(),
+                            TypeContrat = offre["TYPECONTRAT"].ToString(),
+                            Nomregion = offre["NOMREGION"].ToString(),
+                            TypePoste = offre["TYPEPOSTE"].ToString()
+                        };
 
                         _listeOffre.Add(offre2);
 

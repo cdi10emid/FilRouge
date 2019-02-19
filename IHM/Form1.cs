@@ -27,26 +27,26 @@ namespace IHM
             this.Cursor = Cursors.WaitCursor;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             try
             {
                 AccesPoste accesPoste = new AccesPoste();
                 accesPoste.ajoutPoste(comboBoxPoste.Text);
-                afficheCombo();
+                AfficheCombo();
             }
             catch (SqlException)
             {
                 MessageBox.Show("Problème de connection essayez plus tard");
             }
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             try
             {
                 AccesContrat accesContrat = new AccesContrat();
                 accesContrat.ajoutContrat(comboBoxContrat.Text);
-                afficheCombo();
+                AfficheCombo();
             }
             catch (SqlException)
             {
@@ -56,7 +56,7 @@ namespace IHM
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
         /// </summary>
-        private void afficheCombo()
+        private void AfficheCombo()
         {
             try
             {
@@ -92,7 +92,7 @@ namespace IHM
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBoxNomEntreprise_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxNomEntreprise_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace IHM
         /// <summary>
         /// Méthode pour afficher les contacts
         /// </summary>
-        private void afficheContact()
+        private void AfficheContact()
         {
             try
             {
@@ -141,7 +141,7 @@ namespace IHM
             }
         }
 
-        private void buttonValidOffre_Click(object sender, EventArgs e)
+        private void ButtonValidOffre_Click(object sender, EventArgs e)
         {
             AccesOffre accesOffre = new AccesOffre();
             AccesContact accesContact = new AccesContact();
@@ -174,8 +174,8 @@ namespace IHM
                                     Convert.ToString(textBoxLienWeb.Text)) == 1)
                         {
                             MessageBox.Show("Ajout de l'offre effectuée !");
-                                afficheCombo();
-                                afficheContact();
+                                AfficheCombo();
+                                AfficheContact();
                                 EffaceBox();
                                 repere = 1;
                         }
@@ -201,7 +201,7 @@ namespace IHM
             textBoxLienWeb.Clear();
         }
 
-        private void buttonListOffres_Click(object sender, EventArgs e)
+        private void ButtonListOffres_Click(object sender, EventArgs e)
         {
             Form2 f = new Form2();
 
@@ -211,7 +211,7 @@ namespace IHM
         /// Methode  pour que ne soit pris en compte que les chiffres et la touche back space
         /// </summary>
         /// <param name="e"></param>
-        public void chiffre(System.Windows.Forms.KeyPressEventArgs e)
+        public void Chiffre(System.Windows.Forms.KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
@@ -222,9 +222,9 @@ namespace IHM
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void textBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
         {
-            chiffre(e);
+            Chiffre(e);
         }
         /// <summary>
         /// Fermeture de la form avce demande à l'utilisateur
@@ -234,7 +234,7 @@ namespace IHM
 
        
 
-        private void buttonQuitter_Click(object sender, EventArgs e)
+        private void ButtonQuitter_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -242,8 +242,8 @@ namespace IHM
         private void Form1_Shown(object sender, EventArgs e)
         {
             this.Location = new Point(0, 0);
-            afficheCombo();
-            afficheContact();
+            AfficheCombo();
+            AfficheContact();
             repere = 1;
             try
             {

@@ -32,7 +32,7 @@ namespace IHM
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             UseWaitCursor = true;
             Form1 f = new Form1();
@@ -41,7 +41,7 @@ namespace IHM
             UseWaitCursor = false;
         }
 
-        private void buttonQuitter_Click(object sender, EventArgs e)
+        private void ButtonQuitter_Click(object sender, EventArgs e)
         {
             Close();
         }

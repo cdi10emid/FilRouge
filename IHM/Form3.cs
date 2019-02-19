@@ -35,7 +35,7 @@ namespace IHM
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
         /// </summary>
-        private void afficheCombo()
+        private void AfficheCombo()
         {
             UseWaitCursor = true;
             try
@@ -98,7 +98,7 @@ namespace IHM
         /// <summary>
         /// Méthode pour afficher le contact
         /// </summary>
-        private void afficheContact()
+        private void AfficheContact()
         {
             UseWaitCursor = true;
             try
@@ -123,18 +123,18 @@ namespace IHM
         /// méthode de vérification si l'utilisateur saisi bien des chiffres
         /// </summary>
         /// <param name="e"></param>
-        public void chiffre(System.Windows.Forms.KeyPressEventArgs e)
+        public void Chiffre(System.Windows.Forms.KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
 
-        private void textBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
         {
-            chiffre(e);
+            Chiffre(e);
         }
 
-        private void buttonValidOffre_Click(object sender, EventArgs e)
+        private void ButtonValidOffre_Click(object sender, EventArgs e)
         {
             UseWaitCursor = true;
             try
@@ -160,14 +160,14 @@ namespace IHM
             UseWaitCursor = false;
         }
 
-        private void buttonQuitter_Click(object sender, EventArgs e)
+        private void ButtonQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
       
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void PictureBox2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(textBoxLienWeb.Text);
         }
@@ -176,8 +176,8 @@ namespace IHM
         {
             this.Location = new Point(0, 0);
             AfficheOffreSelect();
-            afficheContact();
-            afficheCombo();
+            AfficheContact();
+            AfficheCombo();
             this.Cursor = Cursors.Default;
         }
     }

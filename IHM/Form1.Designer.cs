@@ -169,7 +169,7 @@
             this.comboBoxNomEntreprise.Size = new System.Drawing.Size(333, 27);
             this.comboBoxNomEntreprise.TabIndex = 14;
             this.toolTip1.SetToolTip(this.comboBoxNomEntreprise, "Sélectionnez ou saisissez le nom de l\'entreprise");
-            this.comboBoxNomEntreprise.SelectedIndexChanged += new System.EventHandler(this.comboBoxNomEntreprise_SelectedIndexChanged);
+            this.comboBoxNomEntreprise.SelectedIndexChanged += new System.EventHandler(this.ComboBoxNomEntreprise_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -212,7 +212,7 @@
             this.textBoxTelContact.Size = new System.Drawing.Size(334, 26);
             this.textBoxTelContact.TabIndex = 17;
             this.toolTip1.SetToolTip(this.textBoxTelContact, "Saisissez le numéro de téléphone du contact");
-            this.textBoxTelContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelContact_KeyPress);
+            this.textBoxTelContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxTelContact_KeyPress);
             // 
             // label9
             // 
@@ -288,7 +288,7 @@
             this.buttonValidOffre.Text = "Validation de l\' offre";
             this.toolTip1.SetToolTip(this.buttonValidOffre, "Validation de l\'offre");
             this.buttonValidOffre.UseVisualStyleBackColor = false;
-            this.buttonValidOffre.Click += new System.EventHandler(this.buttonValidOffre_Click);
+            this.buttonValidOffre.Click += new System.EventHandler(this.ButtonValidOffre_Click);
             // 
             // label13
             // 
@@ -310,7 +310,7 @@
             this.buttonListOffres.Text = "Liste des offres";
             this.toolTip1.SetToolTip(this.buttonListOffres, "Accès à la liste des offres");
             this.buttonListOffres.UseVisualStyleBackColor = true;
-            this.buttonListOffres.Click += new System.EventHandler(this.buttonListOffres_Click);
+            this.buttonListOffres.Click += new System.EventHandler(this.ButtonListOffres_Click);
             // 
             // label15
             // 
@@ -333,7 +333,7 @@
             this.buttonQuitter.Text = "Quitter";
             this.toolTip1.SetToolTip(this.buttonQuitter, "Quitter l\'application");
             this.buttonQuitter.UseVisualStyleBackColor = true;
-            this.buttonQuitter.Click += new System.EventHandler(this.buttonQuitter_Click);
+            this.buttonQuitter.Click += new System.EventHandler(this.ButtonQuitter_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -544,7 +544,7 @@
             this.button1.Text = "Poste";
             this.toolTip1.SetToolTip(this.button1, "Ajouter un nouveau poste si absent sur la liste");
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label6
             // 
@@ -566,7 +566,7 @@
             this.button2.Text = "Contrat";
             this.toolTip1.SetToolTip(this.button2, "Ajoutez un nouveau type de contrat si absent sur la liste");
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // pictureBox1
             // 

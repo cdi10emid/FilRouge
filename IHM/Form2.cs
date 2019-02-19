@@ -36,7 +36,7 @@ namespace IHM
             this.Cursor = Cursors.WaitCursor;
         }
         private async void ConnectHub()
-        {
+        { 
             string DateDebuturl = dateTimePickerDateDebut.Value.ToString("yyMMdd");
             string DateFinurl = dateTimePickerDateFin.Value.ToString("yyMMdd");
             string idposte = Convert.ToString(comboBoxPoste.SelectedValue);
@@ -99,14 +99,14 @@ namespace IHM
 
                 if (dataGridView1.CurrentRow != null)
                 {
-                    idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
+                    IdOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
                 }
 
             }, CancellationToken.None, TaskCreationOptions.None, scheduler);
 
         }
-        public int idOffreSelectransmit { get; set; }
-        private void buttonSuprimOffre_Click(object sender, EventArgs e)
+        public int IdOffreSelectransmit { get; set; }
+        private void ButtonSuprimOffre_Click(object sender, EventArgs e)
         {
             if ((MessageBox.Show("Attention voulez-vous vraiment supprimer cette offre !", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes))
             {
@@ -123,15 +123,15 @@ namespace IHM
             }
         }
 
-        private void buttonModifOffre_Click(object sender, EventArgs e)
+        private void ButtonModifOffre_Click(object sender, EventArgs e)
         {
-            Form3 frm2 = new Form3(idOffreSelectransmit);
+            Form3 frm2 = new Form3(IdOffreSelectransmit);
             frm2.ShowDialog();
         }
 
-        private void buttonmAJ_Click(object sender, EventArgs e)
+        private void ButtonmAJ_Click(object sender, EventArgs e)
         {
-            afficheCombo();
+            AfficheCombo();
             ConnectHub();
             comboBoxContrat.Visible = false;
             comboBoxPoste.Enabled = true;
@@ -140,7 +140,7 @@ namespace IHM
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
         /// </summary>
-        private void afficheCombo()
+        private void AfficheCombo()
         {
             UseWaitCursor = true;
             try
@@ -166,7 +166,7 @@ namespace IHM
             }
             UseWaitCursor = false;
         }
-        private async void comboBoxContrat_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ComboBoxContrat_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             comboBoxPoste.Enabled = false;
@@ -194,7 +194,7 @@ namespace IHM
             iniContrat++;
         }
 
-        private async void comboBoxRegion_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ComboBoxRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxPoste.ValueMember = "IDPOSTE";
             comboBoxContrat.ValueMember = "IDCONTRAT";
@@ -217,15 +217,15 @@ namespace IHM
             initregion++;
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow != null)
             {
-                idOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
+                IdOffreSelectransmit = Convert.ToInt32(dataGridView1.CurrentRow.Cells["IdOffre"].Value);
             }
         }
 
-        private async void comboBoxPoste_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ComboBoxPoste_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxPoste.Enabled = false;
             comboBoxContrat.Visible = true;
@@ -252,7 +252,7 @@ namespace IHM
             initPoste++;
         }
 
-        private async void buttonDate_Click(object sender, EventArgs e)
+        private async void ButtonDate_Click(object sender, EventArgs e)
         {
             string DateDebut = dateTimePickerDateDebut.Value.ToString("yyMMdd");
             string DateFin = dateTimePickerDateFin.Value.ToString("yyMMdd");
@@ -267,13 +267,13 @@ namespace IHM
             }
             UseWaitCursor = false;
         }
-        public void chiffre(System.Windows.Forms.KeyPressEventArgs e)
+        public void Chiffre(System.Windows.Forms.KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void Button1_Click(object sender, EventArgs e)
         {
             int nbMois = Convert.ToInt32(textBoxMois.Text);
             string DateFin = DateTime.Today.ToString("yyMMdd");
@@ -290,19 +290,19 @@ namespace IHM
             UseWaitCursor = false;
         }
 
-        private void textBoxSemaine_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxSemaine_KeyPress(object sender, KeyPressEventArgs e)
         {
-            chiffre(e);
+            Chiffre(e);
         }
 
-        private void buttonQuitter_Click(object sender, EventArgs e)
+        private void ButtonQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void Form2_Shown(object sender, EventArgs e)
         {
-            afficheCombo();
+            AfficheCombo();
             ConnectHub();
             comboBoxContrat.Visible = false;
             comboBoxPoste.Visible = true;
