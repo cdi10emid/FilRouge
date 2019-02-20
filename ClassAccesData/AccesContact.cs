@@ -43,12 +43,14 @@ namespace ClassAccesData
             objDataAdapter.Fill(objDataset);
             foreach (DataRow contact in objDataset.Rows)
             {
-                Contact Contact2 = new Contact();
-                Contact2.IdContact = Convert.ToInt32(contact["IDCONTACT"]);
-                Contact2.NomEntreprise = contact["NOMENTREPRISE"].ToString();
-                Contact2.NomContact = contact["NOMCONTACT"].ToString();
-                Contact2.TelContact = contact["TELCONTACT"].ToString();
-                Contact2.MailContact = contact["MAILCONTACT"].ToString();
+                Contact Contact2 = new Contact
+                {
+                    IdContact = Convert.ToInt32(contact["IDCONTACT"]),
+                    NomEntreprise = contact["NOMENTREPRISE"].ToString(),
+                    NomContact = contact["NOMCONTACT"].ToString(),
+                    TelContact = contact["TELCONTACT"].ToString(),
+                    MailContact = contact["MAILCONTACT"].ToString()
+                };
                 ListeContact.Add(Contact2);
             }
             return ListeContact;

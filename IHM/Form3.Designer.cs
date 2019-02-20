@@ -45,17 +45,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.textBoxNomContact = new System.Windows.Forms.TextBox();
             this.textBoxTelContact = new System.Windows.Forms.TextBox();
             this.textBoxMailContact = new System.Windows.Forms.TextBox();
             this.textBoxLienWeb = new System.Windows.Forms.TextBox();
             this.textBoxNomEntreprise = new System.Windows.Forms.TextBox();
-            this.buttonValidOffre = new System.Windows.Forms.Button();
-            this.buttonQuitter = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -65,24 +60,31 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonValidOffre = new System.Windows.Forms.Button();
+            this.buttonQuitter = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.flowLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxTitre
@@ -270,45 +272,6 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(197, 347);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
-            // button1
-            // 
-            this.button1.Image = global::IHM.Properties.Resources.Symbol_Check;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(4, 38);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Poste";
-            this.toolTip1.SetToolTip(this.button1, "Ajouter un nouveau poste si absent sur la liste");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Image = global::IHM.Properties.Resources.Symbol_Check;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(4, 109);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(177, 28);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Contrat";
-            this.toolTip1.SetToolTip(this.button2, "Ajoutez un nouveau type de contrat si absent sur la liste");
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::IHM.Properties.Resources.image002;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 146);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 123);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // textBoxNomContact
             // 
             this.textBoxNomContact.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -342,7 +305,7 @@
             // textBoxLienWeb
             // 
             this.textBoxLienWeb.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxLienWeb.Location = new System.Drawing.Point(347, 145);
+            this.textBoxLienWeb.Location = new System.Drawing.Point(347, 146);
             this.textBoxLienWeb.Margin = new System.Windows.Forms.Padding(6, 5, 4, 5);
             this.textBoxLienWeb.Name = "textBoxLienWeb";
             this.textBoxLienWeb.Size = new System.Drawing.Size(333, 26);
@@ -359,36 +322,6 @@
             this.textBoxNomEntreprise.TabIndex = 21;
             this.toolTip1.SetToolTip(this.textBoxNomEntreprise, "Le nom de l\'entreprise n\'est pas modifiable.En cas d\'erreur merci d\'éffacer et de" +
         " saisir à nouveau l\'offre");
-            // 
-            // buttonValidOffre
-            // 
-            this.buttonValidOffre.BackColor = System.Drawing.Color.IndianRed;
-            this.buttonValidOffre.Image = global::IHM.Properties.Resources.Symbol_Check;
-            this.buttonValidOffre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonValidOffre.Location = new System.Drawing.Point(4, 5);
-            this.buttonValidOffre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonValidOffre.Name = "buttonValidOffre";
-            this.buttonValidOffre.Size = new System.Drawing.Size(300, 34);
-            this.buttonValidOffre.TabIndex = 1;
-            this.buttonValidOffre.Text = "Validation de l\' offre";
-            this.toolTip1.SetToolTip(this.buttonValidOffre, "Validation de l\'offre");
-            this.buttonValidOffre.UseVisualStyleBackColor = false;
-            this.buttonValidOffre.Click += new System.EventHandler(this.ButtonValidOffre_Click);
-            // 
-            // buttonQuitter
-            // 
-            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
-            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
-            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonQuitter.Location = new System.Drawing.Point(4, 140);
-            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonQuitter.Name = "buttonQuitter";
-            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
-            this.buttonQuitter.TabIndex = 4;
-            this.buttonQuitter.Text = "Quitter";
-            this.toolTip1.SetToolTip(this.buttonQuitter, "Quitter cette page");
-            this.buttonQuitter.UseVisualStyleBackColor = false;
-            this.buttonQuitter.Click += new System.EventHandler(this.ButtonQuitter_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -455,6 +388,7 @@
             this.flowLayoutPanel3.Controls.Add(this.textBoxTelContact);
             this.flowLayoutPanel3.Controls.Add(this.label9);
             this.flowLayoutPanel3.Controls.Add(this.textBoxMailContact);
+            this.flowLayoutPanel3.Controls.Add(this.pictureBox3);
             this.flowLayoutPanel3.Controls.Add(this.label12);
             this.flowLayoutPanel3.Controls.Add(this.textBoxLienWeb);
             this.flowLayoutPanel3.Controls.Add(this.pictureBox2);
@@ -512,46 +446,13 @@
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.Location = new System.Drawing.Point(4, 144);
+            this.label12.Location = new System.Drawing.Point(4, 145);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(333, 28);
             this.label12.TabIndex = 26;
             this.label12.Text = "Lien Web de l\'offre";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::IHM.Properties.Resources._396;
-            this.pictureBox2.Location = new System.Drawing.Point(687, 143);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(33, 31);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Accéder à la page web de l\'annonce");
-            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.buttonValidOffre);
-            this.flowLayoutPanel4.Controls.Add(this.label13);
-            this.flowLayoutPanel4.Controls.Add(this.buttonQuitter);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(887, 7);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(7);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(479, 422);
-            this.flowLayoutPanel4.TabIndex = 1;
-            // 
-            // label13
-            // 
-            this.label13.Location = new System.Drawing.Point(4, 44);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(284, 91);
-            this.label13.TabIndex = 3;
             // 
             // tableLayoutPanel2
             // 
@@ -606,6 +507,121 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(775, 365);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.buttonValidOffre);
+            this.flowLayoutPanel4.Controls.Add(this.label13);
+            this.flowLayoutPanel4.Controls.Add(this.buttonQuitter);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(887, 7);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(7);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(479, 422);
+            this.flowLayoutPanel4.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(4, 44);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(284, 91);
+            this.label13.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::IHM.Properties.Resources.mailto_services_logo;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::IHM.Properties.Resources.mailto_services_logo2;
+            this.pictureBox3.Location = new System.Drawing.Point(688, 107);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 31);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 28;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::IHM.Properties.Resources._396;
+            this.pictureBox2.Location = new System.Drawing.Point(687, 144);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(33, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 27;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Accéder à la page web de l\'annonce");
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
+            // 
+            // buttonValidOffre
+            // 
+            this.buttonValidOffre.BackColor = System.Drawing.Color.IndianRed;
+            this.buttonValidOffre.Image = global::IHM.Properties.Resources.Symbol_Check;
+            this.buttonValidOffre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonValidOffre.Location = new System.Drawing.Point(4, 5);
+            this.buttonValidOffre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonValidOffre.Name = "buttonValidOffre";
+            this.buttonValidOffre.Size = new System.Drawing.Size(300, 34);
+            this.buttonValidOffre.TabIndex = 1;
+            this.buttonValidOffre.Text = "Validation de l\' offre";
+            this.toolTip1.SetToolTip(this.buttonValidOffre, "Validation de l\'offre");
+            this.buttonValidOffre.UseVisualStyleBackColor = false;
+            this.buttonValidOffre.Click += new System.EventHandler(this.ButtonValidOffre_Click);
+            // 
+            // buttonQuitter
+            // 
+            this.buttonQuitter.BackColor = System.Drawing.Color.Gainsboro;
+            this.buttonQuitter.Image = global::IHM.Properties.Resources.Symbol_Delete;
+            this.buttonQuitter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuitter.Location = new System.Drawing.Point(4, 140);
+            this.buttonQuitter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonQuitter.Name = "buttonQuitter";
+            this.buttonQuitter.Size = new System.Drawing.Size(300, 34);
+            this.buttonQuitter.TabIndex = 4;
+            this.buttonQuitter.Text = "Quitter";
+            this.toolTip1.SetToolTip(this.buttonQuitter, "Quitter cette page");
+            this.buttonQuitter.UseVisualStyleBackColor = false;
+            this.buttonQuitter.Click += new System.EventHandler(this.ButtonQuitter_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::IHM.Properties.Resources.Symbol_Check;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(4, 38);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(181, 28);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Poste";
+            this.toolTip1.SetToolTip(this.button1, "Ajouter un nouveau poste si absent sur la liste");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Image = global::IHM.Properties.Resources.Symbol_Check;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(4, 109);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(177, 28);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Contrat";
+            this.toolTip1.SetToolTip(this.button2, "Ajoutez un nouveau type de contrat si absent sur la liste");
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::IHM.Properties.Resources.image002;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 146);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -624,18 +640,19 @@
             this.Shown += new System.EventHandler(this.Form3_Shown);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.flowLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -683,5 +700,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonQuitter;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

@@ -78,24 +78,25 @@ namespace ClassAccesData
             foreach (DataRow offre in objDataset.Rows)
             {
 
-                Offre offre2 = new Offre();
-
-                offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                offre2.Titre = offre["TITRE"].ToString();
-                offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                offre2.LienWeb = offre["LIENWEB"].ToString();
-                offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                offre2.NomContact = offre["NOMCONTACT"].ToString();
-                offre2.TelContact = offre["TELCONTACT"].ToString();
-                offre2.MailContact = offre["MAILCONTACT"].ToString();
-                offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                offre2.Nomregion = offre["NOMREGION"].ToString();
-                offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                Offre offre2 = new Offre
+                {
+                    IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                    IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                    IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                    IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                    IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                    Titre = offre["TITRE"].ToString(),
+                    DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                    Description = Convert.ToString(offre["DESCRIPTION"]),
+                    LienWeb = offre["LIENWEB"].ToString(),
+                    NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                    NomContact = offre["NOMCONTACT"].ToString(),
+                    TelContact = offre["TELCONTACT"].ToString(),
+                    MailContact = offre["MAILCONTACT"].ToString(),
+                    TypeContrat = offre["TYPECONTRAT"].ToString(),
+                    Nomregion = offre["NOMREGION"].ToString(),
+                    TypePoste = offre["TYPEPOSTE"].ToString()
+                };
 
                 offreRetour.Add(offre2);
 
@@ -128,23 +129,25 @@ namespace ClassAccesData
             foreach (DataRow offre in objDataset.Rows)
             {
 
-                Offre offre2 = new Offre();
-                offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                offre2.Titre = offre["TITRE"].ToString();
-                offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                offre2.LienWeb = offre["LIENWEB"].ToString();
-                offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                offre2.NomContact = offre["NOMCONTACT"].ToString();
-                offre2.TelContact = offre["TELCONTACT"].ToString();
-                offre2.MailContact = offre["MAILCONTACT"].ToString();
-                offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                offre2.Nomregion = offre["NOMREGION"].ToString();
-                offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                Offre offre2 = new Offre
+                {
+                    IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                    IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                    IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                    IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                    IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                    Titre = offre["TITRE"].ToString(),
+                    DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                    Description = Convert.ToString(offre["DESCRIPTION"]),
+                    LienWeb = offre["LIENWEB"].ToString(),
+                    NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                    NomContact = offre["NOMCONTACT"].ToString(),
+                    TelContact = offre["TELCONTACT"].ToString(),
+                    MailContact = offre["MAILCONTACT"].ToString(),
+                    TypeContrat = offre["TYPECONTRAT"].ToString(),
+                    Nomregion = offre["NOMREGION"].ToString(),
+                    TypePoste = offre["TYPEPOSTE"].ToString()
+                };
                 offreRetour.Add(offre2);
             }
             return offreRetour;
@@ -177,24 +180,25 @@ namespace ClassAccesData
             foreach (DataRow offre in objDataset.Rows)
             {
 
-                Offre offre2 = new Offre();
-
-                offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                offre2.Titre = offre["TITRE"].ToString();
-                offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                offre2.LienWeb = offre["LIENWEB"].ToString();
-                offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                offre2.NomContact = offre["NOMCONTACT"].ToString();
-                offre2.TelContact = offre["TELCONTACT"].ToString();
-                offre2.MailContact = offre["MAILCONTACT"].ToString();
-                offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                offre2.Nomregion = offre["NOMREGION"].ToString();
-                offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                Offre offre2 = new Offre
+                {
+                    IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                    IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                    IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                    IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                    IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                    Titre = offre["TITRE"].ToString(),
+                    DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                    Description = Convert.ToString(offre["DESCRIPTION"]),
+                    LienWeb = offre["LIENWEB"].ToString(),
+                    NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                    NomContact = offre["NOMCONTACT"].ToString(),
+                    TelContact = offre["TELCONTACT"].ToString(),
+                    MailContact = offre["MAILCONTACT"].ToString(),
+                    TypeContrat = offre["TYPECONTRAT"].ToString(),
+                    Nomregion = offre["NOMREGION"].ToString(),
+                    TypePoste = offre["TYPEPOSTE"].ToString()
+                };
 
                 offreRetour.Add(offre2);
 
@@ -230,24 +234,25 @@ namespace ClassAccesData
             foreach (DataRow offre in objDataset.Rows)
             {
 
-                Offre offre2 = new Offre();
-
-                offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                offre2.Titre = offre["TITRE"].ToString();
-                offre2.DateParution = Convert.ToDateTime(offre["DATEPARUTION"]);
-                offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                offre2.LienWeb = offre["LIENWEB"].ToString();
-                offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                offre2.NomContact = offre["NOMCONTACT"].ToString();
-                offre2.TelContact = offre["TELCONTACT"].ToString();
-                offre2.MailContact = offre["MAILCONTACT"].ToString();
-                offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                offre2.Nomregion = offre["NOMREGION"].ToString();
-                offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                Offre offre2 = new Offre
+                {
+                    IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                    IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                    IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                    IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                    IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                    Titre = offre["TITRE"].ToString(),
+                    DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                    Description = Convert.ToString(offre["DESCRIPTION"]),
+                    LienWeb = offre["LIENWEB"].ToString(),
+                    NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                    NomContact = offre["NOMCONTACT"].ToString(),
+                    TelContact = offre["TELCONTACT"].ToString(),
+                    MailContact = offre["MAILCONTACT"].ToString(),
+                    TypeContrat = offre["TYPECONTRAT"].ToString(),
+                    Nomregion = offre["NOMREGION"].ToString(),
+                    TypePoste = offre["TYPEPOSTE"].ToString()
+                };
 
                 offreRetour.Add(offre2);
 
@@ -384,24 +389,25 @@ namespace ClassAccesData
             foreach (DataRow offre in objDataset.Rows)
             {
 
-                Offre offre2 = new Offre();
-
-                offre2.IdOffre = Convert.ToInt32(offre["IDOFFRE"]);
-                offre2.IdPoste = Convert.ToInt32(offre["IDPOSTE"]);
-                offre2.IdContrat = Convert.ToInt32(offre["IDCONTRAT"]);
-                offre2.IdRegion = Convert.ToInt32(offre["IDREGION"]);
-                offre2.IdContact = Convert.ToInt32(offre["IDCONTACT"]);
-                offre2.Titre = offre["TITRE"].ToString();
-                offre2.DateParution =Convert.ToDateTime(offre["DATEPARUTION"]);
-                offre2.Description = Convert.ToString(offre["DESCRIPTION"]);
-                offre2.LienWeb = offre["LIENWEB"].ToString();
-                offre2.NomEntreprise = offre["NOMENTREPRISE"].ToString();
-                offre2.NomContact = offre["NOMCONTACT"].ToString();
-                offre2.TelContact = offre["TELCONTACT"].ToString();
-                offre2.MailContact = offre["MAILCONTACT"].ToString();
-                offre2.TypeContrat = offre["TYPECONTRAT"].ToString();
-                offre2.Nomregion = offre["NOMREGION"].ToString();
-                offre2.TypePoste = offre["TYPEPOSTE"].ToString();
+                Offre offre2 = new Offre
+                {
+                    IdOffre = Convert.ToInt32(offre["IDOFFRE"]),
+                    IdPoste = Convert.ToInt32(offre["IDPOSTE"]),
+                    IdContrat = Convert.ToInt32(offre["IDCONTRAT"]),
+                    IdRegion = Convert.ToInt32(offre["IDREGION"]),
+                    IdContact = Convert.ToInt32(offre["IDCONTACT"]),
+                    Titre = offre["TITRE"].ToString(),
+                    DateParution = Convert.ToDateTime(offre["DATEPARUTION"]),
+                    Description = Convert.ToString(offre["DESCRIPTION"]),
+                    LienWeb = offre["LIENWEB"].ToString(),
+                    NomEntreprise = offre["NOMENTREPRISE"].ToString(),
+                    NomContact = offre["NOMCONTACT"].ToString(),
+                    TelContact = offre["TELCONTACT"].ToString(),
+                    MailContact = offre["MAILCONTACT"].ToString(),
+                    TypeContrat = offre["TYPECONTRAT"].ToString(),
+                    Nomregion = offre["NOMREGION"].ToString(),
+                    TypePoste = offre["TYPEPOSTE"].ToString()
+                };
                 offreRetour.Add(offre2);
             }
             return offreRetour;

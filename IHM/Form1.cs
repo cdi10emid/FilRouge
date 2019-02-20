@@ -174,10 +174,10 @@ namespace IHM
                                     Convert.ToString(textBoxLienWeb.Text)) == 1)
                         {
                             MessageBox.Show("Ajout de l'offre effectuée !");
-                                AfficheCombo();
-                                AfficheContact();
-                                EffaceBox();
-                                repere = 1;
+                            AfficheCombo();
+                            AfficheContact();
+                            EffaceBox();
+                            repere = 1;
                         }
                     }
                     else
@@ -204,7 +204,6 @@ namespace IHM
         private void ButtonListOffres_Click(object sender, EventArgs e)
         {
             Form2 f = new Form2();
-
             f.ShowDialog();
         }
         /// <summary>
@@ -232,7 +231,7 @@ namespace IHM
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-       
+
 
         private void ButtonQuitter_Click(object sender, EventArgs e)
         {
@@ -254,7 +253,6 @@ namespace IHM
             {
                 labelPrenom.Text = "";
             }
-           
             this.Cursor = Cursors.Default;
         }
     }

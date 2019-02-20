@@ -21,7 +21,7 @@ namespace IHM
     {
         private HubConnection _connection;
         TaskScheduler scheduler;
-        string txtadress = "user05.2isa.org";
+        private readonly string txtadress = "user05.2isa.org";
         int iniContrat = 0;
         int initPoste = 0;
         int initregion = 0;
@@ -36,7 +36,7 @@ namespace IHM
             this.Cursor = Cursors.WaitCursor;
         }
         private async void ConnectHub()
-        { 
+        {
             string DateDebuturl = dateTimePickerDateDebut.Value.ToString("yyMMdd");
             string DateFinurl = dateTimePickerDateFin.Value.ToString("yyMMdd");
             string idposte = Convert.ToString(comboBoxPoste.SelectedValue);
@@ -78,7 +78,7 @@ namespace IHM
                 dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSalmon;
                 dataGridView1.RowHeadersDefaultCellStyle.BackColor = Color.Bisque;
                 dataGridView1.DefaultCellStyle.BackColor = Color.Bisque;
-           
+
 
                 dataGridView1.Columns["DateParution"].HeaderText = "Date de parution";
                 dataGridView1.Columns["NomEntreprise"].HeaderText = "Nom de l'entreprise";
@@ -299,7 +299,6 @@ namespace IHM
         {
             this.Close();
         }
-
         private void Form2_Shown(object sender, EventArgs e)
         {
             AfficheCombo();
@@ -309,7 +308,5 @@ namespace IHM
             comboBoxRegion.Visible = false;
             this.Cursor = Cursors.Default;
         }
-
-     
     }
 }

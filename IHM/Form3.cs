@@ -30,8 +30,8 @@ namespace IHM
         private void Form3_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-        }      
-
+            
+        }   
         /// <summary>
         /// Affichage des 3 combobox : poste, contrat, region
         /// </summary>
@@ -85,6 +85,10 @@ namespace IHM
                 offreSelect = accesOffre.GetOffreByidoffre(_idOffreSeelect);
                 idcontactSelect = offreSelect.IdContact;
                 textBoxLienWeb.Text = offreSelect.LienWeb;
+                if(textBoxLienWeb.Text== "")
+                {
+                    pictureBox2.Visible = false;
+                }
                 textBoxTitre.Text = offreSelect.Titre;
                 richTextBox1.Text = offreSelect.Description;
                 dateTimePicker1.Value = Convert.ToDateTime(offreSelect.DateParution);
@@ -109,6 +113,10 @@ namespace IHM
                 textBoxNomContact.Text = contact.NomContact;
                 textBoxTelContact.Text = contact.TelContact;
                 textBoxMailContact.Text = contact.MailContact;
+                if (textBoxMailContact.Text == "")
+                {
+                    pictureBox3.Visible = false;
+                }
             }
             catch (SqlException)
             {
@@ -172,6 +180,11 @@ namespace IHM
             AfficheContact();
             AfficheCombo();
             this.Cursor = Cursors.Default;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start($"mailto:{textBoxMailContact.Text}");
         }
     }
 }

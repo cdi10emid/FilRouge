@@ -11,7 +11,8 @@ namespace WebServideAccesDonneesHub
     {
         private List<Offre> _listeOffre = new List<Offre>();
         private readonly AsyncLock _sem = new AsyncLock();
-        SqlConnection cn = new SqlConnection
+        private readonly DataTable objDataset = new DataTable();
+        private readonly SqlConnection cn = new SqlConnection
         {
             ConnectionString = "User id=user15;password=218user15;server=176.31.248.137;Trusted_Connection=no;database=user15"
         };
@@ -25,53 +26,40 @@ namespace WebServideAccesDonneesHub
                     CommandText = "dbo.AfficheOffre",
                     CommandType = CommandType.StoredProcedure
                 };
-                DataTable objDataset = new DataTable();
                 SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
-                objDataAdapter.Fill(objDataset);
-               return DatasetToList(objDataset);
-            }
-        }
-        
-        public async Task<List<Offre>> ListeOffrebyDate(string DateDebutint,string DateFinint)
-        {
-            using (await _sem.LockAsync())
-            {
-                new SqlCommand
-                {
-                    Connection = cn,
-
-                    CommandText = "dbo.AfficheOffreByDate",
-                    CommandType = CommandType.StoredProcedure
-                }.Parameters.AddWithValue("@DEBUT", DateDebutint.ToString());
-                new SqlCommand
-                {
-                    Connection = cn,
-
-                    CommandText = "dbo.AfficheOffreByDate",
-                    CommandType = CommandType.StoredProcedure
-                }.Parameters.AddWithValue("@FIN", DateFinint.ToString());
-
-                DataTable objDataset = new DataTable();
-
-                SqlDataAdapter objDataAdapter = new SqlDataAdapter(new SqlCommand
-                {
-                    Connection = cn,
-                    CommandText = "dbo.AfficheOffreByDate",
-                    CommandType = CommandType.StoredProcedure
-                });
                 objDataAdapter.Fill(objDataset);
                 return DatasetToList(objDataset);
             }
         }
+        public async Task<List<Offre>> ListeOffrebyDate(string DateDebutint, string DateFinint)
+        {
+            using (await _sem.LockAsync())
+            {
+                SqlCommand objSelect = new SqlCommand
+                {
+                    Connection = cn,
+                    CommandText = "dbo.AfficheOffreByDate",
+                    CommandType = CommandType.StoredProcedure
+                };
+                objSelect.Parameters.AddWithValue("@DEBUT", DateDebutint.ToString());
+                objSelect.Parameters.AddWithValue("@FIN", DateFinint.ToString());
+
+                SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
+                objDataAdapter.Fill(objDataset);
+                return DatasetToList(objDataset);
+            }
+        }
+
+
         public async Task<List<Offre>> ListeOffreInject(string IdPoste, string IdContrat, string IdRegion)
         {
             int? IdPosteint;
             int? IdContratint;
             int? IdRegionint;
-            
+
             if (IdPoste != "")
             {
-                 IdPosteint = Convert.ToInt32(IdPoste);
+                IdPosteint = Convert.ToInt32(IdPoste);
             }
             else
             {
@@ -95,7 +83,7 @@ namespace WebServideAccesDonneesHub
             }
             using (await _sem.LockAsync())
             {
-                if (IdPosteint == null && IdContratint == null && IdRegionint == null )
+                if (IdPosteint == null && IdContratint == null && IdRegionint == null)
                 {
                     SqlCommand objSelect = new SqlCommand
                     {
@@ -103,12 +91,12 @@ namespace WebServideAccesDonneesHub
                         CommandText = "dbo.AfficheOffre",
                         CommandType = CommandType.StoredProcedure
                     };
-                    DataTable objDataset = new DataTable();
+
                     SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
                     objDataAdapter.Fill(objDataset);
                     CreateListOffre(objDataset);
                 }
-                else if (IdContratint == null && IdRegionint == null )
+                else if (IdContratint == null && IdRegionint == null)
                 {
                     SqlCommand objSelect = new SqlCommand
                     {
@@ -117,13 +105,12 @@ namespace WebServideAccesDonneesHub
                         CommandType = CommandType.StoredProcedure
                     };
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
-                    DataTable objDataset = new DataTable();
-                    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
 
+                    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
                     objDataAdapter.Fill(objDataset);
                     CreateListOffre(objDataset);
                 }
-                else if (IdRegionint == null )
+                else if (IdRegionint == null)
                 {
                     SqlCommand objSelect = new SqlCommand
                     {
@@ -134,12 +121,11 @@ namespace WebServideAccesDonneesHub
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
                     objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContratint);
 
-                    DataTable objDataset = new DataTable();
                     SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
                     objDataAdapter.Fill(objDataset);
                     CreateListOffre(objDataset);
                 }
-                else 
+                else
                 {
                     SqlCommand objSelect = new SqlCommand
                     {
@@ -150,7 +136,7 @@ namespace WebServideAccesDonneesHub
                     objSelect.Parameters.AddWithValue("@IDPOSTE", IdPosteint);
                     objSelect.Parameters.AddWithValue("@IDCONTRAT", IdContratint);
                     objSelect.Parameters.AddWithValue("@IDREGION", IdRegionint);
-                    DataTable objDataset = new DataTable();
+
                     SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelect);
                     objDataAdapter.Fill(objDataset);
                     CreateListOffre(objDataset);
